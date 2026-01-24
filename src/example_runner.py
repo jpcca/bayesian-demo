@@ -15,7 +15,8 @@ import json
 import os
 import subprocess
 from typing import List, Literal
-from anthropic import Anthropic
+
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 
 from models.schemas import (
     PredictionResult,
@@ -30,20 +31,20 @@ from evaluation.metrics import evaluate_prediction, aggregate_results, format_re
 class ClaudePredictor:
     """
     Wrapper for Claude Agent SDK predictions.
-    Adapts the LLM calling pattern from transcribe/api/utils.py
+    Uses the query() function for simple one-shot predictions.
     """
 
     def __init__(
         self,
         approach: Literal["baseline", "web_search", "probabilistic"],
-        api_key: str = None,
     ):
         self.approach = approach
-        self.client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
-        self.model = "claude-sonnet-4-5-20250929"
 
         # Load appropriate prompt
         self.system_prompt = self._load_prompt()
+
+        # Configure SDK options
+        self.options = ClaudeAgentOptions()
 
     def _load_prompt(self) -> str:
         """Load the appropriate system prompt based on approach."""
@@ -89,20 +90,26 @@ See probabilistic_agent_prompt.md for full instructions."""
         """
         Make a prediction for a person based on their description.
 
-        Implements retry logic from transcribe/api/main.py WebSocket endpoint.
+        Uses Claude Agent SDK query() function for one-shot predictions.
         """
         for attempt in range(max_retries):
             try:
-                # Call Claude API
-                response = self.client.messages.create(
-                    model=self.model,
-                    max_tokens=2000,
-                    system=self.system_prompt,
-                    messages=[{"role": "user", "content": person_description}],
-                )
+                # Build full prompt with system instructions
+                full_prompt = f"""{self.system_prompt}
 
-                # Extract text response
-                response_text = response.content[0].text
+USER INPUT:
+{person_description}
+
+Please respond with ONLY the JSON object, no additional text."""
+
+                # Call Claude Agent SDK
+                response_text = ""
+                async for message in query(prompt=full_prompt, options=self.options):
+                    # Collect assistant messages
+                    if isinstance(message, AssistantMessage):
+                        for block in message.content:
+                            if hasattr(block, "text"):
+                                response_text += block.text
 
                 # Try to parse as JSON
                 # Handle markdown code blocks if present
@@ -112,7 +119,7 @@ See probabilistic_agent_prompt.md for full instructions."""
                     response_text = response_text.split("```")[1].split("```")[0]
 
                 # Parse and sanitize
-                data = json.loads(response_text)
+                data = json.loads(response_text.strip())
                 data = sanitize_nulls(data)
 
                 # Validate and construct
@@ -141,6 +148,9 @@ class ExperimentRunner:
 
     def __init__(self):
         self.results: List["ExperimentResult"] = []
+        # Get project root directory
+        self.project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.results_dir = os.path.join(self.project_root, "results")
 
     async def run_single_experiment(
         self,
@@ -186,8 +196,9 @@ class ExperimentRunner:
 
     def _save_intermediate(self, result: "ExperimentResult"):
         """Save intermediate results to avoid data loss."""
-        os.makedirs("results/intermediate", exist_ok=True)
-        filename = f"results/intermediate/{result.approach}_{result.subject_id}.json"
+        intermediate_dir = os.path.join(self.results_dir, "intermediate")
+        os.makedirs(intermediate_dir, exist_ok=True)
+        filename = os.path.join(intermediate_dir, f"{result.approach}_{result.subject_id}.json")
         with open(filename, "w") as f:
             json.dump(result.model_dump(), f, indent=2)
 
@@ -235,11 +246,11 @@ class ExperimentRunner:
         """Save final results to CSV and markdown table."""
         import pandas as pd
 
-        os.makedirs("results", exist_ok=True)
+        os.makedirs(self.results_dir, exist_ok=True)
 
         # Save as markdown table
         table = format_results_table(aggregated_metrics)
-        with open("results/experiment_results.md", "w") as f:
+        with open(os.path.join(self.results_dir, "experiment_results.md"), "w") as f:
             f.write("# Experiment Results\n\n")
             f.write(table)
             f.write("\n\n## Metric Descriptions\n\n")
@@ -250,13 +261,13 @@ class ExperimentRunner:
 
         # Save as CSV
         df = pd.DataFrame([m.model_dump() for m in aggregated_metrics])
-        df.to_csv("results/experiment_results.csv", index=False)
+        df.to_csv(os.path.join(self.results_dir, "experiment_results.csv"), index=False)
 
         # Save detailed results
-        with open("results/all_results.json", "w") as f:
+        with open(os.path.join(self.results_dir, "all_results.json"), "w") as f:
             json.dump([r.model_dump() for r in self.results], f, indent=2)
 
-        print("\n✓ Results saved to results/")
+        print(f"\n✓ Results saved to {self.results_dir}/")
 
 
 def load_test_data() -> List["GroundTruth"]:
@@ -275,7 +286,11 @@ def load_test_data() -> List["GroundTruth"]:
       ...
     ]
     """
-    with open("data/subjects.json", "r") as f:
+    # Get the project root directory (parent of src/)
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_path = os.path.join(project_root, "data", "subjects.json")
+
+    with open(data_path, "r") as f:
         data = json.load(f)
 
     return [GroundTruth(**item) for item in data]
@@ -306,10 +321,5 @@ async def main():
 
 
 if __name__ == "__main__":
-    # Check environment
-    if not os.getenv("ANTHROPIC_API_KEY"):
-        print("Error: ANTHROPIC_API_KEY environment variable not set")
-        exit(1)
-
-    # Run
+    # Run with Claude Agent SDK (uses Claude Code authentication)
     asyncio.run(main())

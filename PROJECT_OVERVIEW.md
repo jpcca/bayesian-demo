@@ -1,93 +1,215 @@
 # Bayesian Demo - Project Overview
 
-## Quick Summary
+Quick reference guide for the bayesian-demo research project.
 
-Evaluation framework comparing 3 approaches to predicting height/weight as probability distributions using Claude AI.
+## What This Project Does
+
+Compares three approaches for predicting human height and weight as **probability distributions** (not point estimates) using Claude AI.
+
+### Input
+Text descriptions of people:
+```
+"Sarah is a 32-year-old Norwegian woman who works as a software engineer.
+She mentioned playing volleyball in college and still plays recreationally
+on weekends..."
+```
+
+### Output
+Probability distributions with uncertainty:
+```json
+{
+  "height_distribution": {
+    "distribution_type": "normal",
+    "mu": 178,
+    "sigma": 5,
+    "unit": "cm"
+  },
+  "weight_distribution": {
+    "distribution_type": "normal",
+    "mu": 72,
+    "sigma": 7,
+    "unit": "kg"
+  }
+}
+```
 
 ## The Three Approaches
 
-| Approach | Tools | Description |
-|----------|-------|-------------|
-| **Baseline** | None | Pure Claude synthesis, no web search |
-| **Web Search** | Web search | Claude + population statistics from web |
-| **Probabilistic (Ours)** | Web search + PyMC prompting | Bayesian reasoning with explicit uncertainty quantification |
+| Approach | Description | Tools |
+|----------|-------------|-------|
+| **Baseline** | Pure Claude synthesis | None |
+| **Web Search** | Claude with population statistics | Web search (simulated in prompt) |
+| **Probabilistic** | Bayesian reasoning with PyMC | Web search + PyMC code generation |
 
-## What Makes This Different
+## Key Innovation
 
-- **Not point estimates** - Outputs probability distributions (e.g., height ~ N(175cm, σ=6cm))
-- **Uncertainty quantification** - Explicitly models confidence via sigma parameter
-- **Bayesian reasoning** - Updates beliefs based on evidence (demographics, activities, etc.)
-- **Rigorous evaluation** - Uses KL divergence and Wasserstein distance, not just MAE
+**Probabilistic predictions instead of point estimates**:
+- Traditional: "Height = 175cm" (no uncertainty)
+- This project: "Height ~ Normal(175cm, σ=6cm)" (explicit confidence)
 
-## Setup (5 minutes)
-
-```bash
-# 1. Install
-cd bayesian-demo
-pip install -e .
-
-# 2. Set API key
-export ANTHROPIC_API_KEY="your-key"
-
-# 3. Create test data (or use template)
-cp data/subjects_template.json data/subjects.json
-# Edit to add 45 more subjects (50 total needed)
-
-# 4. Run pilot test (5 subjects)
-cd src
-python example_runner.py
-```
+This enables:
+- Rigorous evaluation (KL divergence, Wasserstein distance)
+- Uncertainty quantification
+- Comparison of how well approaches model confidence
 
 ## Project Status
 
-**Current state:**
-- ✅ Code structure extracted from transcribe project
-- ✅ Evaluation metrics implemented (KL divergence, Wasserstein)
-- ✅ System prompts adapted for Claude Agent SDK
-- ✅ Example runner with retry logic and error handling
-- ⏳ Need to create 50-subject test dataset
-- ⏳ Need to integrate Claude Agent SDK web search tool
+✅ **Completed**:
+- Project structure created
+- Claude Agent SDK integrated
+- Evaluation metrics implemented (KL divergence, Wasserstein)
+- System prompts adapted for all three approaches
+- Test data (5 subjects) ready
+- Single prediction test passing
 
-**Next steps:**
-1. Create/collect 50 diverse subject descriptions
-2. Determine ground truth distributions
-3. Run pilot test with 5 subjects
-4. Tune prompts based on pilot results
-5. Run full experiment
-6. Generate results table for paper
+⏳ **In Progress**:
+- Pilot test with 5 subjects
+- Full experiment with 50 subjects (need to create dataset)
 
-## Key Files
+🔮 **Future Enhancements**:
+- Integrate actual web search tool (currently simulated)
+- Execute generated PyMC code (currently use LLM params)
+- Expand to 50+ diverse subjects
 
-- `src/example_runner.py` - Main experiment script
-- `src/prompts/probabilistic_agent_prompt.md` - System prompt for approach C
-- `src/models/schemas.py` - Data models (PredictionResult, GroundTruth, etc.)
-- `src/evaluation/metrics.py` - KL divergence, Wasserstein distance, aggregation
-- `data/subjects_template.json` - Example test data format (5 subjects)
-- `README.md` - Full documentation from extraction
+## Quick Start
 
-## Expected Results Table
+```bash
+# Setup
+cd bayesian-demo
+python3 -m venv venv
+source venv/bin/activate
+pip install -e .
 
-After running the experiment, you'll get:
+# Run pilot test (5 subjects)
+cd src
+python example_runner.py
 
-| Approach | N Valid | Invalid Rate (%) | KL Div (Height) | KL Div (Weight) | MAE Height (cm) |
-|----------|---------|------------------|-----------------|-----------------|-----------------|
-| baseline | 45/50   | 10.0             | 0.523           | 0.612           | 8.2             |
-| web_search | 48/50 | 4.0              | 0.412           | 0.501           | 6.5             |
-| probabilistic | 47/50 | 6.0           | 0.298           | 0.387           | 4.8             |
+# View results
+cat ../results/experiment_results.md
+```
 
-*Numbers are hypothetical - run experiment to get real results*
+## File Structure
 
-## Cost & Time
+```
+bayesian-demo/
+├── src/
+│   ├── example_runner.py          # Main script ← RUN THIS
+│   ├── models/schemas.py          # Data models
+│   ├── evaluation/metrics.py      # KL divergence, Wasserstein
+│   └── prompts/                   # System prompts
+│
+├── data/
+│   └── subjects.json              # 5 test subjects
+│
+├── results/                       # Generated after running
+│   ├── experiment_results.md      # Summary table
+│   └── all_results.json           # Complete data
+│
+└── README.md                      # Full documentation
+```
 
-- **Development time**: 4-6 hours (mostly creating test data)
-- **Experiment runtime**: 1-2 hours (150 API calls)
-- **API cost**: ~$1-2.50 (Claude Sonnet)
+## Expected Results
+
+After running the experiment:
+
+| Approach      | N Valid | Invalid Rate (%) | Mean KL (Height) | Mean KL (Weight) |
+|---------------|---------|------------------|------------------|------------------|
+| baseline      | 5/5     | 0.0              | 0.52             | 0.61             |
+| web_search    | 5/5     | 0.0              | 0.41             | 0.50             |
+| probabilistic | 5/5     | 0.0              | 0.30             | 0.39             |
+
+*Actual numbers will vary - these are hypothetical*
+
+## Key Metrics
+
+**KL Divergence**: Information-theoretic distance between distributions
+- Lower is better (0 = perfect match)
+- Measures how well predicted distribution matches ground truth
+
+**Wasserstein Distance**: Geometric L2 distance
+- Interpretable in original units (cm or kg)
+- Robust to outliers
+
+**Invalid Rate**: % of predictions that failed to produce valid distributions
+- Tests reliability across approaches
+
+## Authentication
+
+Uses **Claude Code** (not API keys):
+```bash
+# One-time authentication
+claude
+
+# Then SDK automatically uses your session
+python example_runner.py  # No API key needed
+```
+
+## Runtime & Cost
+
+**Pilot test** (5 subjects × 3 approaches = 15 predictions):
+- Runtime: ~2-3 minutes
+- Cost: Free with Claude Code
+
+**Full experiment** (50 subjects):
+- Runtime: ~15-20 minutes
+- Cost: Free with Claude Code
+
+## Next Steps
+
+1. ✅ Verify pilot test works (5 subjects)
+2. Create 50-subject dataset with diverse demographics
+3. Run full experiment
+4. Analyze results
+5. Generate research paper table
+
+## Technical Highlights
+
+**Claude Agent SDK Integration**:
+```python
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
+
+async for message in query(prompt=prompt, options=ClaudeAgentOptions()):
+    if isinstance(message, AssistantMessage):
+        # Process response
+```
+
+**Evaluation**:
+```python
+metrics = evaluate_prediction(prediction, ground_truth)
+# Returns: kl_divergence_height, kl_divergence_weight,
+#          wasserstein_height, wasserstein_weight, mae_mu, mae_sigma
+```
+
+**Experiment Runner**:
+```python
+runner = ExperimentRunner()
+results = await runner.run_all_experiments(subjects)
+runner.save_results(results)
+```
+
+## Documentation
+
+- `README.md` - Complete documentation with API details
+- `PROJECT_OVERVIEW.md` - This file (quick reference)
+- `src/prompts/probabilistic_agent_prompt.md` - Bayesian reasoning prompt
+- `debug_sdk.py` - SDK integration debugging
+- `test_single.py` - Single prediction validation
+
+## Common Issues
+
+**Import error**: Activate venv with `source venv/bin/activate`
+
+**No module claude_agent_sdk**: Run `pip install -e .`
+
+**Auth error**: Run `claude` to authenticate Claude Code
+
+**JSON parse error**: Check `debug_sdk.py` to verify SDK integration
 
 ## Questions?
 
-See `README.md` for full documentation including:
-- Detailed setup instructions
+See `README.md` for detailed documentation including:
+- Complete setup instructions
 - Test data format
-- Claude Agent SDK integration
-- PyMC execution
-- Troubleshooting
+- Customization options
+- Troubleshooting guide
+- Technical implementation details
