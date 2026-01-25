@@ -13,10 +13,9 @@ Adapted from the transcribe project's api/main.py WebSocket loop.
 import asyncio
 import json
 import os
-import subprocess
 from typing import List, Literal
 
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
 
 from models.schemas import (
     PredictionResult,
@@ -94,9 +93,7 @@ Output JSON format:
 Include web search and generate PyMC code.
 See probabilistic_agent_prompt.md for full instructions."""
 
-    async def predict(
-        self, person_description: str, max_retries: int = 3
-    ) -> "PredictionResult":
+    async def predict(self, person_description: str, max_retries: int = 3) -> "PredictionResult":
         """
         Make a prediction for a person based on their description.
 
@@ -135,9 +132,7 @@ Please respond with ONLY the JSON object, no additional text."""
                 return result
 
             except Exception as e:
-                print(
-                    f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}"
-                )
+                print(f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}")
                 if attempt == max_retries - 1:
                     # Return invalid result
                     return PredictionResult(
@@ -179,7 +174,7 @@ class ExperimentRunner:
         results = []
 
         for i, subject in enumerate(subjects):
-            print(f"[{approach}] Processing subject {i+1}/{len(subjects)}...")
+            print(f"[{approach}] Processing subject {i + 1}/{len(subjects)}...")
 
             # Make prediction
             prediction = await predictor.predict(subject.text_description)
@@ -210,9 +205,7 @@ class ExperimentRunner:
         with open(filename, "w") as f:
             json.dump(result.model_dump(), f, indent=2)
 
-    async def run_all_experiments(
-        self, subjects: List["GroundTruth"]
-    ) -> List["AggregatedMetrics"]:
+    async def run_all_experiments(self, subjects: List["GroundTruth"]) -> List["AggregatedMetrics"]:
         """
         Run all three approaches and aggregate results.
 
@@ -226,9 +219,9 @@ class ExperimentRunner:
         all_aggregated = []
 
         for approach in approaches:
-            print(f"\n{'='*60}")
+            print(f"\n{'=' * 60}")
             print(f"Running experiment: {approach}")
-            print(f"{'='*60}\n")
+            print(f"{'=' * 60}\n")
 
             results = await self.run_single_experiment(approach, subjects)
             self.results.extend(results)
@@ -241,12 +234,8 @@ class ExperimentRunner:
             print(f"  Valid: {aggregated.n_valid}/{aggregated.n_total}")
             print(f"  Invalid rate: {aggregated.invalid_rate_percent:.1f}%")
             if aggregated.n_valid > 0:
-                print(
-                    f"  Mean KL (height): {aggregated.mean_kl_divergence_height:.3f}"
-                )
-                print(
-                    f"  Mean KL (weight): {aggregated.mean_kl_divergence_weight:.3f}"
-                )
+                print(f"  Mean KL (height): {aggregated.mean_kl_divergence_height:.3f}")
+                print(f"  Mean KL (weight): {aggregated.mean_kl_divergence_weight:.3f}")
 
         return all_aggregated
 

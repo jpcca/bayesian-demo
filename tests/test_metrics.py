@@ -5,9 +5,9 @@ Tests statistical metric calculations.
 """
 
 import pytest
-import math
 
 import sys
+
 sys.path.insert(0, "src")
 
 from models.schemas import (
@@ -32,9 +32,7 @@ class TestKLDivergence:
 
     def test_identical_distributions(self):
         """KL divergence of identical distributions should be 0."""
-        kl = calculate_kl_divergence_normal(
-            pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6
-        )
+        kl = calculate_kl_divergence_normal(pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6)
         assert kl == pytest.approx(0.0, abs=1e-10)
 
     def test_different_means(self):
@@ -49,9 +47,7 @@ class TestKLDivergence:
 
     def test_different_sigmas(self):
         """KL divergence should be positive for different sigmas."""
-        kl = calculate_kl_divergence_normal(
-            pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=10
-        )
+        kl = calculate_kl_divergence_normal(pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=10)
         assert kl > 0
 
     def test_kl_is_non_negative(self):
@@ -108,9 +104,7 @@ class TestDistributionError:
 
     def test_identical_distributions(self):
         """All errors should be 0 for identical distributions."""
-        errors = calculate_distribution_error(
-            pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6
-        )
+        errors = calculate_distribution_error(pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6)
 
         assert errors["kl_divergence"] == pytest.approx(0.0, abs=1e-10)
         assert errors["wasserstein_distance"] == pytest.approx(0.0, abs=1e-10)
@@ -119,16 +113,12 @@ class TestDistributionError:
 
     def test_mae_calculation(self):
         """MAE should be absolute difference of means."""
-        errors = calculate_distribution_error(
-            pred_mu=180, pred_sigma=6, true_mu=175, true_sigma=6
-        )
+        errors = calculate_distribution_error(pred_mu=180, pred_sigma=6, true_mu=175, true_sigma=6)
         assert errors["mae_mu"] == pytest.approx(5.0, abs=1e-10)
 
     def test_sigma_error_calculation(self):
         """Sigma error should be absolute difference of sigmas."""
-        errors = calculate_distribution_error(
-            pred_mu=175, pred_sigma=10, true_mu=175, true_sigma=6
-        )
+        errors = calculate_distribution_error(pred_mu=175, pred_sigma=10, true_mu=175, true_sigma=6)
         assert errors["sigma_error"] == pytest.approx(4.0, abs=1e-10)
 
 
@@ -192,7 +182,7 @@ class TestAggregateResults:
             mae_weight_mu=4.0,
             sigma_error_height=1.0,
             sigma_error_weight=1.5,
-            is_valid=True
+            is_valid=True,
         )
 
     def test_aggregate_valid_results(self, sample_prediction_json, sample_ground_truth):
@@ -207,14 +197,14 @@ class TestAggregateResults:
                 approach="baseline",
                 prediction=prediction,
                 ground_truth=ground_truth,
-                metrics=metrics
+                metrics=metrics,
             ),
             ExperimentResult(
                 subject_id="002",
                 approach="baseline",
                 prediction=prediction,
                 ground_truth=ground_truth,
-                metrics=metrics
+                metrics=metrics,
             ),
         ]
 
@@ -241,14 +231,14 @@ class TestAggregateResults:
                 approach="baseline",
                 prediction=prediction_valid,
                 ground_truth=ground_truth,
-                metrics=valid_metrics
+                metrics=valid_metrics,
             ),
             ExperimentResult(
                 subject_id="002",
                 approach="baseline",
                 prediction=prediction_invalid,
                 ground_truth=ground_truth,
-                metrics=None
+                metrics=None,
             ),
         ]
 
@@ -281,7 +271,7 @@ class TestFormatResultsTable:
             mae_weight_mu=4.0,
             sigma_error_height=1.0,
             sigma_error_weight=1.5,
-            is_valid=True
+            is_valid=True,
         )
 
         results = [
@@ -290,7 +280,7 @@ class TestFormatResultsTable:
                 approach="baseline",
                 prediction=prediction,
                 ground_truth=ground_truth,
-                metrics=metrics
+                metrics=metrics,
             ),
         ]
 

@@ -3,7 +3,7 @@ Data models for the height/weight prediction evaluation project.
 Adapted from the transcribe project's api/models.py
 """
 
-from typing import Any, Dict, List, Literal, Optional
+from typing import Any, List, Literal, Optional
 from pydantic import BaseModel, Field, field_validator
 
 

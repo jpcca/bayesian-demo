@@ -5,13 +5,14 @@ Tests the predictor with mocked Claude Agent SDK to avoid API calls.
 """
 
 import pytest
-from unittest.mock import patch, AsyncMock, MagicMock
+from unittest.mock import patch, MagicMock
 import json
 
 import sys
+
 sys.path.insert(0, "src")
 
-from models.schemas import PredictionResult, DistributionParams
+from models.schemas import PredictionResult
 
 
 class TestClaudePredictorInit:
@@ -22,7 +23,7 @@ class TestClaudePredictorInit:
         with patch("example_runner.ClaudeAgentOptions") as MockOptions:
             from example_runner import ClaudePredictor
 
-            predictor = ClaudePredictor(approach="baseline")
+            ClaudePredictor(approach="baseline")  # Instantiate to trigger __init__
 
             # Check that WebSearch is NOT in allowed_tools
             call_kwargs = MockOptions.call_args[1]
@@ -33,7 +34,7 @@ class TestClaudePredictorInit:
         with patch("example_runner.ClaudeAgentOptions") as MockOptions:
             from example_runner import ClaudePredictor
 
-            predictor = ClaudePredictor(approach="web_search")
+            ClaudePredictor(approach="web_search")  # Instantiate to trigger __init__
 
             call_kwargs = MockOptions.call_args[1]
             assert "allowed_tools" in call_kwargs
@@ -44,7 +45,7 @@ class TestClaudePredictorInit:
         with patch("example_runner.ClaudeAgentOptions") as MockOptions:
             from example_runner import ClaudePredictor
 
-            predictor = ClaudePredictor(approach="probabilistic")
+            ClaudePredictor(approach="probabilistic")  # Instantiate to trigger __init__
 
             call_kwargs = MockOptions.call_args[1]
             assert "allowed_tools" in call_kwargs
@@ -55,7 +56,7 @@ class TestClaudePredictorInit:
         with patch("example_runner.ClaudeAgentOptions") as MockOptions:
             from example_runner import ClaudePredictor
 
-            predictor = ClaudePredictor(approach="baseline")
+            ClaudePredictor(approach="baseline")  # Instantiate to trigger __init__
 
             call_kwargs = MockOptions.call_args[1]
             assert "system_prompt" in call_kwargs
@@ -166,7 +167,11 @@ class TestClaudePredictorPredict:
                 raise Exception("Temporary failure")
             # Success on third try
             msg = MagicMock(spec=AssistantMessage)
-            msg.content = [MockTextBlock('{"reasoning": "test", "height_distribution": {"distribution_type": "normal", "mu": 175, "sigma": 6, "unit": "cm"}, "weight_distribution": {"distribution_type": "normal", "mu": 70, "sigma": 8, "unit": "kg"}}')]
+            msg.content = [
+                MockTextBlock(
+                    '{"reasoning": "test", "height_distribution": {"distribution_type": "normal", "mu": 175, "sigma": 6, "unit": "cm"}, "weight_distribution": {"distribution_type": "normal", "mu": 70, "sigma": 8, "unit": "kg"}}'
+                )
+            ]
             yield msg
 
         with patch("example_runner.query", failing_then_success):
@@ -182,6 +187,7 @@ class TestClaudePredictorPredict:
     @pytest.mark.asyncio
     async def test_max_retries_exceeded(self):
         """Test that predictor gives up after max retries."""
+
         async def always_fail(*args, **kwargs):
             raise Exception("Persistent failure")
             yield  # Make it a generator
@@ -224,17 +230,24 @@ class TestClaudePredictorPrompts:
         """Test probabilistic prompt contains Bayesian concepts."""
         with patch("example_runner.ClaudeAgentOptions"):
             with patch("os.path.exists", return_value=True):
-                with patch("builtins.open", MagicMock(
-                    return_value=MagicMock(
-                        __enter__=lambda s: s,
-                        __exit__=lambda s, *args: None,
-                        read=lambda: "Bayesian reasoning PyMC probabilistic"
-                    )
-                )):
+                with patch(
+                    "builtins.open",
+                    MagicMock(
+                        return_value=MagicMock(
+                            __enter__=lambda s: s,
+                            __exit__=lambda s, *args: None,
+                            read=lambda: "Bayesian reasoning PyMC probabilistic",
+                        )
+                    ),
+                ):
                     from example_runner import ClaudePredictor
 
                     predictor = ClaudePredictor(approach="probabilistic")
 
                     # Either loads from file or uses fallback
                     prompt_lower = predictor.system_prompt.lower()
-                    assert "bayesian" in prompt_lower or "probabilistic" in prompt_lower or "pymc" in prompt_lower
+                    assert (
+                        "bayesian" in prompt_lower
+                        or "probabilistic" in prompt_lower
+                        or "pymc" in prompt_lower
+                    )

@@ -8,6 +8,7 @@ import pytest
 from pydantic import ValidationError
 
 import sys
+
 sys.path.insert(0, "src")
 
 from models.schemas import (
@@ -16,7 +17,6 @@ from models.schemas import (
     GroundTruth,
     EvaluationMetrics,
     ExperimentResult,
-    AggregatedMetrics,
     sanitize_nulls,
 )
 
@@ -26,12 +26,7 @@ class TestDistributionParams:
 
     def test_valid_normal_distribution(self):
         """Test creating a valid normal distribution."""
-        dist = DistributionParams(
-            distribution_type="normal",
-            mu=175.0,
-            sigma=6.0,
-            unit="cm"
-        )
+        dist = DistributionParams(distribution_type="normal", mu=175.0, sigma=6.0, unit="cm")
         assert dist.distribution_type == "normal"
         assert dist.mu == 175.0
         assert dist.sigma == 6.0
@@ -44,19 +39,14 @@ class TestDistributionParams:
                 distribution_type="normal",
                 mu=175.0,
                 sigma=0.5,  # Too small
-                unit="cm"
+                unit="cm",
             )
         assert "sigma" in str(exc_info.value).lower()
 
     def test_valid_distribution_types(self):
         """Test different valid distribution types."""
         for dist_type in ["normal", "lognormal", "truncated_normal"]:
-            dist = DistributionParams(
-                distribution_type=dist_type,
-                mu=175.0,
-                sigma=6.0,
-                unit="cm"
-            )
+            dist = DistributionParams(distribution_type=dist_type, mu=175.0, sigma=6.0, unit="cm")
             assert dist.distribution_type == dist_type
 
 
@@ -73,10 +63,7 @@ class TestPredictionResult:
 
     def test_prediction_with_error(self):
         """Test prediction with error field."""
-        result = PredictionResult(
-            reasoning="Failed to process",
-            error="API timeout"
-        )
+        result = PredictionResult(reasoning="Failed to process", error="API timeout")
         assert result.error == "API timeout"
         assert result.is_valid is False
 
@@ -92,11 +79,8 @@ class TestPredictionResult:
         result = PredictionResult(
             reasoning="Partial result",
             height_distribution=DistributionParams(
-                distribution_type="normal",
-                mu=175.0,
-                sigma=6.0,
-                unit="cm"
-            )
+                distribution_type="normal", mu=175.0, sigma=6.0, unit="cm"
+            ),
         )
         assert result.is_valid is False
 
@@ -131,7 +115,7 @@ class TestEvaluationMetrics:
             mae_weight_mu=4.0,
             sigma_error_height=1.0,
             sigma_error_weight=1.5,
-            is_valid=True
+            is_valid=True,
         )
         assert metrics.kl_divergence_height == 0.5
         assert metrics.is_valid is True
@@ -159,7 +143,7 @@ class TestExperimentResult:
             mae_weight_mu=2.0,
             sigma_error_height=0.5,
             sigma_error_weight=0.5,
-            is_valid=True
+            is_valid=True,
         )
 
         result = ExperimentResult(
@@ -167,7 +151,7 @@ class TestExperimentResult:
             approach="baseline",
             prediction=prediction,
             ground_truth=ground_truth,
-            metrics=metrics
+            metrics=metrics,
         )
         assert result.is_success is True
 
@@ -181,7 +165,7 @@ class TestExperimentResult:
             approach="baseline",
             prediction=prediction,
             ground_truth=ground_truth,
-            metrics=None
+            metrics=None,
         )
         assert result.is_success is False
 
@@ -198,13 +182,7 @@ class TestSanitizeNulls:
 
     def test_nested_null_conversion(self):
         """Test null conversion in nested structures."""
-        data = {
-            "outer": {
-                "inner": "null",
-                "valid": 123
-            },
-            "list": ["null", "value", "null"]
-        }
+        data = {"outer": {"inner": "null", "valid": 123}, "list": ["null", "value", "null"]}
         result = sanitize_nulls(data)
         assert result["outer"]["inner"] is None
         assert result["outer"]["valid"] == 123

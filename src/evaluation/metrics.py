@@ -5,19 +5,17 @@ Implements the two main metrics from the project requirements:
 2. Invalid output rate
 """
 
-import numpy as np
-from scipy import stats
-from typing import List, Optional
+from __future__ import annotations
 
-# Assuming these are imported from your models
-# from models.schemas import (
-#     DistributionParams,
-#     PredictionResult,
-#     GroundTruth,
-#     EvaluationMetrics,
-#     ExperimentResult,
-#     AggregatedMetrics,
-# )
+import numpy as np
+from typing import TYPE_CHECKING, List, Optional
+
+if TYPE_CHECKING:
+    from models.schemas import (
+        AggregatedMetrics,
+        EvaluationMetrics,
+        ExperimentResult,
+    )
 
 
 def calculate_kl_divergence_normal(
@@ -83,9 +81,7 @@ def calculate_distribution_error(
     kl_div = calculate_kl_divergence_normal(pred_mu, pred_sigma, true_mu, true_sigma)
 
     # Wasserstein distance
-    wasserstein = calculate_wasserstein_distance_normal(
-        pred_mu, pred_sigma, true_mu, true_sigma
-    )
+    wasserstein = calculate_wasserstein_distance_normal(pred_mu, pred_sigma, true_mu, true_sigma)
 
     # Simple errors
     mae_mu = abs(pred_mu - true_mu)
