@@ -43,7 +43,7 @@
     "weight": {
       "distribution_type": "normal",
       "mu": 52.0,
-      "sigma": 4.0,
+      "sigma": 5.0,
       "unit": "kg"
     }
   },

@@ -19,7 +19,9 @@ from models.schemas import (
 )
 from evaluation.metrics import (
     calculate_kl_divergence_normal,
+    calculate_kl_divergence_lognormal,
     calculate_wasserstein_distance_normal,
+    calculate_wasserstein_distance_lognormal,
     calculate_distribution_error,
     evaluate_prediction,
     aggregate_results,
@@ -99,6 +101,34 @@ class TestWassersteinDistance:
         assert dist1 == pytest.approx(dist2, abs=1e-10)
 
 
+class TestLognormalMetrics:
+    """Tests for lognormal distribution metrics."""
+
+    def test_lognormal_kl_identical(self):
+        """KL divergence of identical lognormal distributions should be 0."""
+        kl = calculate_kl_divergence_lognormal(pred_mu=5, pred_sigma=0.5, true_mu=5, true_sigma=0.5)
+        assert kl == pytest.approx(0.0, abs=1e-10)
+
+    def test_lognormal_kl_different(self):
+        """KL divergence of different lognormal distributions should be positive."""
+        kl = calculate_kl_divergence_lognormal(pred_mu=5, pred_sigma=0.5, true_mu=5.2, true_sigma=0.6)
+        assert kl > 0
+
+    def test_lognormal_wasserstein_identical(self):
+        """Wasserstein distance of identical lognormal distributions should be 0."""
+        dist = calculate_wasserstein_distance_lognormal(
+            pred_mu=5, pred_sigma=0.5, true_mu=5, true_sigma=0.5
+        )
+        assert dist == pytest.approx(0.0, abs=1e-10)
+
+    def test_lognormal_wasserstein_different(self):
+        """Wasserstein distance of different lognormal distributions should be positive."""
+        dist = calculate_wasserstein_distance_lognormal(
+            pred_mu=5, pred_sigma=0.5, true_mu=5.2, true_sigma=0.6
+        )
+        assert dist > 0
+
+
 class TestDistributionError:
     """Tests for comprehensive distribution error calculation."""
 
@@ -120,6 +150,27 @@ class TestDistributionError:
         """Sigma error should be absolute difference of sigmas."""
         errors = calculate_distribution_error(pred_mu=175, pred_sigma=10, true_mu=175, true_sigma=6)
         assert errors["sigma_error"] == pytest.approx(4.0, abs=1e-10)
+
+    def test_lognormal_distribution_type(self):
+        """Test that lognormal distribution type is supported."""
+        errors = calculate_distribution_error(
+            pred_mu=5, pred_sigma=0.5, true_mu=5, true_sigma=0.5, distribution_type="lognormal"
+        )
+        assert errors["kl_divergence"] == pytest.approx(0.0, abs=1e-10)
+
+    def test_truncated_normal_distribution_type(self):
+        """Test that truncated_normal distribution type is supported."""
+        errors = calculate_distribution_error(
+            pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6, distribution_type="truncated_normal"
+        )
+        assert errors["kl_divergence"] == pytest.approx(0.0, abs=1e-10)
+
+    def test_unsupported_distribution_type_raises(self):
+        """Test that unsupported distribution type raises error."""
+        with pytest.raises(NotImplementedError):
+            calculate_distribution_error(
+                pred_mu=175, pred_sigma=6, true_mu=175, true_sigma=6, distribution_type="unknown"
+            )
 
 
 class TestEvaluatePrediction:
@@ -253,6 +304,41 @@ class TestAggregateResults:
         """Test aggregation with no results raises ValueError."""
         with pytest.raises(ValueError, match="Cannot aggregate empty results"):
             aggregate_results([])
+
+    def test_aggregate_includes_all_std_fields(self, sample_prediction_json, sample_ground_truth):
+        """Test that aggregation includes standard deviation for all metrics."""
+        prediction = PredictionResult(**sample_prediction_json)
+        ground_truth = GroundTruth(**sample_ground_truth)
+        metrics = self._create_valid_metrics()
+
+        results = [
+            ExperimentResult(
+                subject_id="001",
+                approach="baseline",
+                prediction=prediction,
+                ground_truth=ground_truth,
+                metrics=metrics,
+            ),
+            ExperimentResult(
+                subject_id="002",
+                approach="baseline",
+                prediction=prediction,
+                ground_truth=ground_truth,
+                metrics=metrics,
+            ),
+        ]
+
+        aggregated = aggregate_results(results)
+
+        # Check all std fields are present and computed
+        assert aggregated.std_kl_divergence_height is not None
+        assert aggregated.std_kl_divergence_weight is not None
+        assert aggregated.std_wasserstein_distance_height is not None
+        assert aggregated.std_wasserstein_distance_weight is not None
+        assert aggregated.std_mae_height_mu is not None
+        assert aggregated.std_mae_weight_mu is not None
+        assert aggregated.std_sigma_error_height is not None
+        assert aggregated.std_sigma_error_weight is not None
 
 
 class TestFormatResultsTable:

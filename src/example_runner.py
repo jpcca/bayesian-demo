@@ -55,6 +55,41 @@ class ClaudePredictor:
                 system_prompt=self.system_prompt,
             )
 
+    def _extract_json(self, response_text: str) -> str:
+        """
+        Extract JSON from response text, handling various formats.
+
+        Handles:
+        - Plain JSON
+        - JSON wrapped in ```json ... ``` blocks
+        - JSON wrapped in ``` ... ``` blocks
+        - Multiple code blocks (extracts first JSON block)
+        """
+        import re
+
+        text = response_text.strip()
+
+        # Try to find ```json ... ``` block first
+        json_block_match = re.search(r"```json\s*([\s\S]*?)```", text)
+        if json_block_match:
+            return json_block_match.group(1).strip()
+
+        # Try to find any ``` ... ``` block that looks like JSON
+        code_blocks = re.findall(r"```\s*([\s\S]*?)```", text)
+        for block in code_blocks:
+            block = block.strip()
+            if block.startswith("{") or block.startswith("["):
+                return block
+
+        # No code blocks found, try to extract JSON directly
+        # Look for JSON object pattern
+        json_match = re.search(r"(\{[\s\S]*\})", text)
+        if json_match:
+            return json_match.group(1).strip()
+
+        # Return original text and let json.loads handle the error
+        return text
+
     def _load_prompt(self) -> str:
         """Load the appropriate system prompt based on approach."""
         if self.approach == "baseline":
@@ -83,8 +118,9 @@ Output JSON format:
 }
 """
         else:  # probabilistic
-            # Load the full probabilistic prompt
-            prompt_path = "prompts/probabilistic_agent_prompt.md"
+            # Load the full probabilistic prompt using absolute path
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            prompt_path = os.path.join(script_dir, "prompts", "probabilistic_agent_prompt.md")
             if os.path.exists(prompt_path):
                 with open(prompt_path, "r") as f:
                     return f.read()
@@ -116,15 +152,15 @@ Please respond with ONLY the JSON object, no additional text."""
                             if hasattr(block, "text"):
                                 response_text += block.text
 
-                # Try to parse as JSON
-                # Handle markdown code blocks if present
-                if "```json" in response_text:
-                    response_text = response_text.split("```json")[1].split("```")[0]
-                elif "```" in response_text:
-                    response_text = response_text.split("```")[1].split("```")[0]
+                # Check for empty response
+                if not response_text.strip():
+                    raise ValueError("Empty response received from Claude")
+
+                # Extract JSON from response, handling markdown code blocks
+                json_text = self._extract_json(response_text)
 
                 # Parse and sanitize
-                data = json.loads(response_text.strip())
+                data = json.loads(json_text)
                 data = sanitize_nulls(data)
 
                 # Validate and construct

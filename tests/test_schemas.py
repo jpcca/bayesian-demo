@@ -32,16 +32,43 @@ class TestDistributionParams:
         assert dist.sigma == 6.0
         assert dist.unit == "cm"
 
-    def test_sigma_minimum_validation(self):
-        """Test that sigma must be >= 1.0."""
+    def test_sigma_minimum_validation_height(self):
+        """Test that height sigma must be >= 3.0 cm."""
         with pytest.raises(ValidationError) as exc_info:
             DistributionParams(
                 distribution_type="normal",
                 mu=175.0,
-                sigma=0.5,  # Too small
+                sigma=2.0,  # Too small for height (< 3.0)
                 unit="cm",
             )
         assert "sigma" in str(exc_info.value).lower()
+        assert "3.0" in str(exc_info.value)
+
+    def test_sigma_minimum_validation_weight(self):
+        """Test that weight sigma must be >= 5.0 kg."""
+        with pytest.raises(ValidationError) as exc_info:
+            DistributionParams(
+                distribution_type="normal",
+                mu=70.0,
+                sigma=4.0,  # Too small for weight (< 5.0)
+                unit="kg",
+            )
+        assert "sigma" in str(exc_info.value).lower()
+        assert "5.0" in str(exc_info.value)
+
+    def test_sigma_at_minimum_boundary(self):
+        """Test that sigma exactly at minimum is valid."""
+        # Height at boundary (3.0)
+        dist_height = DistributionParams(
+            distribution_type="normal", mu=175.0, sigma=3.0, unit="cm"
+        )
+        assert dist_height.sigma == 3.0
+
+        # Weight at boundary (5.0)
+        dist_weight = DistributionParams(
+            distribution_type="normal", mu=70.0, sigma=5.0, unit="kg"
+        )
+        assert dist_weight.sigma == 5.0
 
     def test_valid_distribution_types(self):
         """Test different valid distribution types."""

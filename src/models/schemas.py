@@ -4,7 +4,7 @@ Adapted from the transcribe project's api/models.py
 """
 
 from typing import Any, List, Literal, Optional
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, model_validator
 
 
 class DistributionParams(BaseModel):
@@ -15,13 +15,23 @@ class DistributionParams(BaseModel):
     sigma: float = Field(..., gt=0, description="Standard deviation (must be positive)")
     unit: Literal["cm", "kg"]
 
-    @field_validator("sigma")
-    @classmethod
-    def validate_sigma_minimum(cls, v: float) -> float:
-        """Ensure sigma is not too small (overconfident)."""
-        if v < 1.0:
-            raise ValueError("Sigma must be at least 1.0 to avoid overconfidence")
-        return v
+    @model_validator(mode="after")
+    def validate_sigma_minimum(self) -> "DistributionParams":
+        """
+        Ensure sigma is not too small (overconfident).
+        Per prompt guidelines:
+        - Height (cm): sigma >= 3.0
+        - Weight (kg): sigma >= 5.0
+        """
+        if self.unit == "cm" and self.sigma < 3.0:
+            raise ValueError(
+                f"Height sigma must be at least 3.0 cm to avoid overconfidence, got {self.sigma}"
+            )
+        elif self.unit == "kg" and self.sigma < 5.0:
+            raise ValueError(
+                f"Weight sigma must be at least 5.0 kg to avoid overconfidence, got {self.sigma}"
+            )
+        return self
 
 
 class PredictionResult(BaseModel):
@@ -121,6 +131,12 @@ class AggregatedMetrics(BaseModel):
     # Standard deviations (for error bars)
     std_kl_divergence_height: Optional[float] = None
     std_kl_divergence_weight: Optional[float] = None
+    std_wasserstein_distance_height: Optional[float] = None
+    std_wasserstein_distance_weight: Optional[float] = None
+    std_mae_height_mu: Optional[float] = None
+    std_mae_weight_mu: Optional[float] = None
+    std_sigma_error_height: Optional[float] = None
+    std_sigma_error_weight: Optional[float] = None
 
 
 def sanitize_nulls(data: Any) -> Any:
