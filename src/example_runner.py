@@ -43,8 +43,18 @@ class ClaudePredictor:
         # Load appropriate prompt
         self.system_prompt = self._load_prompt()
 
-        # Configure SDK options
-        self.options = ClaudeAgentOptions()
+        # Configure SDK options based on approach
+        if approach in ("web_search", "probabilistic"):
+            # Enable WebSearch tool for approaches that need it
+            self.options = ClaudeAgentOptions(
+                allowed_tools=["WebSearch"],
+                system_prompt=self.system_prompt,
+            )
+        else:
+            # Baseline: no web search
+            self.options = ClaudeAgentOptions(
+                system_prompt=self.system_prompt,
+            )
 
     def _load_prompt(self) -> str:
         """Load the appropriate system prompt based on approach."""
@@ -94,17 +104,15 @@ See probabilistic_agent_prompt.md for full instructions."""
         """
         for attempt in range(max_retries):
             try:
-                # Build full prompt with system instructions
-                full_prompt = f"""{self.system_prompt}
-
-USER INPUT:
+                # Build user prompt (system prompt is passed via ClaudeAgentOptions)
+                user_prompt = f"""USER INPUT:
 {person_description}
 
 Please respond with ONLY the JSON object, no additional text."""
 
                 # Call Claude Agent SDK
                 response_text = ""
-                async for message in query(prompt=full_prompt, options=self.options):
+                async for message in query(prompt=user_prompt, options=self.options):
                     # Collect assistant messages
                     if isinstance(message, AssistantMessage):
                         for block in message.content:
