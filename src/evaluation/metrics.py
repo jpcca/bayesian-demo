@@ -1,8 +1,11 @@
 """
-Evaluation metrics for comparing predicted and ground truth distributions.
-Implements the two main metrics from the project requirements:
-1. Distribution error (KL divergence, Wasserstein distance, MAE)
-2. Invalid output rate
+Evaluation metrics for comparing predicted distributions against actual ground truth values.
+
+Implements metrics for evaluating probabilistic predictions:
+1. Negative log-likelihood (NLL) - How likely is the true value under the predicted distribution?
+2. Absolute error - Distance from predicted mean to true value
+3. Z-score - How many standard deviations away is the true value?
+4. Coverage - Does the true value fall within the credible interval?
 """
 
 from __future__ import annotations
@@ -18,134 +21,81 @@ if TYPE_CHECKING:
     )
 
 
-def calculate_kl_divergence_normal(
-    pred_mu: float, pred_sigma: float, true_mu: float, true_sigma: float
-) -> float:
+def calculate_nll_normal(pred_mu: float, pred_sigma: float, true_value: float) -> float:
     """
-    Calculate KL divergence between two normal distributions.
+    Calculate negative log-likelihood of true value under predicted normal distribution.
 
-    For two normal distributions N(μ₁, σ₁²) and N(μ₂, σ₂²):
-    KL(P || Q) = log(σ₂/σ₁) + (σ₁² + (μ₁ - μ₂)²) / (2σ₂²) - 1/2
+    NLL = 0.5 * log(2π) + log(σ) + (x - μ)² / (2σ²)
 
-    Where P is predicted, Q is ground truth.
-
-    Lower is better; 0 = perfect match.
-    """
-    return (
-        np.log(true_sigma / pred_sigma)
-        + (pred_sigma**2 + (pred_mu - true_mu) ** 2) / (2 * true_sigma**2)
-        - 0.5
-    )
-
-
-def calculate_kl_divergence_lognormal(
-    pred_mu: float, pred_sigma: float, true_mu: float, true_sigma: float
-) -> float:
-    """
-    Calculate KL divergence between two lognormal distributions.
-
-    For lognormal distributions, mu and sigma are the parameters of the underlying
-    normal distribution (log-space parameters).
-
-    KL divergence for lognormal is the same as for the underlying normal.
-    """
-    return calculate_kl_divergence_normal(pred_mu, pred_sigma, true_mu, true_sigma)
-
-
-def calculate_wasserstein_distance_lognormal(
-    pred_mu: float, pred_sigma: float, true_mu: float, true_sigma: float
-) -> float:
-    """
-    Calculate approximate Wasserstein-2 distance between two lognormal distributions.
-
-    For lognormal, we use the means and standard deviations in the original space:
-    - Mean = exp(mu + sigma²/2)
-    - Std = sqrt((exp(sigma²) - 1) * exp(2*mu + sigma²))
-
-    Then apply the normal Wasserstein formula as an approximation.
-    """
-    # Convert to original space statistics
-    pred_mean = np.exp(pred_mu + pred_sigma**2 / 2)
-    pred_std = np.sqrt((np.exp(pred_sigma**2) - 1) * np.exp(2 * pred_mu + pred_sigma**2))
-
-    true_mean = np.exp(true_mu + true_sigma**2 / 2)
-    true_std = np.sqrt((np.exp(true_sigma**2) - 1) * np.exp(2 * true_mu + true_sigma**2))
-
-    return np.sqrt((pred_mean - true_mean) ** 2 + (pred_std - true_std) ** 2)
-
-
-def calculate_wasserstein_distance_normal(
-    pred_mu: float, pred_sigma: float, true_mu: float, true_sigma: float
-) -> float:
-    """
-    Calculate Wasserstein-2 distance between two normal distributions.
-
-    For normal distributions, W₂² has closed form:
-    W₂²(N(μ₁, σ₁²), N(μ₂, σ₂²)) = (μ₁ - μ₂)² + (σ₁ - σ₂)²
-
-    Lower is better; 0 = perfect match.
-    """
-    return np.sqrt((pred_mu - true_mu) ** 2 + (pred_sigma - true_sigma) ** 2)
-
-
-def calculate_distribution_error(
-    pred_mu: float,
-    pred_sigma: float,
-    true_mu: float,
-    true_sigma: float,
-    distribution_type: str = "normal",
-) -> dict:
-    """
-    Calculate multiple error metrics between predicted and ground truth distributions.
+    Lower is better. Penalizes both:
+    - Being far from the true value (large |x - μ|)
+    - Being overconfident when wrong (small σ with large error)
 
     Args:
         pred_mu: Predicted mean
         pred_sigma: Predicted standard deviation
-        true_mu: Ground truth mean
-        true_sigma: Ground truth standard deviation
-        distribution_type: Type of distribution ("normal", "lognormal", "truncated_normal")
+        true_value: Actual ground truth value
 
     Returns:
-        Dictionary with error metrics
+        Negative log-likelihood (lower is better)
     """
-    if distribution_type == "normal":
-        kl_div = calculate_kl_divergence_normal(pred_mu, pred_sigma, true_mu, true_sigma)
-        wasserstein = calculate_wasserstein_distance_normal(pred_mu, pred_sigma, true_mu, true_sigma)
-    elif distribution_type == "lognormal":
-        kl_div = calculate_kl_divergence_lognormal(pred_mu, pred_sigma, true_mu, true_sigma)
-        wasserstein = calculate_wasserstein_distance_lognormal(
-            pred_mu, pred_sigma, true_mu, true_sigma
-        )
-    elif distribution_type == "truncated_normal":
-        # For truncated normal, use normal approximation (valid when truncation is not severe)
-        # This is a reasonable approximation for height/weight which have natural bounds
-        kl_div = calculate_kl_divergence_normal(pred_mu, pred_sigma, true_mu, true_sigma)
-        wasserstein = calculate_wasserstein_distance_normal(pred_mu, pred_sigma, true_mu, true_sigma)
-    else:
-        raise NotImplementedError(
-            f"Distribution type '{distribution_type}' not supported. "
-            "Use 'normal', 'lognormal', or 'truncated_normal'."
-        )
+    return (
+        0.5 * np.log(2 * np.pi)
+        + np.log(pred_sigma)
+        + (true_value - pred_mu) ** 2 / (2 * pred_sigma**2)
+    )
 
-    # Simple errors (always computed on parameters directly)
-    mae_mu = abs(pred_mu - true_mu)
-    sigma_error = abs(pred_sigma - true_sigma)
 
-    return {
-        "kl_divergence": kl_div,
-        "wasserstein_distance": wasserstein,
-        "mae_mu": mae_mu,
-        "sigma_error": sigma_error,
-    }
+def calculate_z_score(pred_mu: float, pred_sigma: float, true_value: float) -> float:
+    """
+    Calculate z-score: how many standard deviations the true value is from predicted mean.
+
+    z = (true_value - pred_mu) / pred_sigma
+
+    For well-calibrated predictions:
+    - ~68% of z-scores should be in [-1, 1]
+    - ~95% of z-scores should be in [-2, 2]
+    - ~99.7% of z-scores should be in [-3, 3]
+
+    Args:
+        pred_mu: Predicted mean
+        pred_sigma: Predicted standard deviation
+        true_value: Actual ground truth value
+
+    Returns:
+        Z-score (positive if true > predicted mean, negative otherwise)
+    """
+    return (true_value - pred_mu) / pred_sigma
+
+
+def is_in_95ci_normal(pred_mu: float, pred_sigma: float, true_value: float) -> bool:
+    """
+    Check if true value falls within 95% credible interval of predicted distribution.
+
+    For normal distribution, 95% CI is approximately [μ - 1.96σ, μ + 1.96σ].
+
+    Args:
+        pred_mu: Predicted mean
+        pred_sigma: Predicted standard deviation
+        true_value: Actual ground truth value
+
+    Returns:
+        True if true_value is within 95% CI, False otherwise
+    """
+    z = abs(calculate_z_score(pred_mu, pred_sigma, true_value))
+    return z <= 1.96  # 95% CI corresponds to |z| <= 1.96
 
 
 def evaluate_prediction(prediction, ground_truth) -> Optional["EvaluationMetrics"]:
     """
-    Evaluate a single prediction against ground truth.
+    Evaluate a single prediction against actual ground truth measurements.
+
+    Compares the predicted probability distributions against the actual
+    measured height and weight values.
 
     Args:
-        prediction: PredictionResult object
-        ground_truth: GroundTruth object
+        prediction: PredictionResult object with height_distribution and weight_distribution
+        ground_truth: GroundTruth object with actual height_cm and weight_kg values
 
     Returns:
         EvaluationMetrics if prediction is valid, None otherwise
@@ -156,53 +106,37 @@ def evaluate_prediction(prediction, ground_truth) -> Optional["EvaluationMetrics
     if not prediction.is_valid:
         return None
 
-    # Check distribution type match and warn if different
-    pred_height_type = prediction.height_distribution.distribution_type
-    true_height_type = ground_truth.height.distribution_type
-    pred_weight_type = prediction.weight_distribution.distribution_type
-    true_weight_type = ground_truth.weight.distribution_type
+    # Get predicted distribution parameters
+    pred_height_mu = prediction.height_distribution.mu
+    pred_height_sigma = prediction.height_distribution.sigma
+    pred_weight_mu = prediction.weight_distribution.mu
+    pred_weight_sigma = prediction.weight_distribution.sigma
 
-    if pred_height_type != true_height_type:
-        print(
-            f"Warning: Height distribution type mismatch - "
-            f"predicted '{pred_height_type}' vs ground truth '{true_height_type}'. "
-            f"Using '{pred_height_type}' for evaluation."
-        )
+    # Get actual ground truth values
+    true_height = ground_truth.height_cm
+    true_weight = ground_truth.weight_kg
 
-    if pred_weight_type != true_weight_type:
-        print(
-            f"Warning: Weight distribution type mismatch - "
-            f"predicted '{pred_weight_type}' vs ground truth '{true_weight_type}'. "
-            f"Using '{pred_weight_type}' for evaluation."
-        )
+    # Calculate height metrics
+    nll_height = calculate_nll_normal(pred_height_mu, pred_height_sigma, true_height)
+    abs_error_height = abs(pred_height_mu - true_height)
+    z_score_height = calculate_z_score(pred_height_mu, pred_height_sigma, true_height)
+    in_95ci_height = is_in_95ci_normal(pred_height_mu, pred_height_sigma, true_height)
 
-    # Calculate height metrics (use prediction's distribution type)
-    height_metrics = calculate_distribution_error(
-        pred_mu=prediction.height_distribution.mu,
-        pred_sigma=prediction.height_distribution.sigma,
-        true_mu=ground_truth.height.mu,
-        true_sigma=ground_truth.height.sigma,
-        distribution_type=pred_height_type,
-    )
-
-    # Calculate weight metrics (use prediction's distribution type)
-    weight_metrics = calculate_distribution_error(
-        pred_mu=prediction.weight_distribution.mu,
-        pred_sigma=prediction.weight_distribution.sigma,
-        true_mu=ground_truth.weight.mu,
-        true_sigma=ground_truth.weight.sigma,
-        distribution_type=pred_weight_type,
-    )
+    # Calculate weight metrics
+    nll_weight = calculate_nll_normal(pred_weight_mu, pred_weight_sigma, true_weight)
+    abs_error_weight = abs(pred_weight_mu - true_weight)
+    z_score_weight = calculate_z_score(pred_weight_mu, pred_weight_sigma, true_weight)
+    in_95ci_weight = is_in_95ci_normal(pred_weight_mu, pred_weight_sigma, true_weight)
 
     return EvaluationMetrics(
-        kl_divergence_height=height_metrics["kl_divergence"],
-        kl_divergence_weight=weight_metrics["kl_divergence"],
-        wasserstein_distance_height=height_metrics["wasserstein_distance"],
-        wasserstein_distance_weight=weight_metrics["wasserstein_distance"],
-        mae_height_mu=height_metrics["mae_mu"],
-        mae_weight_mu=weight_metrics["mae_mu"],
-        sigma_error_height=height_metrics["sigma_error"],
-        sigma_error_weight=weight_metrics["sigma_error"],
+        nll_height=nll_height,
+        nll_weight=nll_weight,
+        abs_error_height=abs_error_height,
+        abs_error_weight=abs_error_weight,
+        z_score_height=z_score_height,
+        z_score_weight=z_score_weight,
+        in_95ci_height=in_95ci_height,
+        in_95ci_weight=in_95ci_weight,
         is_valid=True,
     )
 
@@ -215,7 +149,7 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
         results: List of ExperimentResult objects for one approach
 
     Returns:
-        AggregatedMetrics object
+        AggregatedMetrics object with mean metrics and coverage percentages
     """
     # Import here to avoid circular dependency
     from models.schemas import AggregatedMetrics
@@ -243,14 +177,18 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
         )
 
     # Extract metrics from valid results
-    kl_div_height = [r.metrics.kl_divergence_height for r in valid_results]
-    kl_div_weight = [r.metrics.kl_divergence_weight for r in valid_results]
-    wasserstein_height = [r.metrics.wasserstein_distance_height for r in valid_results]
-    wasserstein_weight = [r.metrics.wasserstein_distance_weight for r in valid_results]
-    mae_height = [r.metrics.mae_height_mu for r in valid_results]
-    mae_weight = [r.metrics.mae_weight_mu for r in valid_results]
-    sigma_err_height = [r.metrics.sigma_error_height for r in valid_results]
-    sigma_err_weight = [r.metrics.sigma_error_weight for r in valid_results]
+    nll_height = [r.metrics.nll_height for r in valid_results]
+    nll_weight = [r.metrics.nll_weight for r in valid_results]
+    abs_error_height = [r.metrics.abs_error_height for r in valid_results]
+    abs_error_weight = [r.metrics.abs_error_weight for r in valid_results]
+    abs_z_score_height = [abs(r.metrics.z_score_height) for r in valid_results]
+    abs_z_score_weight = [abs(r.metrics.z_score_weight) for r in valid_results]
+    in_95ci_height = [r.metrics.in_95ci_height for r in valid_results]
+    in_95ci_weight = [r.metrics.in_95ci_weight for r in valid_results]
+
+    # Calculate coverage percentages
+    coverage_height = (sum(in_95ci_height) / n_valid) * 100
+    coverage_weight = (sum(in_95ci_weight) / n_valid) * 100
 
     return AggregatedMetrics(
         approach=approach,
@@ -259,23 +197,20 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
         n_invalid=n_invalid,
         invalid_rate_percent=invalid_rate,
         # Means
-        mean_kl_divergence_height=float(np.mean(kl_div_height)),
-        mean_kl_divergence_weight=float(np.mean(kl_div_weight)),
-        mean_wasserstein_distance_height=float(np.mean(wasserstein_height)),
-        mean_wasserstein_distance_weight=float(np.mean(wasserstein_weight)),
-        mean_mae_height_mu=float(np.mean(mae_height)),
-        mean_mae_weight_mu=float(np.mean(mae_weight)),
-        mean_sigma_error_height=float(np.mean(sigma_err_height)),
-        mean_sigma_error_weight=float(np.mean(sigma_err_weight)),
+        mean_nll_height=float(np.mean(nll_height)),
+        mean_nll_weight=float(np.mean(nll_weight)),
+        mean_abs_error_height=float(np.mean(abs_error_height)),
+        mean_abs_error_weight=float(np.mean(abs_error_weight)),
+        mean_abs_z_score_height=float(np.mean(abs_z_score_height)),
+        mean_abs_z_score_weight=float(np.mean(abs_z_score_weight)),
+        # Coverage (should be ~95% for well-calibrated predictions)
+        coverage_95ci_height_percent=coverage_height,
+        coverage_95ci_weight_percent=coverage_weight,
         # Standard deviations (for error bars in plots)
-        std_kl_divergence_height=float(np.std(kl_div_height)),
-        std_kl_divergence_weight=float(np.std(kl_div_weight)),
-        std_wasserstein_distance_height=float(np.std(wasserstein_height)),
-        std_wasserstein_distance_weight=float(np.std(wasserstein_weight)),
-        std_mae_height_mu=float(np.std(mae_height)),
-        std_mae_weight_mu=float(np.std(mae_weight)),
-        std_sigma_error_height=float(np.std(sigma_err_height)),
-        std_sigma_error_weight=float(np.std(sigma_err_weight)),
+        std_nll_height=float(np.std(nll_height)),
+        std_nll_weight=float(np.std(nll_weight)),
+        std_abs_error_height=float(np.std(abs_error_height)),
+        std_abs_error_weight=float(np.std(abs_error_weight)),
     )
 
 
@@ -290,25 +225,27 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
         Markdown formatted table string
     """
     # Build header
-    table = "| Approach | N Valid | Invalid Rate (%) | KL Div (Height) | KL Div (Weight) | Wasserstein (Height) | Wasserstein (Weight) | MAE Height (cm) | MAE Weight (kg) |\n"
-    table += "|----------|---------|------------------|-----------------|-----------------|----------------------|----------------------|-----------------|------------------|\n"
+    table = "| Approach | N Valid | Invalid % | NLL (H) | NLL (W) | Abs Err H (cm) | Abs Err W (kg) | Mean |z| H | Mean |z| W | 95% CI H | 95% CI W |\n"
+    table += "|----------|---------|-----------|---------|---------|----------------|----------------|----------|----------|----------|----------|\n"
 
     # Build rows
     for metrics in aggregated_metrics:
         if metrics.n_valid == 0:
             # No valid predictions
-            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A |\n"
+            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |\n"
         else:
             table += (
                 f"| {metrics.approach} "
                 f"| {metrics.n_valid}/{metrics.n_total} "
                 f"| {metrics.invalid_rate_percent:.1f} "
-                f"| {metrics.mean_kl_divergence_height:.3f} "
-                f"| {metrics.mean_kl_divergence_weight:.3f} "
-                f"| {metrics.mean_wasserstein_distance_height:.2f} "
-                f"| {metrics.mean_wasserstein_distance_weight:.2f} "
-                f"| {metrics.mean_mae_height_mu:.2f} "
-                f"| {metrics.mean_mae_weight_mu:.2f} |\n"
+                f"| {metrics.mean_nll_height:.2f} "
+                f"| {metrics.mean_nll_weight:.2f} "
+                f"| {metrics.mean_abs_error_height:.1f} "
+                f"| {metrics.mean_abs_error_weight:.1f} "
+                f"| {metrics.mean_abs_z_score_height:.2f} "
+                f"| {metrics.mean_abs_z_score_weight:.2f} "
+                f"| {metrics.coverage_95ci_height_percent:.0f}% "
+                f"| {metrics.coverage_95ci_weight_percent:.0f}% |\n"
             )
 
     return table
@@ -316,18 +253,28 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
 
 # Example usage
 if __name__ == "__main__":
-    # Test KL divergence calculation
-    # Two identical distributions should have KL = 0
-    kl = calculate_kl_divergence_normal(175, 6, 175, 6)
-    print(f"KL divergence (identical): {kl:.6f}")  # Should be 0
+    # Test NLL calculation
+    # Perfect prediction (true value = mean) should have low NLL
+    nll = calculate_nll_normal(175, 6, 175)
+    print(f"NLL (perfect mean): {nll:.4f}")
 
-    # Two different distributions
-    kl = calculate_kl_divergence_normal(175, 6, 170, 8)
-    print(f"KL divergence (different): {kl:.6f}")
+    # Prediction off by 1 sigma
+    nll = calculate_nll_normal(175, 6, 181)  # 181 = 175 + 6
+    print(f"NLL (1 sigma off): {nll:.4f}")
 
-    # Wasserstein distance
-    w = calculate_wasserstein_distance_normal(175, 6, 175, 6)
-    print(f"Wasserstein (identical): {w:.6f}")  # Should be 0
+    # Z-score tests
+    z = calculate_z_score(175, 6, 175)
+    print(f"Z-score (exact): {z:.4f}")  # Should be 0
 
-    w = calculate_wasserstein_distance_normal(175, 6, 170, 8)
-    print(f"Wasserstein (different): {w:.6f}")
+    z = calculate_z_score(175, 6, 181)
+    print(f"Z-score (1 sigma high): {z:.4f}")  # Should be 1
+
+    z = calculate_z_score(175, 6, 169)
+    print(f"Z-score (1 sigma low): {z:.4f}")  # Should be -1
+
+    # Coverage tests
+    in_ci = is_in_95ci_normal(175, 6, 175)
+    print(f"In 95% CI (exact match): {in_ci}")  # Should be True
+
+    in_ci = is_in_95ci_normal(175, 6, 187)  # > 1.96 sigma away
+    print(f"In 95% CI (2 sigma away): {in_ci}")  # Should be False

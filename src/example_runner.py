@@ -270,8 +270,10 @@ class ExperimentRunner:
             print(f"  Valid: {aggregated.n_valid}/{aggregated.n_total}")
             print(f"  Invalid rate: {aggregated.invalid_rate_percent:.1f}%")
             if aggregated.n_valid > 0:
-                print(f"  Mean KL (height): {aggregated.mean_kl_divergence_height:.3f}")
-                print(f"  Mean KL (weight): {aggregated.mean_kl_divergence_weight:.3f}")
+                print(f"  Mean NLL (height): {aggregated.mean_nll_height:.2f}")
+                print(f"  Mean NLL (weight): {aggregated.mean_nll_weight:.2f}")
+                print(f"  95% CI Coverage (height): {aggregated.coverage_95ci_height_percent:.0f}%")
+                print(f"  95% CI Coverage (weight): {aggregated.coverage_95ci_weight_percent:.0f}%")
 
         return all_aggregated
 
@@ -287,10 +289,11 @@ class ExperimentRunner:
             f.write("# Experiment Results\n\n")
             f.write(table)
             f.write("\n\n## Metric Descriptions\n\n")
-            f.write("- **KL Divergence**: Lower is better (0 = perfect match)\n")
-            f.write("- **Wasserstein Distance**: L2 distance between distributions\n")
-            f.write("- **MAE**: Mean Absolute Error on distribution mean (mu)\n")
-            f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions\n")
+            f.write("- **NLL (Negative Log-Likelihood)**: Lower is better. Measures how likely the true value is under the predicted distribution.\n")
+            f.write("- **Abs Error**: Absolute error between predicted mean and true value (in cm for height, kg for weight).\n")
+            f.write("- **Mean |z|**: Mean absolute z-score. For well-calibrated predictions, should be ~0.8.\n")
+            f.write("- **95% CI Coverage**: Percentage of true values within 95% credible interval. Should be ~95% if well-calibrated.\n")
+            f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions.\n")
 
         # Save as CSV
         df = pd.DataFrame([m.model_dump() for m in aggregated_metrics])
@@ -305,16 +308,15 @@ class ExperimentRunner:
 
 def load_test_data() -> List["GroundTruth"]:
     """
-    Load test subjects and ground truth.
+    Load test subjects and ground truth actual measurements.
 
-    You'll need to create this data file with 50 subjects.
     Format:
     [
       {
         "subject_id": "001",
         "text_description": "John is a 28-year-old...",
-        "height": {"distribution_type": "normal", "mu": 175, "sigma": 6, "unit": "cm"},
-        "weight": {"distribution_type": "normal", "mu": 72, "sigma": 8, "unit": "kg"}
+        "height_cm": 175.0,
+        "weight_kg": 72.0
       },
       ...
     ]

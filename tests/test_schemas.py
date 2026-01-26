@@ -32,6 +32,44 @@ class TestDistributionParams:
         assert dist.sigma == 6.0
         assert dist.unit == "cm"
 
+    def test_sigma_minimum_validation_height(self):
+        """Test that height sigma must be >= 3.0 cm."""
+        with pytest.raises(ValidationError) as exc_info:
+            DistributionParams(
+                distribution_type="normal",
+                mu=175.0,
+                sigma=2.0,  # Too small for height (< 3.0)
+                unit="cm",
+            )
+        assert "sigma" in str(exc_info.value).lower()
+        assert "3.0" in str(exc_info.value)
+
+    def test_sigma_minimum_validation_weight(self):
+        """Test that weight sigma must be >= 5.0 kg."""
+        with pytest.raises(ValidationError) as exc_info:
+            DistributionParams(
+                distribution_type="normal",
+                mu=70.0,
+                sigma=4.0,  # Too small for weight (< 5.0)
+                unit="kg",
+            )
+        assert "sigma" in str(exc_info.value).lower()
+        assert "5.0" in str(exc_info.value)
+
+    def test_sigma_at_minimum_boundary(self):
+        """Test that sigma exactly at minimum is valid."""
+        # Height at boundary (3.0)
+        dist_height = DistributionParams(
+            distribution_type="normal", mu=175.0, sigma=3.0, unit="cm"
+        )
+        assert dist_height.sigma == 3.0
+
+        # Weight at boundary (5.0)
+        dist_weight = DistributionParams(
+            distribution_type="normal", mu=70.0, sigma=5.0, unit="kg"
+        )
+        assert dist_weight.sigma == 5.0
+
     def test_valid_distribution_types(self):
         """Test different valid distribution types."""
         for dist_type in ["normal", "lognormal", "truncated_normal"]:
@@ -78,16 +116,26 @@ class TestGroundTruth:
     """Tests for GroundTruth model."""
 
     def test_valid_ground_truth(self, sample_ground_truth):
-        """Test creating valid ground truth."""
+        """Test creating valid ground truth with actual measurements."""
         gt = GroundTruth(**sample_ground_truth)
         assert gt.subject_id == "001"
-        assert gt.height.mu == 178.0
-        assert gt.weight.mu == 72.0
+        assert gt.height_cm == 178.0
+        assert gt.weight_kg == 72.0
 
     def test_ground_truth_requires_all_fields(self):
         """Test that ground truth requires all fields."""
         with pytest.raises(ValidationError):
             GroundTruth(subject_id="001")
+
+    def test_ground_truth_positive_values(self):
+        """Test that height and weight must be positive."""
+        with pytest.raises(ValidationError):
+            GroundTruth(
+                subject_id="001",
+                text_description="Test",
+                height_cm=-175.0,
+                weight_kg=70.0,
+            )
 
 
 class TestEvaluationMetrics:
@@ -96,17 +144,20 @@ class TestEvaluationMetrics:
     def test_valid_metrics(self):
         """Test creating valid evaluation metrics."""
         metrics = EvaluationMetrics(
-            kl_divergence_height=0.5,
-            kl_divergence_weight=0.3,
-            wasserstein_distance_height=2.0,
-            wasserstein_distance_weight=3.0,
-            mae_height_mu=5.0,
-            mae_weight_mu=4.0,
-            sigma_error_height=1.0,
-            sigma_error_weight=1.5,
+            nll_height=2.5,
+            nll_weight=2.8,
+            abs_error_height=3.0,
+            abs_error_weight=2.5,
+            z_score_height=0.5,
+            z_score_weight=-0.3,
+            in_95ci_height=True,
+            in_95ci_weight=True,
             is_valid=True,
         )
-        assert metrics.kl_divergence_height == 0.5
+        assert metrics.nll_height == 2.5
+        assert metrics.abs_error_height == 3.0
+        assert metrics.z_score_height == 0.5
+        assert metrics.in_95ci_height is True
         assert metrics.is_valid is True
 
     def test_metrics_requires_all_fields(self):
@@ -124,14 +175,14 @@ class TestExperimentResult:
         prediction = PredictionResult(**sample_prediction_json)
         ground_truth = GroundTruth(**sample_ground_truth)
         metrics = EvaluationMetrics(
-            kl_divergence_height=0.1,
-            kl_divergence_weight=0.1,
-            wasserstein_distance_height=1.0,
-            wasserstein_distance_weight=1.0,
-            mae_height_mu=2.0,
-            mae_weight_mu=2.0,
-            sigma_error_height=0.5,
-            sigma_error_weight=0.5,
+            nll_height=2.5,
+            nll_weight=2.8,
+            abs_error_height=0.0,
+            abs_error_weight=0.0,
+            z_score_height=0.0,
+            z_score_weight=0.0,
+            in_95ci_height=True,
+            in_95ci_weight=True,
             is_valid=True,
         )
 

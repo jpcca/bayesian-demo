@@ -67,12 +67,12 @@ def sample_prediction_json():
 
 @pytest.fixture
 def sample_ground_truth():
-    """Sample ground truth data for a subject."""
+    """Sample ground truth data for a subject with actual measurements."""
     return {
         "subject_id": "001",
         "text_description": "Sarah is a 32-year-old Norwegian woman who works as a software engineer.",
-        "height": {"distribution_type": "normal", "mu": 178.0, "sigma": 4.0, "unit": "cm"},
-        "weight": {"distribution_type": "normal", "mu": 72.0, "sigma": 6.0, "unit": "kg"},
+        "height_cm": 178.0,
+        "weight_kg": 72.0,
     }
 
 
