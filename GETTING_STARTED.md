@@ -78,7 +78,9 @@ If this works, you're ready to run experiments!
 
 ```bash
 cd src
-python example_runner.py
+cd src
+python claude_runner.py
+
 ```
 
 ### What Happens
@@ -257,7 +259,9 @@ Edit `data/subjects.json` to add 45 more subjects:
 
 ```bash
 cd src
-python example_runner.py
+cd src
+python claude_runner.py
+
 ```
 
 Runtime: ~15-20 minutes for 150 predictions.
@@ -287,7 +291,9 @@ pip install -e .
 **Solution**: Verify you're in the `src/` directory
 ```bash
 cd src
-python example_runner.py
+cd src
+python claude_runner.py
+
 ```
 
 ### Problem: `Could not resolve authentication method`
@@ -326,7 +332,9 @@ python debug_sdk.py             # Debug SDK messages
 
 # Run experiments
 cd src
-python example_runner.py        # Run full experiment
+python claude_runner.py        # Run full experiment with Claude
+python ollama_runner.py        # Run full experiment with Ollama
+
 
 # View results
 cat ../results/experiment_results.md
@@ -345,7 +353,9 @@ bayesian-demo/
 │   └── subjects.json           # Test data (5 subjects)
 │
 ├── src/
-│   └── example_runner.py       # Main experiment script
+│   ├── claude_runner.py        # Claude experiment script
+│   ├── ollama_runner.py        # Ollama experiment script
+│   ├── experiment_core.py      # Shared logic
 │
 └── results/                    # Generated output
     ├── experiment_results.md

@@ -46,7 +46,10 @@ ls data/subjects.json  # Should show 5 template subjects
 ### Run Pilot Test
 
 ```bash
-python src/example_runner.py
+python src/claude_runner.py
+# OR
+python src/ollama_runner.py
+
 ```
 
 This will:
@@ -69,8 +72,11 @@ bayesian-demo/
 │   └── subjects.json          # Test subjects with ground truth
 │
 ├── src/
-│   ├── example_runner.py      # Main experiment runner
+│   ├── claude_runner.py       # Claude experiment runner
+│   ├── ollama_runner.py       # Ollama experiment runner
+│   ├── experiment_core.py     # Shared experiment logic
 │   │   ├── ClaudePredictor    # Wrapper for Claude Agent SDK
+│   │   ├── OllamaPredictor    # Wrapper for Ollama
 │   │   └── ExperimentRunner   # Orchestrates experiments
 │   │
 │   ├── models/
@@ -189,7 +195,11 @@ The `claude-agent-sdk` automatically uses Claude Code's authentication when avai
 
 ```bash
 cd src
-python example_runner.py
+cd src
+python claude_runner.py
+# OR
+python ollama_runner.py
+
 ```
 
 ### Full Experiment (50 subjects)
@@ -246,11 +256,18 @@ Aggregated across all subjects:
 
 ### Change Model
 
-In `src/example_runner.py`:
+In `src/claude_runner.py`:
 
 ```python
 # Use Opus for better performance
 self.options = ClaudeAgentOptions(model="claude-opus-4-5-20251101")
+```
+
+In `src/ollama_runner.py`:
+
+```python
+# Change local model
+runner = ExperimentRunner(..., model_name="llama3")
 ```
 
 ### Adjust Retries
@@ -274,7 +291,7 @@ metrics.custom_score = custom_metric(prediction.height_distribution, ground_trut
 
 ### Modify Prompts
 
-Edit the prompts in `src/example_runner.py` (baseline, web_search) or `src/prompts/probabilistic_agent_prompt.md` (probabilistic).
+Edit the prompts in `src/claude_runner.py` or `src/ollama_runner.py`.
 
 ## Troubleshooting
 

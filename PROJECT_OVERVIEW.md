@@ -82,7 +82,8 @@ pip install -e .
 
 # Run pilot test (5 subjects)
 cd src
-python example_runner.py
+python claude_runner.py
+
 
 # View results
 cat ../results/experiment_results.md
@@ -93,7 +94,9 @@ cat ../results/experiment_results.md
 ```
 bayesian-demo/
 ├── src/
-│   ├── example_runner.py          # Main script ← RUN THIS
+│   ├── claude_runner.py           # Claude script
+│   ├── ollama_runner.py           # Ollama script
+│   ├── experiment_core.py         # Shared logic
 │   ├── models/schemas.py          # Data models
 │   ├── evaluation/metrics.py      # KL divergence, Wasserstein
 │   └── prompts/                   # System prompts
@@ -141,7 +144,8 @@ Uses **Claude Code** (not API keys):
 claude
 
 # Then SDK automatically uses your session
-python example_runner.py  # No API key needed
+python claude_runner.py  # No API key needed
+
 ```
 
 ## Runtime & Cost
