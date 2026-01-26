@@ -1,6 +1,6 @@
 [build-system]
 requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_backend"
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "bayesian-demo"
@@ -20,6 +20,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
+    "duckduckgo-search>=6.0.0",
     "pytest>=9.0.1",
     "black>=23.0.0",
     "ruff>=0.1.0",

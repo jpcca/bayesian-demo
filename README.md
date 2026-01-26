@@ -1,37 +1,51 @@
-# Bayesian Demo
+# Bayesian Height/Weight Prediction Calibration Study
 
-A research project comparing three approaches to predicting human height and weight as probability distributions using Claude AI and Bayesian reasoning.
+A research project evaluating LLM uncertainty calibration for anthropometric predictions. Compares three prompting strategies using real NHANES population data.
+
+## Research Question
+
+> **Are LLM uncertainty estimates well-calibrated?**
+>
+> When an LLM predicts "height ~ Normal(175cm, σ=6cm)", does the 90% prediction interval actually contain the true value 90% of the time?
 
 ## Overview
 
-This project evaluates different methods for making probabilistic predictions (distributions, not point estimates) about people's physical characteristics based on textual descriptions.
+This project evaluates whether structured prompting strategies (web search, Bayesian reasoning) improve the **calibration** of LLM-generated uncertainty estimates.
 
 ### The Three Approaches
 
 | Approach | Tools | Description |
 |----------|-------|-------------|
-| **Baseline** | None | Pure Claude synthesis without web search |
-| **Web Search** | Web search | Claude with access to population statistics |
-| **Probabilistic** | Web search + PyMC | Bayesian reasoning with explicit uncertainty quantification |
+| **Baseline** | None | Pure Claude synthesis without tools |
+| **Web Search** | DuckDuckGo | Claude with real web search for population statistics |
+| **Probabilistic** | Web search + PyMC | Bayesian reasoning with actual MCMC execution |
 
-### Why Distributions?
+### Why Calibration?
 
-Instead of predicting "175cm tall", we predict "height ~ Normal(175cm, σ=6cm)" to:
-- Explicitly model uncertainty
-- Enable rigorous evaluation (KL divergence, Wasserstein distance)
-- Compare how well different approaches quantify confidence
+Traditional accuracy metrics (MAE, RMSE) ignore uncertainty. We focus on:
+
+- **Coverage probability**: Does the 90% interval contain 90% of true values?
+- **Interval score**: A proper scoring rule rewarding calibration + sharpness
+- **Sharpness**: Narrower intervals are better *if* calibrated
+
+## Key Features
+
+- **Real data**: NHANES (CDC) anthropometric measurements, not synthetic ground truth
+- **Actual web search**: DuckDuckGo integration for population statistics
+- **PyMC execution**: Generated Bayesian models are actually run, posteriors extracted
+- **Rigorous statistics**: Friedman test, Wilcoxon signed-rank with Bonferroni correction
+- **Power-analyzed**: n=50 subjects for detecting medium effects (d=0.5)
 
 ## Quick Start
 
 ### Prerequisites
 
 - Python 3.10+
-- Claude Code CLI authenticated (run `claude` in terminal to verify)
+- Claude Code CLI authenticated (`claude` in terminal)
 
 ### Setup
 
 ```bash
-# Clone/navigate to project
 cd bayesian-demo
 
 # Create virtual environment and install dependencies
@@ -39,11 +53,14 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -e .
 
-# Verify test data exists
-ls data/subjects.json  # Should show 5 template subjects
+# Optional: Install PyMC for probabilistic approach
+pip install -e ".[pymc]"
+
+# Optional: Install web search for real searches
+pip install -e ".[dev]"
 ```
 
-### Run Pilot Test
+### Run Experiment
 
 ```bash
 cd src
@@ -51,245 +68,271 @@ python example_runner.py
 ```
 
 This will:
-- Load 5 subjects from `data/subjects.json`
-- Run all 3 approaches (15 total predictions)
-- Calculate evaluation metrics
-- Save results to `results/`
-- Print summary table
+1. Download NHANES data (cached locally)
+2. Generate 50 subject vignettes with stratified demographics
+3. Run all 3 approaches (150 total predictions)
+4. Calculate calibration metrics
+5. Run statistical tests
+6. Save results to `results/`
 
-Expected runtime: 2-3 minutes for 15 predictions.
+Expected runtime: 15-20 minutes for 150 predictions.
 
 ## Project Structure
 
 ```
 bayesian-demo/
 ├── README.md                  # This file
-├── pyproject.toml             # Dependencies (claude-agent-sdk, pydantic, etc.)
+├── pyproject.toml             # Dependencies
 │
 ├── data/
-│   └── subjects.json          # Test subjects with ground truth
+│   ├── nhanes/                # Cached NHANES data
+│   └── subjects_template.json # Legacy template
 │
 ├── src/
 │   ├── example_runner.py      # Main experiment runner
-│   │   ├── ClaudePredictor    # Wrapper for Claude Agent SDK
-│   │   └── ExperimentRunner   # Orchestrates experiments
+│   │
+│   ├── data/
+│   │   └── nhanes_loader.py   # NHANES download, vignette generation
 │   │
 │   ├── models/
 │   │   └── schemas.py         # Pydantic data models
-│   │       ├── DistributionParams
-│   │       ├── PredictionResult
-│   │       ├── GroundTruth
-│   │       ├── EvaluationMetrics
-│   │       └── AggregatedMetrics
+│   │       ├── Subject              # NHANES subject with actual measurements
+│   │       ├── PredictionResult     # LLM prediction output
+│   │       ├── CalibrationMetrics   # Per-prediction calibration
+│   │       └── AggregatedCalibrationMetrics
 │   │
 │   ├── evaluation/
-│   │   └── metrics.py         # Evaluation functions
-│   │       ├── calculate_kl_divergence_normal()
-│   │       ├── calculate_wasserstein_distance_normal()
-│   │       ├── evaluate_prediction()
-│   │       └── aggregate_results()
+│   │   ├── metrics.py         # KL divergence, Wasserstein (legacy)
+│   │   ├── calibration.py     # Coverage, interval score
+│   │   └── statistical_tests.py  # Friedman, Wilcoxon, McNemar
+│   │
+│   ├── tools/
+│   │   ├── web_search.py      # DuckDuckGo integration
+│   │   └── pymc_executor.py   # Sandboxed PyMC execution
 │   │
 │   └── prompts/
-│       └── probabilistic_agent_prompt.md  # System prompt for approach C
+│       └── probabilistic_agent_prompt.md  # Bayesian reasoning prompt
+│
+├── tests/
+│   ├── test_metrics.py        # Unit tests for evaluation
+│   └── conftest.py            # Pytest configuration
 │
 └── results/                   # Generated output
-    ├── experiment_results.md  # Markdown table
-    ├── experiment_results.csv # CSV format
-    ├── all_results.json       # Complete results
-    └── intermediate/          # Crash recovery checkpoints
+    ├── calibration_results.md
+    ├── statistical_report.md
+    └── all_results.json
 ```
 
-## Test Data Format
+## Ground Truth: NHANES Data
 
-Each subject in `data/subjects.json` has:
+We use real measurements from the CDC's National Health and Nutrition Examination Survey:
 
-```json
-{
-  "subject_id": "001",
-  "text_description": "Sarah is a 32-year-old Norwegian woman who works as a software engineer...",
-  "height": {
-    "distribution_type": "normal",
-    "mu": 178.0,
-    "sigma": 4.0,
-    "unit": "cm"
-  },
-  "weight": {
-    "distribution_type": "normal",
-    "mu": 72.0,
-    "sigma": 6.0,
-    "unit": "kg"
-  }
-}
+```python
+from data.nhanes_loader import load_subjects
+
+subjects = load_subjects(n=50, cycle='2017-2018', seed=42)
+
+# Each subject has:
+# - subject_id: str
+# - text_description: str (generated vignette)
+# - actual_height_cm: float (real measurement)
+# - actual_weight_kg: float (real measurement)
+# - age, gender, ethnicity (for analysis)
 ```
 
-**Current dataset**: 5 template subjects (for pilot testing)
-**Target**: 50 subjects for full experiment
+**Vignette example**:
+> "Alex is a 34-year-old Mexican American man who works in construction. 
+> He describes himself as moderately active and enjoys playing soccer on weekends."
+
+**Key**: Vignettes never contain actual height/weight values.
+
+## Evaluation Metrics
+
+### Primary: Calibration
+
+| Metric | Description | Target |
+|--------|-------------|--------|
+| **Coverage@90** | % of true values in 90% interval | 90% |
+| **Calibration Error** | \|observed - nominal\| | 0% |
+| **Interval Score** | Proper scoring rule | Lower is better |
+
+### Secondary: Sharpness & Accuracy
+
+| Metric | Description |
+|--------|-------------|
+| **Mean Interval Width** | Narrower is better (if calibrated) |
+| **MAE(μ)** | Mean accuracy of point prediction |
+
+## Statistical Analysis
+
+### Tests
+
+| Test | Use Case |
+|------|----------|
+| **Friedman** | Overall difference among 3 approaches |
+| **Wilcoxon** | Pairwise comparisons with Bonferroni |
+| **McNemar** | Compare coverage rates |
+
+### Power Analysis
+
+With n=50 subjects:
+- Can detect medium effects (Cohen's d = 0.5)
+- Can detect 10% coverage differences
+- 95% CI on coverage ≈ ±10%
+
+## Results Format
+
+### Calibration Table (`results/calibration_results.md`)
+
+```markdown
+| Approach      | Coverage@90 (Height) | Coverage@90 (Weight) | Calibration Error | Mean Interval Score |
+|---------------|----------------------|----------------------|-------------------|---------------------|
+| baseline      | 78%                  | 82%                  | 12%               | 15.3                |
+| web_search    | 85%                  | 88%                  | 5%                | 12.1                |
+| probabilistic | 91%                  | 89%                  | 1%                | 10.8                |
+```
+
+### Statistical Report (`results/statistical_report.md`)
+
+```markdown
+## Friedman Test
+Statistic: 12.4, p = 0.002 (significant)
+
+## Pairwise Comparisons (Bonferroni-corrected)
+| Comparison                    | p-value | Effect Size | Significant |
+|-------------------------------|---------|-------------|-------------|
+| baseline vs web_search        | 0.023   | 0.42        | Yes         |
+| baseline vs probabilistic     | 0.001   | 0.68        | Yes         |
+| web_search vs probabilistic   | 0.156   | 0.24        | No          |
+```
 
 ## How It Works
 
-### 1. ClaudePredictor
-
-Wrapper around Claude Agent SDK's `query()` function:
+### 1. Data Loading
 
 ```python
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
+from data.nhanes_loader import load_subjects
 
-predictor = ClaudePredictor(approach="baseline")
-result = await predictor.predict(person_description)
+# Downloads NHANES, generates diverse vignettes
+subjects = load_subjects(n=50)
 ```
 
-Key features:
-- Approach-specific system prompts
-- Retry logic (3 attempts)
-- JSON parsing with markdown code block handling
-- Pydantic validation
+### 2. Prediction
 
-### 2. Evaluation Metrics
+```python
+predictor = ClaudePredictor(approach="probabilistic")
+result = await predictor.predict(subject.text_description)
 
-**KL Divergence** (Kullback-Leibler):
-- Measures difference between probability distributions
-- Lower is better (0 = perfect match)
-- Closed-form solution for normal distributions
+# Returns:
+# - height_distribution: Normal(mu, sigma)
+# - weight_distribution: Normal(mu, sigma)
+# - pymc_code: str (for probabilistic approach)
+```
 
-**Wasserstein Distance**:
-- L2 distance between distributions
-- Interpretable in original units (cm or kg)
-- Geometric interpretation
+### 3. PyMC Execution (Probabilistic Approach)
 
-**Invalid Rate**:
-- Percentage of predictions that failed to produce valid distributions
-- Important for comparing reliability across approaches
+```python
+from tools.pymc_executor import execute_pymc_code
 
-### 3. System Prompts
+if result.pymc_code:
+    posterior = execute_pymc_code(result.pymc_code, timeout=60)
+    # Updates distributions with actual MCMC posterior
+```
 
-**Baseline**: Simple instructions to output distributions
-**Web Search**: Encourages using web search for population statistics
-**Probabilistic**: Full Bayesian reasoning prompt with PyMC code generation
+### 4. Calibration Evaluation
 
-See `src/prompts/probabilistic_agent_prompt.md` for the complete probabilistic prompt.
+```python
+from evaluation.calibration import evaluate_calibration
 
-## Authentication
+metrics = evaluate_calibration(prediction, subject)
+# Checks: Is true value in predicted 50/80/90/95% intervals?
+```
 
-This project uses **Claude Code authentication** (not API keys):
+### 5. Statistical Testing
+
+```python
+from evaluation.statistical_tests import friedman_test, all_pairwise_comparisons
+
+friedman = friedman_test({'baseline': scores_b, 'web': scores_w, 'prob': scores_p})
+pairwise = all_pairwise_comparisons(results_by_approach)
+```
+
+## Configuration
+
+### Change Sample Size
+
+```python
+# In main():
+subjects = load_calibration_subjects(n=100)  # More subjects
+```
+
+### Change NHANES Cycle
+
+```python
+subjects = load_subjects(n=50, cycle='2015-2016')  # Different year
+```
+
+### Disable PyMC Execution
+
+```python
+# In ClaudePredictor.predict():
+# Comment out the pymc execution block
+```
+
+## Dependencies
+
+**Core**:
+- `claude-agent-sdk` - Claude AI integration
+- `pydantic>=2.0.0` - Data validation
+- `numpy>=1.24.0` - Numerical operations
+- `scipy>=1.10.0` - Statistical functions
+- `pandas>=2.0.0` - Data analysis
+
+**Optional [pymc]**:
+- `pymc>=5.10.0` - Bayesian inference
+- `arviz>=0.17.0` - Posterior analysis
+
+**Optional [dev]**:
+- `duckduckgo-search>=6.0.0` - Web search
+- `pytest>=9.0.1` - Testing
+
+## Running Tests
 
 ```bash
-# Authenticate Claude Code (one time)
-claude
-
-# Verify authentication
-claude --version
+pytest tests/ -v
 ```
 
-The `claude-agent-sdk` automatically uses Claude Code's authentication when available.
-
-**No API key needed!** The SDK will use your Claude Code session.
-
-## Running Experiments
-
-### Pilot Test (5 subjects)
-
-```bash
-cd src
-python example_runner.py
-```
-
-### Full Experiment (50 subjects)
-
-1. Create 50 subjects in `data/subjects.json`
-2. Run the same command
-3. Wait ~15-20 minutes for 150 predictions
-
-### Single Prediction Test
-
-```bash
-python test_single.py  # Tests SDK integration
-```
-
-## Results
-
-After running, check:
-
-**Markdown table** (`results/experiment_results.md`):
-```markdown
-| Approach      | N Valid | Invalid Rate (%) | KL Div (Height) | KL Div (Weight) | ...
-|---------------|---------|------------------|-----------------|-----------------|-----
-| baseline      | 5/5     | 0.0              | 0.523           | 0.612           | ...
-| web_search    | 5/5     | 0.0              | 0.412           | 0.501           | ...
-| probabilistic | 5/5     | 0.0              | 0.298           | 0.387           | ...
-```
-
-**CSV** (`results/experiment_results.csv`):
-- Import into Excel, R, Python for analysis
-- All metrics included
-
-**JSON** (`results/all_results.json`):
-- Complete results for every prediction
-- Includes reasoning, predictions, ground truth, metrics
-- Useful for debugging and detailed analysis
-
-## Evaluation Metrics Explained
-
-For each prediction, we calculate:
-
-| Metric | Description | Formula (Normal distributions) |
-|--------|-------------|-------------------------------|
-| **KL Divergence** | Information-theoretic distance | `log(σ_true/σ_pred) + (σ_pred² + (μ_pred - μ_true)²)/(2σ_true²) - 0.5` |
-| **Wasserstein-2** | Geometric L2 distance | `√((μ_pred - μ_true)² + (σ_pred - σ_true)²)` |
-| **MAE (mu)** | Absolute error on mean | `|μ_pred - μ_true|` |
-| **MAE (sigma)** | Absolute error on std dev | `|σ_pred - σ_true|` |
-
-Aggregated across all subjects:
-- Mean of each metric
-- Standard deviation
-- Count of valid vs invalid predictions
-
-## Customization
-
-### Change Model
-
-In `src/example_runner.py`:
-
-```python
-# Use Opus for better performance
-self.options = ClaudeAgentOptions(model="claude-opus-4-5-20251101")
-```
-
-### Adjust Retries
-
-```python
-prediction = await predictor.predict(description, max_retries=5)
-```
-
-### Add Custom Metrics
-
-In `src/evaluation/metrics.py`:
-
-```python
-def custom_metric(pred_dist, true_dist):
-    # Your implementation
-    return score
-
-# Add to evaluate_prediction() function
-metrics.custom_score = custom_metric(prediction.height_distribution, ground_truth.height)
-```
-
-### Modify Prompts
-
-Edit the prompts in `src/example_runner.py` (baseline, web_search) or `src/prompts/probabilistic_agent_prompt.md` (probabilistic).
+Tests cover:
+- KL divergence properties
+- Wasserstein distance properties  
+- Calibration metric calculations
+- Statistical test behavior
 
 ## Troubleshooting
 
-### JSON Parsing Errors
+### NHANES Download Fails
 
 ```
-JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+HTTPError: 403 Forbidden
 ```
 
-**Solution**: Check if Claude is returning markdown code blocks. The code handles this with:
-```python
-if "```json" in response_text:
-    response_text = response_text.split("```json")[1].split("```")[0]
+**Solution**: CDC servers may be temporarily unavailable. Wait and retry, or use cached data.
+
+### PyMC Timeout
+
 ```
+TimeoutError: PyMC execution exceeded 60 seconds
+```
+
+**Solution**: Increase timeout or skip PyMC execution for faster runs.
+
+### Web Search Rate Limited
+
+```
+RateLimitExceeded: Maximum 3 searches per prediction
+```
+
+**Solution**: This is intentional to prevent abuse. Falls back to simulated data.
 
 ### Authentication Errors
 
@@ -297,114 +340,32 @@ if "```json" in response_text:
 Could not resolve authentication method
 ```
 
-**Solution**: Authenticate Claude Code:
-```bash
-claude
+**Solution**: Run `claude` in terminal to authenticate.
+
+## Citation
+
+If using this code or methodology, please cite:
+
+```bibtex
+@software{bayesian_calibration_demo,
+  title = {Bayesian Height/Weight Prediction Calibration Study},
+  year = {2025},
+  note = {Evaluating LLM uncertainty calibration with NHANES data}
+}
 ```
 
-### Import Errors
+## Data Sources
 
-```
-ModuleNotFoundError: No module named 'claude_agent_sdk'
-```
-
-**Solution**:
-```bash
-source venv/bin/activate
-pip install -e .
-```
-
-### Missing Test Data
-
-```
-FileNotFoundError: data/subjects.json
-```
-
-**Solution**: The template is already copied to `data/subjects.json`. If missing:
-```bash
-cp data/subjects_template.json data/subjects.json
-```
-
-## Development
-
-### Debug SDK Integration
-
-```bash
-python debug_sdk.py  # Inspect message types and structure
-```
-
-### Test Single Prediction
-
-```bash
-python test_single.py  # Quick validation without full experiment
-```
-
-### Check Intermediate Results
-
-During long runs, results are saved immediately:
-```bash
-ls results/intermediate/
-# Shows: baseline_001.json, baseline_002.json, etc.
-```
-
-## Future Enhancements
-
-1. **Web Search Tool Integration**: Currently simulated in prompts, could use actual web search tool
-2. **PyMC Execution**: Execute generated PyMC code to refine distributions (currently uses LLM-provided params)
-3. **Extended Metrics**: Add coverage probability, calibration metrics
-4. **Visualization**: Plot predicted vs true distributions
-5. **Dataset Expansion**: 50+ subjects with diverse demographics
-
-## Technical Details
-
-### Claude Agent SDK Usage
-
-```python
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
-
-async for message in query(prompt=prompt, options=ClaudeAgentOptions()):
-    if isinstance(message, AssistantMessage):
-        for block in message.content:
-            if hasattr(block, "text"):
-                response_text += block.text
-```
-
-**Important**: Use `isinstance(message, AssistantMessage)` not `message.type == 'assistant'` because SDK messages don't have a `.type` attribute.
-
-### Dependencies
-
-Core:
-- `claude-agent-sdk` - Claude AI integration with Code authentication
-- `pydantic>=2.0.0` - Data validation
-- `numpy>=1.24.0` - Numerical operations
-- `scipy>=1.10.0` - Statistical functions
-- `pandas>=2.0.0` - Data analysis
-
-Optional:
-- `pymc>=5.25.1` - For executing generated probabilistic models
-- `arviz>=0.22.0` - PyMC visualization
-- `matplotlib>=3.7.0` - Plotting
-- `seaborn>=0.12.0` - Statistical visualization
-
-### Cost Estimate
-
-Claude Code + Claude Agent SDK pricing:
-- Pilot test (5 subjects × 3 approaches = 15 predictions): ~2-3 minutes
-- Full experiment (50 subjects × 3 approaches = 150 predictions): ~15-20 minutes
-
-No direct API costs when using Claude Code authentication.
+- **NHANES**: CDC National Health and Nutrition Examination Survey
+  - Public domain, no license restrictions
+  - https://wwwn.cdc.gov/nchs/nhanes/
 
 ## References
 
-- **Claude Agent SDK**: https://platform.claude.com/docs/en/agent-sdk/quickstart
-- **PyMC Documentation**: https://www.pymc.io/
-- **KL Divergence**: https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
-- **Wasserstein Distance**: https://en.wikipedia.org/wiki/Wasserstein_metric
+- Gneiting, T., & Raftery, A. E. (2007). Strictly proper scoring rules, prediction, and estimation. *JASA*.
+- NHANES: https://wwwn.cdc.gov/nchs/nhanes/
+- PyMC: https://www.pymc.io/
 
 ## License
 
-This is a research demo project.
-
-## Contributing
-
-This is a research prototype. For issues or questions, refer to the codebase documentation.
+Research demo project. NHANES data is public domain.
