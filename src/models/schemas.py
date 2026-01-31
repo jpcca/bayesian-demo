@@ -4,7 +4,7 @@ Adapted from the transcribe project's api/models.py
 """
 
 from typing import Any, List, Literal, Optional
-from pydantic import BaseModel, Field, model_validator
+from pydantic import BaseModel, Field
 
 
 class DistributionParams(BaseModel):
