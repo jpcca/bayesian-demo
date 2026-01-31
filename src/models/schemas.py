@@ -15,24 +15,6 @@ class DistributionParams(BaseModel):
     sigma: float = Field(..., gt=0, description="Standard deviation (must be positive)")
     unit: Literal["cm", "kg"]
 
-    @model_validator(mode="after")
-    def validate_sigma_minimum(self) -> "DistributionParams":
-        """
-        Ensure sigma is not too small (overconfident).
-        Per prompt guidelines:
-        - Height (cm): sigma >= 3.0
-        - Weight (kg): sigma >= 5.0
-        """
-        if self.unit == "cm" and self.sigma < 3.0:
-            raise ValueError(
-                f"Height sigma must be at least 3.0 cm to avoid overconfidence, got {self.sigma}"
-            )
-        elif self.unit == "kg" and self.sigma < 5.0:
-            raise ValueError(
-                f"Weight sigma must be at least 5.0 kg to avoid overconfidence, got {self.sigma}"
-            )
-        return self
-
 
 class PredictionResult(BaseModel):
     """Structured output from a prediction agent."""
