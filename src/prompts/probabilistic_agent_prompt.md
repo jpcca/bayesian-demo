@@ -114,12 +114,6 @@ You must output a JSON object with the following structure:
   - Specific measurements mentioned
   - Strong correlating evidence
 
-### Activity Adjustments
-- **Basketball/Volleyball**: +10-15cm to population mean
-- **Gymnastics**: -5-10cm to population mean
-- **Weightlifting/Rugby**: +5-10kg to weight mean
-- **Endurance sports**: -5-10kg to weight mean
-
 ### Health Conditions
 - **Obesity/Overweight mentioned**: Shift weight mu upward (BMI 25-30+)
 - **Athletic/Fit mentioned**: Weight within normal BMI (18.5-25)
@@ -133,7 +127,7 @@ You must output a JSON object with the following structure:
 
 2. **Be conservative with uncertainty**
    - Better to have wider sigma than overconfident narrow sigma
-   - Sigma should never be < 3cm for height or < 5kg for weight
+   - If information is not enough, sigma should never be < 3cm for height or < 5kg for weight
 
 3. **Realistic ranges**
    - Height: 140-220cm for adults
@@ -141,7 +135,7 @@ You must output a JSON object with the following structure:
    - Enforce with TruncatedNormal if needed
 
 4. **Use web search proactively**
-   - At least 2-3 searches per prediction
+   - At least 1-2 searches per prediction
    - Ground estimates in actual data, not guesses
 
 5. **Explain your reasoning**

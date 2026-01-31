@@ -35,9 +35,9 @@ Instead of predicting "175cm tall", we predict "height ~ Normal(175cm, σ=6cm)" 
 cd bayesian-demo
 
 # Create virtual environment and install dependencies
-python3 -m venv venv
-source venv/bin/activate
-pip install -e .
+uv venv venv
+source .venv/bin/activate
+uv pip install -e .
 
 # Verify test data exists
 ls data/subjects.json  # Should show 5 template subjects
@@ -46,8 +46,7 @@ ls data/subjects.json  # Should show 5 template subjects
 ### Run Pilot Test
 
 ```bash
-cd src
-python example_runner.py
+python src/example_runner.py
 ```
 
 This will:

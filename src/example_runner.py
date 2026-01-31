@@ -13,10 +13,9 @@ Adapted from the transcribe project's api/main.py WebSocket loop.
 import asyncio
 import json
 import os
-import subprocess
 from typing import List, Literal
 
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
 
 from models.schemas import (
     PredictionResult,
@@ -43,8 +42,53 @@ class ClaudePredictor:
         # Load appropriate prompt
         self.system_prompt = self._load_prompt()
 
-        # Configure SDK options
-        self.options = ClaudeAgentOptions()
+        # Configure SDK options based on approach
+        if approach in ("web_search", "probabilistic"):
+            # Enable WebSearch tool for approaches that need it
+            self.options = ClaudeAgentOptions(
+                allowed_tools=["WebSearch"],
+                system_prompt=self.system_prompt,
+            )
+        else:
+            # Baseline: no web search
+            self.options = ClaudeAgentOptions(
+                system_prompt=self.system_prompt,
+            )
+
+    def _extract_json(self, response_text: str) -> str:
+        """
+        Extract JSON from response text, handling various formats.
+
+        Handles:
+        - Plain JSON
+        - JSON wrapped in ```json ... ``` blocks
+        - JSON wrapped in ``` ... ``` blocks
+        - Multiple code blocks (extracts first JSON block)
+        """
+        import re
+
+        text = response_text.strip()
+
+        # Try to find ```json ... ``` block first
+        json_block_match = re.search(r"```json\s*([\s\S]*?)```", text)
+        if json_block_match:
+            return json_block_match.group(1).strip()
+
+        # Try to find any ``` ... ``` block that looks like JSON
+        code_blocks = re.findall(r"```\s*([\s\S]*?)```", text)
+        for block in code_blocks:
+            block = block.strip()
+            if block.startswith("{") or block.startswith("["):
+                return block
+
+        # No code blocks found, try to extract JSON directly
+        # Look for JSON object pattern
+        json_match = re.search(r"(\{[\s\S]*\})", text)
+        if json_match:
+            return json_match.group(1).strip()
+
+        # Return original text and let json.loads handle the error
+        return text
 
     def _load_prompt(self) -> str:
         """Load the appropriate system prompt based on approach."""
@@ -74,8 +118,9 @@ Output JSON format:
 }
 """
         else:  # probabilistic
-            # Load the full probabilistic prompt
-            prompt_path = "prompts/probabilistic_agent_prompt.md"
+            # Load the full probabilistic prompt using absolute path
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            prompt_path = os.path.join(script_dir, "prompts", "probabilistic_agent_prompt.md")
             if os.path.exists(prompt_path):
                 with open(prompt_path, "r") as f:
                     return f.read()
@@ -84,9 +129,7 @@ Output JSON format:
 Include web search and generate PyMC code.
 See probabilistic_agent_prompt.md for full instructions."""
 
-    async def predict(
-        self, person_description: str, max_retries: int = 3
-    ) -> "PredictionResult":
+    async def predict(self, person_description: str, max_retries: int = 3) -> "PredictionResult":
         """
         Make a prediction for a person based on their description.
 
@@ -94,32 +137,30 @@ See probabilistic_agent_prompt.md for full instructions."""
         """
         for attempt in range(max_retries):
             try:
-                # Build full prompt with system instructions
-                full_prompt = f"""{self.system_prompt}
-
-USER INPUT:
+                # Build user prompt (system prompt is passed via ClaudeAgentOptions)
+                user_prompt = f"""USER INPUT:
 {person_description}
 
 Please respond with ONLY the JSON object, no additional text."""
 
                 # Call Claude Agent SDK
                 response_text = ""
-                async for message in query(prompt=full_prompt, options=self.options):
+                async for message in query(prompt=user_prompt, options=self.options):
                     # Collect assistant messages
                     if isinstance(message, AssistantMessage):
                         for block in message.content:
                             if hasattr(block, "text"):
                                 response_text += block.text
 
-                # Try to parse as JSON
-                # Handle markdown code blocks if present
-                if "```json" in response_text:
-                    response_text = response_text.split("```json")[1].split("```")[0]
-                elif "```" in response_text:
-                    response_text = response_text.split("```")[1].split("```")[0]
+                # Check for empty response
+                if not response_text.strip():
+                    raise ValueError("Empty response received from Claude")
+
+                # Extract JSON from response, handling markdown code blocks
+                json_text = self._extract_json(response_text)
 
                 # Parse and sanitize
-                data = json.loads(response_text.strip())
+                data = json.loads(json_text)
                 data = sanitize_nulls(data)
 
                 # Validate and construct
@@ -127,9 +168,7 @@ Please respond with ONLY the JSON object, no additional text."""
                 return result
 
             except Exception as e:
-                print(
-                    f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}"
-                )
+                print(f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}")
                 if attempt == max_retries - 1:
                     # Return invalid result
                     return PredictionResult(
@@ -171,7 +210,7 @@ class ExperimentRunner:
         results = []
 
         for i, subject in enumerate(subjects):
-            print(f"[{approach}] Processing subject {i+1}/{len(subjects)}...")
+            print(f"[{approach}] Processing subject {i + 1}/{len(subjects)}...")
 
             # Make prediction
             prediction = await predictor.predict(subject.text_description)
@@ -202,9 +241,7 @@ class ExperimentRunner:
         with open(filename, "w") as f:
             json.dump(result.model_dump(), f, indent=2)
 
-    async def run_all_experiments(
-        self, subjects: List["GroundTruth"]
-    ) -> List["AggregatedMetrics"]:
+    async def run_all_experiments(self, subjects: List["GroundTruth"]) -> List["AggregatedMetrics"]:
         """
         Run all three approaches and aggregate results.
 
@@ -218,9 +255,9 @@ class ExperimentRunner:
         all_aggregated = []
 
         for approach in approaches:
-            print(f"\n{'='*60}")
+            print(f"\n{'=' * 60}")
             print(f"Running experiment: {approach}")
-            print(f"{'='*60}\n")
+            print(f"{'=' * 60}\n")
 
             results = await self.run_single_experiment(approach, subjects)
             self.results.extend(results)
@@ -233,12 +270,10 @@ class ExperimentRunner:
             print(f"  Valid: {aggregated.n_valid}/{aggregated.n_total}")
             print(f"  Invalid rate: {aggregated.invalid_rate_percent:.1f}%")
             if aggregated.n_valid > 0:
-                print(
-                    f"  Mean KL (height): {aggregated.mean_kl_divergence_height:.3f}"
-                )
-                print(
-                    f"  Mean KL (weight): {aggregated.mean_kl_divergence_weight:.3f}"
-                )
+                print(f"  Mean NLL (height): {aggregated.mean_nll_height:.2f}")
+                print(f"  Mean NLL (weight): {aggregated.mean_nll_weight:.2f}")
+                print(f"  95% CI Coverage (height): {aggregated.coverage_95ci_height_percent:.0f}%")
+                print(f"  95% CI Coverage (weight): {aggregated.coverage_95ci_weight_percent:.0f}%")
 
         return all_aggregated
 
@@ -254,10 +289,11 @@ class ExperimentRunner:
             f.write("# Experiment Results\n\n")
             f.write(table)
             f.write("\n\n## Metric Descriptions\n\n")
-            f.write("- **KL Divergence**: Lower is better (0 = perfect match)\n")
-            f.write("- **Wasserstein Distance**: L2 distance between distributions\n")
-            f.write("- **MAE**: Mean Absolute Error on distribution mean (mu)\n")
-            f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions\n")
+            f.write("- **NLL (Negative Log-Likelihood)**: Lower is better. Measures how likely the true value is under the predicted distribution.\n")
+            f.write("- **Abs Error**: Absolute error between predicted mean and true value (in cm for height, kg for weight).\n")
+            f.write("- **Mean |z|**: Mean absolute z-score. For well-calibrated predictions, should be ~0.8.\n")
+            f.write("- **95% CI Coverage**: Percentage of true values within 95% credible interval. Should be ~95% if well-calibrated.\n")
+            f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions.\n")
 
         # Save as CSV
         df = pd.DataFrame([m.model_dump() for m in aggregated_metrics])
@@ -272,16 +308,15 @@ class ExperimentRunner:
 
 def load_test_data() -> List["GroundTruth"]:
     """
-    Load test subjects and ground truth.
+    Load test subjects and ground truth actual measurements.
 
-    You'll need to create this data file with 50 subjects.
     Format:
     [
       {
         "subject_id": "001",
         "text_description": "John is a 28-year-old...",
-        "height": {"distribution_type": "normal", "mu": 175, "sigma": 6, "unit": "cm"},
-        "weight": {"distribution_type": "normal", "mu": 72, "sigma": 8, "unit": "kg"}
+        "height_cm": 175.0,
+        "weight_kg": 72.0
       },
       ...
     ]

@@ -3,8 +3,8 @@ Data models for the height/weight prediction evaluation project.
 Adapted from the transcribe project's api/models.py
 """
 
-from typing import Any, Dict, List, Literal, Optional
-from pydantic import BaseModel, Field, field_validator
+from typing import Any, List, Literal, Optional
+from pydantic import BaseModel, Field
 
 
 class DistributionParams(BaseModel):
@@ -14,14 +14,6 @@ class DistributionParams(BaseModel):
     mu: float = Field(..., description="Mean parameter")
     sigma: float = Field(..., gt=0, description="Standard deviation (must be positive)")
     unit: Literal["cm", "kg"]
-
-    @field_validator("sigma")
-    @classmethod
-    def validate_sigma_minimum(cls, v: float) -> float:
-        """Ensure sigma is not too small (overconfident)."""
-        if v < 1.0:
-            raise ValueError("Sigma must be at least 1.0 to avoid overconfidence")
-        return v
 
 
 class PredictionResult(BaseModel):
@@ -53,32 +45,33 @@ class PredictionResult(BaseModel):
 
 
 class GroundTruth(BaseModel):
-    """Ground truth distribution for a subject."""
+    """Ground truth actual measurements for a subject."""
 
     subject_id: str
-    height: DistributionParams
-    weight: DistributionParams
+    height_cm: float = Field(..., gt=0, description="Actual measured height in centimeters")
+    weight_kg: float = Field(..., gt=0, description="Actual measured weight in kilograms")
     text_description: str = Field(..., description="The input paragraph")
 
 
 class EvaluationMetrics(BaseModel):
-    """Metrics for comparing predicted and ground truth distributions."""
+    """Metrics for comparing predicted distribution against actual ground truth value."""
 
-    # KL divergence (lower is better, 0 = perfect match)
-    kl_divergence_height: float
-    kl_divergence_weight: float
+    # Negative log-likelihood of true value under predicted distribution (lower is better)
+    nll_height: float
+    nll_weight: float
 
-    # Wasserstein distance (lower is better)
-    wasserstein_distance_height: float
-    wasserstein_distance_weight: float
+    # Absolute error: |predicted_mu - true_value| (lower is better)
+    abs_error_height: float
+    abs_error_weight: float
 
-    # Mean absolute error on mu (lower is better)
-    mae_height_mu: float
-    mae_weight_mu: float
+    # Z-score: (true_value - predicted_mu) / predicted_sigma
+    # Ideally |z| < 2 for 95% of well-calibrated predictions
+    z_score_height: float
+    z_score_weight: float
 
-    # Sigma error (absolute difference)
-    sigma_error_height: float
-    sigma_error_weight: float
+    # Coverage: whether true value falls within 95% credible interval
+    in_95ci_height: bool
+    in_95ci_weight: bool
 
     # Overall validity
     is_valid: bool
@@ -109,18 +102,22 @@ class AggregatedMetrics(BaseModel):
     invalid_rate_percent: float
 
     # Mean metrics (only computed on valid predictions)
-    mean_kl_divergence_height: Optional[float] = None
-    mean_kl_divergence_weight: Optional[float] = None
-    mean_wasserstein_distance_height: Optional[float] = None
-    mean_wasserstein_distance_weight: Optional[float] = None
-    mean_mae_height_mu: Optional[float] = None
-    mean_mae_weight_mu: Optional[float] = None
-    mean_sigma_error_height: Optional[float] = None
-    mean_sigma_error_weight: Optional[float] = None
+    mean_nll_height: Optional[float] = None
+    mean_nll_weight: Optional[float] = None
+    mean_abs_error_height: Optional[float] = None
+    mean_abs_error_weight: Optional[float] = None
+    mean_abs_z_score_height: Optional[float] = None  # Mean of |z-score|
+    mean_abs_z_score_weight: Optional[float] = None
+
+    # Coverage: percentage of true values within 95% CI (should be ~95% if well-calibrated)
+    coverage_95ci_height_percent: Optional[float] = None
+    coverage_95ci_weight_percent: Optional[float] = None
 
     # Standard deviations (for error bars)
-    std_kl_divergence_height: Optional[float] = None
-    std_kl_divergence_weight: Optional[float] = None
+    std_nll_height: Optional[float] = None
+    std_nll_weight: Optional[float] = None
+    std_abs_error_height: Optional[float] = None
+    std_abs_error_weight: Optional[float] = None
 
 
 def sanitize_nulls(data: Any) -> Any:

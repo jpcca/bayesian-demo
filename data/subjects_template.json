@@ -2,81 +2,31 @@
   {
     "subject_id": "001",
     "text_description": "Sarah is a 32-year-old Norwegian woman who works as a software engineer. She mentioned playing volleyball in college and still plays recreationally on weekends. She describes herself as taller than most of her female friends and maintains an active lifestyle with regular gym sessions.",
-    "height": {
-      "distribution_type": "normal",
-      "mu": 178.0,
-      "sigma": 4.0,
-      "unit": "cm"
-    },
-    "weight": {
-      "distribution_type": "normal",
-      "mu": 72.0,
-      "sigma": 6.0,
-      "unit": "kg"
-    }
+    "height_cm": 178.0,
+    "weight_kg": 72.0
   },
   {
     "subject_id": "002",
     "text_description": "Kenji is a 26-year-old Japanese male who graduated from university four years ago. He works as a graphic designer and mentioned he used to play basketball in high school. He enjoys hiking on weekends and describes himself as being tall for someone from his region.",
-    "height": {
-      "distribution_type": "normal",
-      "mu": 180.0,
-      "sigma": 5.0,
-      "unit": "cm"
-    },
-    "weight": {
-      "distribution_type": "normal",
-      "mu": 70.0,
-      "sigma": 7.0,
-      "unit": "kg"
-    }
+    "height_cm": 180.0,
+    "weight_kg": 70.0
   },
   {
     "subject_id": "003",
     "text_description": "Maria is a 19-year-old Brazilian gymnast who has been training since she was 6 years old. She competes at the national level and maintains a strict diet and training regimen. Her coaches describe her as having the ideal build for her sport.",
-    "height": {
-      "distribution_type": "normal",
-      "mu": 158.0,
-      "sigma": 3.0,
-      "unit": "cm"
-    },
-    "weight": {
-      "distribution_type": "normal",
-      "mu": 52.0,
-      "sigma": 4.0,
-      "unit": "kg"
-    }
+    "height_cm": 158.0,
+    "weight_kg": 52.0
   },
   {
     "subject_id": "004",
     "text_description": "Michael is a 45-year-old American man who works as a construction foreman. He's been in the construction industry for over 20 years and stays active through his physically demanding work. He mentioned he played football in high school and still has a stocky, muscular build.",
-    "height": {
-      "distribution_type": "normal",
-      "mu": 180.0,
-      "sigma": 5.0,
-      "unit": "cm"
-    },
-    "weight": {
-      "distribution_type": "normal",
-      "mu": 92.0,
-      "sigma": 8.0,
-      "unit": "kg"
-    }
+    "height_cm": 180.0,
+    "weight_kg": 92.0
   },
   {
     "subject_id": "005",
     "text_description": "Aisha is a 28-year-old Somali woman who immigrated to Sweden five years ago. She works as a nurse and runs marathons in her free time. She's been running competitively since college and describes herself as lean and athletic.",
-    "height": {
-      "distribution_type": "normal",
-      "mu": 170.0,
-      "sigma": 5.0,
-      "unit": "cm"
-    },
-    "weight": {
-      "distribution_type": "normal",
-      "mu": 56.0,
-      "sigma": 5.0,
-      "unit": "kg"
-    }
+    "height_cm": 170.0,
+    "weight_kg": 56.0
   }
 ]
