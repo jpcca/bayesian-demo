@@ -46,12 +46,18 @@ class ClaudePredictor:
         if approach in ("web_search", "probabilistic"):
             # Enable WebSearch tool for approaches that need it
             self.options = ClaudeAgentOptions(
+                model="haiku",
+                max_turns=5,
+                max_thinking_tokens=0,
                 allowed_tools=["WebSearch"],
                 system_prompt=self.system_prompt,
             )
         else:
             # Baseline: no web search
             self.options = ClaudeAgentOptions(
+                model="haiku",
+                max_turns=3,
+                max_thinking_tokens=0,
                 system_prompt=self.system_prompt,
             )
 
