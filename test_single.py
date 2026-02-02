@@ -3,8 +3,12 @@
 
 import asyncio
 import json
+
+import pytest
 from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 
+
+@pytest.mark.asyncio
 async def test():
     prompt = """You are a height and weight prediction system.
 Given a text description of a person, predict their height (cm) and weight (kg)
@@ -28,16 +32,17 @@ Please respond with ONLY the JSON object, no additional text."""
     async for message in query(prompt=prompt, options=ClaudeAgentOptions()):
         if isinstance(message, AssistantMessage):
             for block in message.content:
-                if hasattr(block, "text"):
-                    response_text += block.text
-                    print(f"Got text: {block.text[:100]}...")
+                text = getattr(block, "text", None)
+                if text is not None:
+                    response_text += text
+                    print(f"Got text: {text[:100]}...")
         elif isinstance(message, ResultMessage):
             print(f"Result: {message.subtype}, duration: {message.duration_ms}ms")
 
-    print("\n" + "="*60)
+    print("\n" + "=" * 60)
     print("Full response:")
     print(response_text)
-    print("="*60)
+    print("=" * 60)
 
     # Try to parse
     try:
@@ -51,6 +56,7 @@ Please respond with ONLY the JSON object, no additional text."""
         print(json.dumps(data, indent=2))
     except Exception as e:
         print(f"\nParsing failed: {e}")
+
 
 if __name__ == "__main__":
     asyncio.run(test())
