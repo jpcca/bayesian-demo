@@ -35,7 +35,6 @@ ENV/
 
 # Project specific
 results/
-data/subjects.json
 *.log
 temp_model_*.py
 pymc_output.json
