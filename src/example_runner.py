@@ -54,12 +54,11 @@ class ClaudePredictor:
                 system_prompt=self.system_prompt,
             )
         elif approach == "probabilistic":
-            # Probabilistic: web search + PyMC prompting, more turns for reasoning
+            # Probabilistic: PyMC prompting only, no web search
             self.options = ClaudeAgentOptions(
                 model="haiku",
                 max_turns=5,
                 max_thinking_tokens=0,
-                allowed_tools=["WebSearch"],
                 system_prompt=self.system_prompt,
             )
         else:

@@ -40,16 +40,15 @@ class TestClaudePredictorInit:
             assert "allowed_tools" in call_kwargs
             assert "WebSearch" in call_kwargs["allowed_tools"]
 
-    def test_probabilistic_approach_enables_web_search(self):
-        """Probabilistic approach should enable WebSearch tool."""
+    def test_probabilistic_approach_no_web_search(self):
+        """Probabilistic approach should not enable WebSearch tool."""
         with patch("example_runner.ClaudeAgentOptions") as MockOptions:
             from example_runner import ClaudePredictor
 
             ClaudePredictor(approach="probabilistic")  # Instantiate to trigger __init__
 
             call_kwargs = MockOptions.call_args[1]
-            assert "allowed_tools" in call_kwargs
-            assert "WebSearch" in call_kwargs["allowed_tools"]
+            assert "allowed_tools" not in call_kwargs or call_kwargs.get("allowed_tools") is None
 
     def test_system_prompt_passed_to_options(self):
         """System prompt should be passed to ClaudeAgentOptions."""
