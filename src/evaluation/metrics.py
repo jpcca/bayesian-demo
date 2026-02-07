@@ -226,11 +226,12 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
         # Coverage (should be ~95% for well-calibrated predictions)
         coverage_95ci_height_percent=coverage_height,
         coverage_95ci_weight_percent=coverage_weight,
-        # Standard deviations (for error bars in plots)
-        std_nll_height=float(np.std(nll_height)),
-        std_nll_weight=float(np.std(nll_weight)),
-        std_abs_error_height=float(np.std(abs_error_height)),
-        std_abs_error_weight=float(np.std(abs_error_weight)),
+        # Standard deviations (for error bars in plots), using ddof=1 for sample std
+        # Falls back to 0.0 when n_valid < 2 (ddof=1 requires at least 2 samples)
+        std_nll_height=float(np.std(nll_height, ddof=1)) if n_valid >= 2 else 0.0,
+        std_nll_weight=float(np.std(nll_weight, ddof=1)) if n_valid >= 2 else 0.0,
+        std_abs_error_height=float(np.std(abs_error_height, ddof=1)) if n_valid >= 2 else 0.0,
+        std_abs_error_weight=float(np.std(abs_error_weight, ddof=1)) if n_valid >= 2 else 0.0,
         # Token usage statistics
         mean_input_tokens=mean_input_tokens,
         mean_output_tokens=mean_output_tokens,

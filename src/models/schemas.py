@@ -14,12 +14,12 @@ class TokenUsage(BaseModel):
     output_tokens: int = 0
     cache_creation_input_tokens: int = 0
     cache_read_input_tokens: int = 0
-    total_tokens: int = 0
+    total_tokens: int = 0  # All tokens seen (input + output + cache creation + cache read)
     num_turns: int = 0  # Number of unique message IDs (turns)
 
     @property
-    def total_api_tokens(self) -> int:
-        """Total tokens charged by API (including cache tokens)."""
+    def billable_tokens(self) -> int:
+        """Tokens charged by the API (cache reads are free)."""
         return self.input_tokens + self.output_tokens + self.cache_creation_input_tokens
 
 

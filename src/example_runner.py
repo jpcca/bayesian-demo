@@ -96,11 +96,16 @@ class ClaudePredictor:
             if block.startswith("{") or block.startswith("["):
                 return block
 
-        # No code blocks found, try to extract JSON directly
-        # Look for JSON object pattern
-        json_match = re.search(r"(\{[\s\S]*\})", text)
-        if json_match:
-            return json_match.group(1).strip()
+        # No code blocks found, try to extract JSON directly using raw_decode
+        # to correctly handle nested braces
+        start = text.find("{")
+        if start != -1:
+            try:
+                decoder = json.JSONDecoder()
+                _, end = decoder.raw_decode(text, start)
+                return text[start:end].strip()
+            except json.JSONDecodeError:
+                pass
 
         # Return original text and let json.loads handle the error
         return text
@@ -226,6 +231,8 @@ Please respond with ONLY the JSON object, no additional text."""
                         ),
                         TokenUsage(),
                     )
+                # Exponential backoff: 1s, 2s, 4s, ...
+                await asyncio.sleep(2**attempt)
                 continue
 
 
