@@ -252,19 +252,19 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
         Markdown formatted table string
     """
     # Build header
-    table = "| Approach | N Valid | Invalid % | NLL (H) | NLL (W) | Abs Err H (cm) | Abs Err W (kg) | Mean |z| H | Mean |z| W | 95% CI H | 95% CI W | Mean Tokens | Mean Turns |\n"
-    table += "|----------|---------|-----------|---------|---------|----------------|----------------|----------|----------|----------|----------|-------------|------------|\n"
+    table = "| Approach | N Valid | Invalid % | NLL (H) | NLL (W) | Abs Err H (cm) | Abs Err W (kg) | Mean |z| H | Mean |z| W | 95% CI H | 95% CI W | Input Tok | Output Tok | Total Tok | Turns |\n"
+    table += "|----------|---------|-----------|---------|---------|----------------|----------------|----------|----------|----------|----------|-----------|------------|-----------|-------|\n"
 
     # Build rows
     for metrics in aggregated_metrics:
+        in_tok = f"{metrics.mean_input_tokens:.0f}" if metrics.mean_input_tokens else "N/A"
+        out_tok = f"{metrics.mean_output_tokens:.0f}" if metrics.mean_output_tokens else "N/A"
+        total_tok = f"{metrics.mean_total_tokens:.0f}" if metrics.mean_total_tokens else "N/A"
+        turns_str = f"{metrics.mean_num_turns:.1f}" if metrics.mean_num_turns else "N/A"
+
         if metrics.n_valid == 0:
-            # No valid predictions - but may still have token usage
-            token_str = f"{metrics.mean_total_tokens:.0f}" if metrics.mean_total_tokens else "N/A"
-            turns_str = f"{metrics.mean_num_turns:.1f}" if metrics.mean_num_turns else "N/A"
-            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | {token_str} | {turns_str} |\n"
+            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | {in_tok} | {out_tok} | {total_tok} | {turns_str} |\n"
         else:
-            token_str = f"{metrics.mean_total_tokens:.0f}" if metrics.mean_total_tokens else "N/A"
-            turns_str = f"{metrics.mean_num_turns:.1f}" if metrics.mean_num_turns else "N/A"
             table += (
                 f"| {metrics.approach} "
                 f"| {metrics.n_valid}/{metrics.n_total} "
@@ -277,7 +277,9 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
                 f"| {metrics.mean_abs_z_score_weight:.2f} "
                 f"| {metrics.coverage_95ci_height_percent:.0f}% "
                 f"| {metrics.coverage_95ci_weight_percent:.0f}% "
-                f"| {token_str} "
+                f"| {in_tok} "
+                f"| {out_tok} "
+                f"| {total_tok} "
                 f"| {turns_str} |\n"
             )
 

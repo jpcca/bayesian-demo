@@ -15,6 +15,9 @@ class TokenUsage(BaseModel):
     - output_tokens: model's output price
     - cache_creation_input_tokens: 1.25x base input price
     - cache_read_input_tokens: 0.1x base input price (90% discount, not free)
+
+    For cost estimation, price each category separately — do not multiply
+    total_tokens by a single rate.
     """
 
     input_tokens: int = 0
@@ -23,24 +26,6 @@ class TokenUsage(BaseModel):
     cache_read_input_tokens: int = 0
     total_tokens: int = 0  # All tokens processed (input + output + cache creation + cache read)
     num_turns: int = 0  # Number of unique message IDs (turns)
-
-    def estimate_cost_usd(
-        self,
-        input_price_per_mtok: float = 1.0,
-        output_price_per_mtok: float = 5.0,
-        cache_write_multiplier: float = 1.25,
-        cache_read_multiplier: float = 0.1,
-    ) -> float:
-        """Estimate cost in USD based on per-million-token pricing.
-
-        Default prices are for Claude Haiku 3.5. Override for other models.
-        """
-        return (
-            self.input_tokens * input_price_per_mtok
-            + self.output_tokens * output_price_per_mtok
-            + self.cache_creation_input_tokens * input_price_per_mtok * cache_write_multiplier
-            + self.cache_read_input_tokens * input_price_per_mtok * cache_read_multiplier
-        ) / 1_000_000
 
 
 class DistributionParams(BaseModel):

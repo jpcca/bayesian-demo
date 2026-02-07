@@ -334,6 +334,8 @@ class ExperimentRunner:
                 print(f"  95% CI Coverage (height): {aggregated.coverage_95ci_height_percent:.0f}%")
                 print(f"  95% CI Coverage (weight): {aggregated.coverage_95ci_weight_percent:.0f}%")
             if aggregated.mean_total_tokens is not None:
+                print(f"  Mean input tokens: {aggregated.mean_input_tokens:.0f}")
+                print(f"  Mean output tokens: {aggregated.mean_output_tokens:.0f}")
                 print(f"  Mean total tokens: {aggregated.mean_total_tokens:.0f}")
                 print(f"  Mean turns: {aggregated.mean_num_turns:.1f}")
                 print(f"  Total tokens (all predictions): {aggregated.total_tokens_all_predictions}")
@@ -357,8 +359,8 @@ class ExperimentRunner:
             f.write("- **Mean |z|**: Mean absolute z-score. For well-calibrated predictions, should be ~0.8.\n")
             f.write("- **95% CI Coverage**: Percentage of true values within 95% credible interval. Should be ~95% if well-calibrated.\n")
             f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions.\n")
-            f.write("- **Mean Tokens**: Average total tokens (input + output + cache) per prediction.\n")
-            f.write("- **Mean Turns**: Average number of agent turns (API calls) per prediction.\n")
+            f.write("- **Input/Output/Total Tok**: Average tokens per prediction (input, output, and total including cache). All four token types are billed at different rates.\n")
+            f.write("- **Turns**: Average number of agent turns (API calls) per prediction.\n")
 
         # Save as CSV
         df = pd.DataFrame([m.model_dump() for m in aggregated_metrics])
