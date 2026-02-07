@@ -54,11 +54,12 @@ class ClaudePredictor:
                 system_prompt=self.system_prompt,
             )
         elif approach == "probabilistic":
-            # Probabilistic: no web search, but more turns for reasoning
+            # Probabilistic: web search + PyMC prompting, more turns for reasoning
             self.options = ClaudeAgentOptions(
                 model="haiku",
                 max_turns=5,
                 max_thinking_tokens=0,
+                allowed_tools=["WebSearch"],
                 system_prompt=self.system_prompt,
             )
         else:
@@ -298,7 +299,7 @@ class ExperimentRunner:
         Run all three approaches and aggregate results.
 
         Args:
-            subjects: List of 50 GroundTruth objects
+            subjects: List of GroundTruth objects
 
         Returns:
             List of AggregatedMetrics for each approach

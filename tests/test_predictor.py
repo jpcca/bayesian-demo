@@ -91,7 +91,7 @@ class TestClaudePredictorPredict:
                 from example_runner import ClaudePredictor
 
                 predictor = ClaudePredictor(approach="baseline")
-                result = await predictor.predict("Test person description")
+                result, token_usage = await predictor.predict("Test person description")
 
                 assert isinstance(result, PredictionResult)
                 assert result.is_valid is True
@@ -119,7 +119,7 @@ class TestClaudePredictorPredict:
                 from example_runner import ClaudePredictor
 
                 predictor = ClaudePredictor(approach="baseline")
-                result = await predictor.predict("Test person description")
+                result, token_usage = await predictor.predict("Test person description")
 
                 assert isinstance(result, PredictionResult)
                 assert result.is_valid is True
@@ -143,7 +143,7 @@ class TestClaudePredictorPredict:
                 from example_runner import ClaudePredictor
 
                 predictor = ClaudePredictor(approach="baseline")
-                result = await predictor.predict("Test person description")
+                result, token_usage = await predictor.predict("Test person description")
 
                 assert isinstance(result, PredictionResult)
                 assert result.is_valid is False
@@ -179,7 +179,7 @@ class TestClaudePredictorPredict:
                 from example_runner import ClaudePredictor
 
                 predictor = ClaudePredictor(approach="baseline")
-                result = await predictor.predict("Test person description", max_retries=3)
+                result, token_usage = await predictor.predict("Test person description", max_retries=3)
 
                 assert call_count == 3
                 assert result.is_valid is True
@@ -197,7 +197,7 @@ class TestClaudePredictorPredict:
                 from example_runner import ClaudePredictor
 
                 predictor = ClaudePredictor(approach="baseline")
-                result = await predictor.predict("Test person description", max_retries=2)
+                result, token_usage = await predictor.predict("Test person description", max_retries=2)
 
                 assert result.is_valid is False
                 assert "Failed after 2 attempts" in result.reasoning
