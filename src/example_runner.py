@@ -15,13 +15,14 @@ import json
 import os
 from typing import List, Literal
 
-from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage
+from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 
 from models.schemas import (
     PredictionResult,
     GroundTruth,
     ExperimentResult,
     AggregatedMetrics,
+    TokenUsage,
     sanitize_nulls,
 )
 from evaluation.metrics import evaluate_prediction, aggregate_results, format_results_table
@@ -43,8 +44,8 @@ class ClaudePredictor:
         self.system_prompt = self._load_prompt()
 
         # Configure SDK options based on approach
-        if approach in ("web_search", "probabilistic"):
-            # Enable WebSearch tool for approaches that need it
+        if approach == "web_search":
+            # Enable WebSearch tool for web_search approach only
             self.options = ClaudeAgentOptions(
                 model="haiku",
                 max_turns=5,
@@ -52,8 +53,16 @@ class ClaudePredictor:
                 allowed_tools=["WebSearch"],
                 system_prompt=self.system_prompt,
             )
+        elif approach == "probabilistic":
+            # Probabilistic: no web search, but more turns for reasoning
+            self.options = ClaudeAgentOptions(
+                model="haiku",
+                max_turns=5,
+                max_thinking_tokens=0,
+                system_prompt=self.system_prompt,
+            )
         else:
-            # Baseline: no web search
+            # Baseline: no web search, fewer turns
             self.options = ClaudeAgentOptions(
                 model="haiku",
                 max_turns=3,
@@ -132,14 +141,17 @@ Output JSON format:
                     return f.read()
             else:
                 return """Use Bayesian reasoning and PyMC to create probability distributions.
-Include web search and generate PyMC code.
+Use your knowledge of population statistics and generate PyMC code.
 See probabilistic_agent_prompt.md for full instructions."""
 
-    async def predict(self, person_description: str, max_retries: int = 3) -> "PredictionResult":
+    async def predict(self, person_description: str, max_retries: int = 3) -> tuple["PredictionResult", "TokenUsage"]:
         """
         Make a prediction for a person based on their description.
 
         Uses Claude Agent SDK query() function for one-shot predictions.
+
+        Returns:
+            Tuple of (PredictionResult, TokenUsage)
         """
         for attempt in range(max_retries):
             try:
@@ -149,6 +161,13 @@ See probabilistic_agent_prompt.md for full instructions."""
 
 Please respond with ONLY the JSON object, no additional text."""
 
+                # Track token usage - will be populated from ResultMessage
+                total_input_tokens = 0
+                total_output_tokens = 0
+                total_cache_creation_tokens = 0
+                total_cache_read_tokens = 0
+                num_turns = 0
+
                 # Call Claude Agent SDK
                 response_text = ""
                 async for message in query(prompt=user_prompt, options=self.options):
@@ -157,6 +176,17 @@ Please respond with ONLY the JSON object, no additional text."""
                         for block in message.content:
                             if hasattr(block, "text"):
                                 response_text += block.text
+
+                    # Collect token usage from ResultMessage at the end
+                    elif isinstance(message, ResultMessage):
+                        if hasattr(message, 'usage'):
+                            usage = message.usage
+                            total_input_tokens = usage.get("input_tokens", 0)
+                            total_output_tokens = usage.get("output_tokens", 0)
+                            total_cache_creation_tokens = usage.get("cache_creation_input_tokens", 0)
+                            total_cache_read_tokens = usage.get("cache_read_input_tokens", 0)
+                        if hasattr(message, 'num_turns'):
+                            num_turns = message.num_turns
 
                 # Check for empty response
                 if not response_text.strip():
@@ -171,15 +201,30 @@ Please respond with ONLY the JSON object, no additional text."""
 
                 # Validate and construct
                 result = PredictionResult(**data)
-                return result
+
+                # Create token usage object
+                total_tokens = total_input_tokens + total_output_tokens + total_cache_creation_tokens + total_cache_read_tokens
+                token_usage = TokenUsage(
+                    input_tokens=total_input_tokens,
+                    output_tokens=total_output_tokens,
+                    cache_creation_input_tokens=total_cache_creation_tokens,
+                    cache_read_input_tokens=total_cache_read_tokens,
+                    total_tokens=total_tokens,
+                    num_turns=num_turns,
+                )
+
+                return result, token_usage
 
             except Exception as e:
                 print(f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}")
                 if attempt == max_retries - 1:
-                    # Return invalid result
-                    return PredictionResult(
-                        reasoning=f"Failed after {max_retries} attempts: {str(e)}",
-                        error=str(e),
+                    # Return invalid result with empty token usage
+                    return (
+                        PredictionResult(
+                            reasoning=f"Failed after {max_retries} attempts: {str(e)}",
+                            error=str(e),
+                        ),
+                        TokenUsage(),
                     )
                 continue
 
@@ -219,7 +264,7 @@ class ExperimentRunner:
             print(f"[{approach}] Processing subject {i + 1}/{len(subjects)}...")
 
             # Make prediction
-            prediction = await predictor.predict(subject.text_description)
+            prediction, token_usage = await predictor.predict(subject.text_description)
 
             # Evaluate
             metrics = evaluate_prediction(prediction, subject)
@@ -231,6 +276,7 @@ class ExperimentRunner:
                 prediction=prediction,
                 ground_truth=subject,
                 metrics=metrics,
+                token_usage=token_usage,
             )
             results.append(result)
 
@@ -280,6 +326,10 @@ class ExperimentRunner:
                 print(f"  Mean NLL (weight): {aggregated.mean_nll_weight:.2f}")
                 print(f"  95% CI Coverage (height): {aggregated.coverage_95ci_height_percent:.0f}%")
                 print(f"  95% CI Coverage (weight): {aggregated.coverage_95ci_weight_percent:.0f}%")
+            if aggregated.mean_total_tokens is not None:
+                print(f"  Mean total tokens: {aggregated.mean_total_tokens:.0f}")
+                print(f"  Mean turns: {aggregated.mean_num_turns:.1f}")
+                print(f"  Total tokens (all predictions): {aggregated.total_tokens_all_predictions}")
 
         return all_aggregated
 
@@ -300,6 +350,8 @@ class ExperimentRunner:
             f.write("- **Mean |z|**: Mean absolute z-score. For well-calibrated predictions, should be ~0.8.\n")
             f.write("- **95% CI Coverage**: Percentage of true values within 95% credible interval. Should be ~95% if well-calibrated.\n")
             f.write("- **Invalid Rate**: % of outputs that failed to produce valid distributions.\n")
+            f.write("- **Mean Tokens**: Average total tokens (input + output + cache) per prediction.\n")
+            f.write("- **Mean Turns**: Average number of agent turns (API calls) per prediction.\n")
 
         # Save as CSV
         df = pd.DataFrame([m.model_dump() for m in aggregated_metrics])

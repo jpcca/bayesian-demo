@@ -3,8 +3,24 @@ Data models for the height/weight prediction evaluation project.
 Adapted from the transcribe project's api/models.py
 """
 
-from typing import Any, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 from pydantic import BaseModel, Field
+
+
+class TokenUsage(BaseModel):
+    """Token usage statistics for a single query."""
+
+    input_tokens: int = 0
+    output_tokens: int = 0
+    cache_creation_input_tokens: int = 0
+    cache_read_input_tokens: int = 0
+    total_tokens: int = 0
+    num_turns: int = 0  # Number of unique message IDs (turns)
+
+    @property
+    def total_api_tokens(self) -> int:
+        """Total tokens charged by API (including cache tokens)."""
+        return self.input_tokens + self.output_tokens + self.cache_creation_input_tokens
 
 
 class DistributionParams(BaseModel):
@@ -16,12 +32,27 @@ class DistributionParams(BaseModel):
     unit: Literal["cm", "kg"]
 
 
+class BeliefUpdateStep(BaseModel):
+    """A single step in the sequential Bayesian belief updating process."""
+
+    step: int = Field(..., description="Step number in the sequence")
+    evidence: str = Field(..., description="The piece of evidence being incorporated")
+    prior_height: Optional[Dict[str, float]] = Field(None, description="Height distribution before update")
+    update_rationale: str = Field(..., description="Explanation of how evidence changes belief")
+    posterior_height: Optional[Dict[str, float]] = Field(None, description="Height distribution after update")
+    prior_weight: Optional[Dict[str, float]] = Field(None, description="Weight distribution before update")
+    posterior_weight: Optional[Dict[str, float]] = Field(None, description="Weight distribution after update")
+
+
 class PredictionResult(BaseModel):
     """Structured output from a prediction agent."""
 
     reasoning: str = Field(..., description="Explanation of the prediction process")
     web_searches_performed: List[str] = Field(
         default_factory=list, description="Search queries used (for web search conditions)"
+    )
+    belief_updates: List[BeliefUpdateStep] = Field(
+        default_factory=list, description="Sequential Bayesian belief updates (for probabilistic approach)"
     )
     height_distribution: Optional[DistributionParams] = Field(
         None, description="Height distribution parameters"
@@ -85,6 +116,7 @@ class ExperimentResult(BaseModel):
     prediction: PredictionResult
     ground_truth: GroundTruth
     metrics: Optional[EvaluationMetrics] = None  # None if prediction is invalid
+    token_usage: Optional[TokenUsage] = None  # Token usage for this prediction
 
     @property
     def is_success(self) -> bool:
@@ -118,6 +150,13 @@ class AggregatedMetrics(BaseModel):
     std_nll_weight: Optional[float] = None
     std_abs_error_height: Optional[float] = None
     std_abs_error_weight: Optional[float] = None
+
+    # Token usage statistics (averaged across all predictions, including invalid ones)
+    mean_input_tokens: Optional[float] = None
+    mean_output_tokens: Optional[float] = None
+    mean_total_tokens: Optional[float] = None
+    mean_num_turns: Optional[float] = None
+    total_tokens_all_predictions: Optional[int] = None
 
 
 def sanitize_nulls(data: Any) -> Any:
