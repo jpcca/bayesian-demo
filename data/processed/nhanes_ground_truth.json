@@ -1,0 +1,3694 @@
+{
+  "metadata": {
+    "source": "NHANES August2021-August2023",
+    "description": "Ground truth distributions for height (cm) and weight (kg)",
+    "total_samples": 76040,
+    "min_samples_per_entry": 50,
+    "variables": {
+      "RIDAGEYR": {
+        "description": "Age in years (binned)",
+        "values": [
+          "18-37",
+          "38-53",
+          "54-63",
+          "64-71",
+          "72-80"
+        ]
+      },
+      "RIAGENDR": {
+        "description": "Gender",
+        "values": [
+          "Male",
+          "Female"
+        ]
+      },
+      "RIDRETH1": {
+        "description": "Race/Ethnicity",
+        "values": [
+          "MexicanAmerican",
+          "OtherHispanic",
+          "White",
+          "Black",
+          "Other"
+        ]
+      },
+      "DMDEDUC2": {
+        "description": "Education level",
+        "values": [
+          "LessThan9th",
+          "9thTo11th",
+          "HighSchool",
+          "SomeCollege",
+          "CollegeGrad"
+        ]
+      },
+      "INQ300": {
+        "description": "Household income (binned)",
+        "values": [
+          "Under20k",
+          "20kTo45k",
+          "45kTo75k",
+          "75kTo100k",
+          "Over100k"
+        ]
+      },
+      "OCD150": {
+        "description": "Work activity level",
+        "values": [
+          "Sedentary",
+          "Light",
+          "Moderate",
+          "Heavy"
+        ]
+      },
+      "SMQ020": {
+        "description": "Smoked 100+ cigarettes in life",
+        "values": [
+          "Yes",
+          "No"
+        ]
+      }
+    },
+    "key_format": "COLNAME=value__COLNAME=value (e.g., RIAGENDR=Male__RIDAGEYR=20-39)"
+  },
+  "distributions": {
+    "Overall": {
+      "height_mean": 167.09,
+      "height_std": 9.99,
+      "height_var": 99.7,
+      "weight_mean": 82.47,
+      "weight_std": 21.86,
+      "weight_var": 477.75,
+      "n": 75305
+    },
+    "RIDAGEYR=38-53": {
+      "height_mean": 167.62,
+      "height_std": 10.07,
+      "height_var": 101.38,
+      "weight_mean": 85.48,
+      "weight_std": 24.02,
+      "weight_var": 577.16,
+      "n": 14752
+    },
+    "RIDAGEYR=64-71": {
+      "height_mean": 166.48,
+      "height_std": 9.63,
+      "height_var": 92.7,
+      "weight_mean": 82.28,
+      "weight_std": 19.76,
+      "weight_var": 390.63,
+      "n": 16033
+    },
+    "RIDAGEYR=18-37": {
+      "height_mean": 168.85,
+      "height_std": 9.95,
+      "height_var": 99.1,
+      "weight_mean": 81.75,
+      "weight_std": 23.92,
+      "weight_var": 571.94,
+      "n": 15674
+    },
+    "RIDAGEYR=54-63": {
+      "height_mean": 167.42,
+      "height_std": 9.96,
+      "height_var": 99.12,
+      "weight_mean": 84.47,
+      "weight_std": 21.72,
+      "weight_var": 471.83,
+      "n": 15317
+    },
+    "RIDAGEYR=72-80": {
+      "height_mean": 164.82,
+      "height_std": 9.9,
+      "height_var": 97.95,
+      "weight_mean": 77.99,
+      "weight_std": 18.31,
+      "weight_var": 335.19,
+      "n": 13529
+    },
+    "RIAGENDR=Male": {
+      "height_mean": 174.77,
+      "height_std": 7.69,
+      "height_var": 59.17,
+      "weight_mean": 89.12,
+      "weight_std": 21.43,
+      "weight_var": 459.14,
+      "n": 33263
+    },
+    "RIAGENDR=Female": {
+      "height_mean": 161.01,
+      "height_std": 6.94,
+      "height_var": 48.16,
+      "weight_mean": 77.21,
+      "weight_std": 20.73,
+      "weight_var": 429.75,
+      "n": 42042
+    },
+    "RIDRETH1=Other": {
+      "height_mean": 165.59,
+      "height_std": 9.93,
+      "height_var": 98.51,
+      "weight_mean": 76.44,
+      "weight_std": 21.94,
+      "weight_var": 481.48,
+      "n": 8157
+    },
+    "RIDRETH1=White": {
+      "height_mean": 168.24,
+      "height_std": 9.9,
+      "height_var": 98.01,
+      "weight_mean": 83.27,
+      "weight_std": 21.81,
+      "weight_var": 475.51,
+      "n": 47582
+    },
+    "RIDRETH1=OtherHispanic": {
+      "height_mean": 163.23,
+      "height_std": 9.68,
+      "height_var": 93.68,
+      "weight_mean": 78.29,
+      "weight_std": 18.68,
+      "weight_var": 348.8,
+      "n": 7070
+    },
+    "RIDRETH1=MexicanAmerican": {
+      "height_mean": 162.9,
+      "height_std": 9.15,
+      "height_var": 83.78,
+      "weight_mean": 81.4,
+      "weight_std": 20.32,
+      "weight_var": 412.7,
+      "n": 5002
+    },
+    "RIDRETH1=Black": {
+      "height_mean": 167.86,
+      "height_std": 9.53,
+      "height_var": 90.84,
+      "weight_mean": 88.65,
+      "weight_std": 23.54,
+      "weight_var": 554.19,
+      "n": 7494
+    },
+    "DMDEDUC2=CollegeGrad": {
+      "height_mean": 168.37,
+      "height_std": 9.8,
+      "height_var": 95.96,
+      "weight_mean": 80.21,
+      "weight_std": 20.32,
+      "weight_var": 412.92,
+      "n": 31557
+    },
+    "DMDEDUC2=HighSchool": {
+      "height_mean": 166.42,
+      "height_std": 10.01,
+      "height_var": 100.24,
+      "weight_mean": 84.32,
+      "weight_std": 21.47,
+      "weight_var": 461.01,
+      "n": 13144
+    },
+    "DMDEDUC2=SomeCollege": {
+      "height_mean": 166.73,
+      "height_std": 9.93,
+      "height_var": 98.69,
+      "weight_mean": 86.01,
+      "weight_std": 23.91,
+      "weight_var": 571.46,
+      "n": 21633
+    },
+    "DMDEDUC2=9thTo11th": {
+      "height_mean": 165.03,
+      "height_std": 9.58,
+      "height_var": 91.8,
+      "weight_mean": 83.27,
+      "weight_std": 21.71,
+      "weight_var": 471.13,
+      "n": 4418
+    },
+    "DMDEDUC2=LessThan9th": {
+      "height_mean": 160.36,
+      "height_std": 9.71,
+      "height_var": 94.37,
+      "weight_mean": 78.03,
+      "weight_std": 17.66,
+      "weight_var": 311.95,
+      "n": 2465
+    },
+    "INQ300=Under20k": {
+      "height_mean": 167.06,
+      "height_std": 9.98,
+      "height_var": 99.59,
+      "weight_mean": 82.38,
+      "weight_std": 21.93,
+      "weight_var": 481.02,
+      "n": 67722
+    },
+    "INQ300=45kTo75k": {
+      "height_mean": 164.2,
+      "height_std": 10.15,
+      "height_var": 103.04,
+      "weight_mean": 86.2,
+      "weight_std": 25.52,
+      "weight_var": 651.41,
+      "n": 853
+    },
+    "INQ300=20kTo45k": {
+      "height_mean": 167.91,
+      "height_std": 9.75,
+      "height_var": 94.99,
+      "weight_mean": 83.88,
+      "weight_std": 20.4,
+      "weight_var": 416.01,
+      "n": 1420
+    },
+    "OCD150=Sedentary": {
+      "height_mean": 168.54,
+      "height_std": 9.97,
+      "height_var": 99.34,
+      "weight_mean": 83.7,
+      "weight_std": 22.51,
+      "weight_var": 506.84,
+      "n": 37188
+    },
+    "OCD150=Heavy": {
+      "height_mean": 165.45,
+      "height_std": 9.87,
+      "height_var": 97.43,
+      "weight_mean": 81.15,
+      "weight_std": 20.93,
+      "weight_var": 438.06,
+      "n": 32804
+    },
+    "OCD150=Moderate": {
+      "height_mean": 167.32,
+      "height_std": 9.71,
+      "height_var": 94.25,
+      "weight_mean": 84.1,
+      "weight_std": 22.95,
+      "weight_var": 526.69,
+      "n": 2615
+    },
+    "OCD150=Light": {
+      "height_mean": 166.86,
+      "height_std": 8.74,
+      "height_var": 76.4,
+      "weight_mean": 79.84,
+      "weight_std": 21.54,
+      "weight_var": 463.78,
+      "n": 2682
+    },
+    "SMQ020=Yes": {
+      "height_mean": 167.57,
+      "height_std": 9.73,
+      "height_var": 94.75,
+      "weight_mean": 83.76,
+      "weight_std": 21.09,
+      "weight_var": 444.96,
+      "n": 29159
+    },
+    "SMQ020=No": {
+      "height_mean": 166.78,
+      "height_std": 10.14,
+      "height_var": 102.83,
+      "weight_mean": 81.66,
+      "weight_std": 22.26,
+      "weight_var": 495.71,
+      "n": 45993
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53": {
+      "height_mean": 175.79,
+      "height_std": 7.95,
+      "height_var": 63.2,
+      "weight_mean": 93.85,
+      "weight_std": 24.42,
+      "weight_var": 596.24,
+      "n": 6151
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71": {
+      "height_mean": 174.04,
+      "height_std": 7.12,
+      "height_var": 50.76,
+      "weight_mean": 89.12,
+      "weight_std": 19.09,
+      "weight_var": 364.59,
+      "n": 6991
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37": {
+      "height_mean": 176.44,
+      "height_std": 7.76,
+      "height_var": 60.23,
+      "weight_mean": 87.32,
+      "weight_std": 23.36,
+      "weight_var": 545.65,
+      "n": 6908
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63": {
+      "height_mean": 175.19,
+      "height_std": 7.66,
+      "height_var": 58.74,
+      "weight_mean": 90.68,
+      "weight_std": 21.24,
+      "weight_var": 451.01,
+      "n": 6811
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80": {
+      "height_mean": 172.35,
+      "height_std": 7.3,
+      "height_var": 53.26,
+      "weight_mean": 84.88,
+      "weight_std": 17.34,
+      "weight_var": 300.63,
+      "n": 6402
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53": {
+      "height_mean": 161.77,
+      "height_std": 6.84,
+      "height_var": 46.82,
+      "weight_mean": 79.5,
+      "weight_std": 21.86,
+      "weight_var": 477.72,
+      "n": 8601
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71": {
+      "height_mean": 160.64,
+      "height_std": 6.84,
+      "height_var": 46.84,
+      "weight_mean": 76.99,
+      "weight_std": 18.62,
+      "weight_var": 346.61,
+      "n": 9042
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37": {
+      "height_mean": 162.87,
+      "height_std": 6.98,
+      "height_var": 48.68,
+      "weight_mean": 77.35,
+      "weight_std": 23.43,
+      "weight_var": 548.94,
+      "n": 8766
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63": {
+      "height_mean": 161.2,
+      "height_std": 6.66,
+      "height_var": 44.41,
+      "weight_mean": 79.49,
+      "weight_std": 20.81,
+      "weight_var": 432.87,
+      "n": 8506
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80": {
+      "height_mean": 158.06,
+      "height_std": 6.44,
+      "height_var": 41.43,
+      "weight_mean": 71.8,
+      "weight_std": 16.89,
+      "weight_var": 285.39,
+      "n": 7127
+    },
+    "RIAGENDR=Male__RIDRETH1=Other": {
+      "height_mean": 172.94,
+      "height_std": 7.67,
+      "height_var": 58.86,
+      "weight_mean": 81.86,
+      "weight_std": 20.37,
+      "weight_var": 415.13,
+      "n": 3772
+    },
+    "RIAGENDR=Male__RIDRETH1=White": {
+      "height_mean": 176.14,
+      "height_std": 7.24,
+      "height_var": 52.44,
+      "weight_mean": 90.63,
+      "weight_std": 20.98,
+      "weight_var": 440.02,
+      "n": 20967
+    },
+    "RIAGENDR=Male__RIDRETH1=OtherHispanic": {
+      "height_mean": 170.63,
+      "height_std": 7.81,
+      "height_var": 60.97,
+      "weight_mean": 84.77,
+      "weight_std": 18.91,
+      "weight_var": 357.57,
+      "n": 3076
+    },
+    "RIAGENDR=Male__RIDRETH1=MexicanAmerican": {
+      "height_mean": 169.52,
+      "height_std": 7.39,
+      "height_var": 54.61,
+      "weight_mean": 88.03,
+      "weight_std": 20.97,
+      "weight_var": 439.89,
+      "n": 2242
+    },
+    "RIAGENDR=Male__RIDRETH1=Black": {
+      "height_mean": 175.6,
+      "height_std": 7.25,
+      "height_var": 52.52,
+      "weight_mean": 92.77,
+      "weight_std": 25.26,
+      "weight_var": 638.14,
+      "n": 3206
+    },
+    "RIAGENDR=Female__RIDRETH1=Other": {
+      "height_mean": 159.27,
+      "height_std": 6.79,
+      "height_var": 46.11,
+      "weight_mean": 71.77,
+      "weight_std": 22.17,
+      "weight_var": 491.61,
+      "n": 4385
+    },
+    "RIAGENDR=Female__RIDRETH1=White": {
+      "height_mean": 162.02,
+      "height_std": 6.78,
+      "height_var": 46.0,
+      "weight_mean": 77.46,
+      "weight_std": 20.67,
+      "weight_var": 427.12,
+      "n": 26615
+    },
+    "RIAGENDR=Female__RIDRETH1=OtherHispanic": {
+      "height_mean": 157.52,
+      "height_std": 6.64,
+      "height_var": 44.05,
+      "weight_mean": 73.3,
+      "weight_std": 16.88,
+      "weight_var": 284.86,
+      "n": 3994
+    },
+    "RIAGENDR=Female__RIDRETH1=MexicanAmerican": {
+      "height_mean": 157.52,
+      "height_std": 6.55,
+      "height_var": 42.96,
+      "weight_mean": 76.02,
+      "weight_std": 18.06,
+      "weight_var": 326.09,
+      "n": 2760
+    },
+    "RIAGENDR=Female__RIDRETH1=Black": {
+      "height_mean": 162.07,
+      "height_std": 6.42,
+      "height_var": 41.18,
+      "weight_mean": 85.56,
+      "weight_std": 21.66,
+      "weight_var": 469.31,
+      "n": 4288
+    },
+    "RIDAGEYR=38-53__RIDRETH1=Other": {
+      "height_mean": 165.08,
+      "height_std": 9.2,
+      "height_var": 84.56,
+      "weight_mean": 75.41,
+      "weight_std": 19.8,
+      "weight_var": 392.12,
+      "n": 1986
+    },
+    "RIDAGEYR=38-53__RIDRETH1=White": {
+      "height_mean": 170.11,
+      "height_std": 9.81,
+      "height_var": 96.18,
+      "weight_mean": 88.55,
+      "weight_std": 24.87,
+      "weight_var": 618.37,
+      "n": 7902
+    },
+    "RIDAGEYR=38-53__RIDRETH1=OtherHispanic": {
+      "height_mean": 164.67,
+      "height_std": 9.06,
+      "height_var": 82.14,
+      "weight_mean": 78.44,
+      "weight_std": 16.59,
+      "weight_var": 275.21,
+      "n": 1649
+    },
+    "RIDAGEYR=38-53__RIDRETH1=MexicanAmerican": {
+      "height_mean": 161.25,
+      "height_std": 9.17,
+      "height_var": 84.06,
+      "weight_mean": 80.56,
+      "weight_std": 20.26,
+      "weight_var": 410.54,
+      "n": 1564
+    },
+    "RIDAGEYR=38-53__RIDRETH1=Black": {
+      "height_mean": 167.72,
+      "height_std": 9.89,
+      "height_var": 97.83,
+      "weight_mean": 94.63,
+      "weight_std": 27.2,
+      "weight_var": 739.76,
+      "n": 1651
+    },
+    "RIDAGEYR=64-71__RIDRETH1=Other": {
+      "height_mean": 165.83,
+      "height_std": 9.79,
+      "height_var": 95.84,
+      "weight_mean": 77.51,
+      "weight_std": 22.08,
+      "weight_var": 487.62,
+      "n": 1512
+    },
+    "RIDAGEYR=64-71__RIDRETH1=White": {
+      "height_mean": 167.11,
+      "height_std": 9.57,
+      "height_var": 91.62,
+      "weight_mean": 82.44,
+      "weight_std": 19.77,
+      "weight_var": 391.02,
+      "n": 11442
+    },
+    "RIDAGEYR=64-71__RIDRETH1=OtherHispanic": {
+      "height_mean": 160.77,
+      "height_std": 9.29,
+      "height_var": 86.26,
+      "weight_mean": 79.84,
+      "weight_std": 17.72,
+      "weight_var": 313.93,
+      "n": 975
+    },
+    "RIDAGEYR=64-71__RIDRETH1=MexicanAmerican": {
+      "height_mean": 162.4,
+      "height_std": 8.06,
+      "height_var": 65.04,
+      "weight_mean": 83.57,
+      "weight_std": 14.83,
+      "weight_var": 219.91,
+      "n": 686
+    },
+    "RIDAGEYR=64-71__RIDRETH1=Black": {
+      "height_mean": 167.98,
+      "height_std": 8.93,
+      "height_var": 79.72,
+      "weight_mean": 87.1,
+      "weight_std": 19.18,
+      "weight_var": 367.8,
+      "n": 1418
+    },
+    "RIDAGEYR=18-37__RIDRETH1=Other": {
+      "height_mean": 166.72,
+      "height_std": 10.42,
+      "height_var": 108.64,
+      "weight_mean": 74.66,
+      "weight_std": 21.89,
+      "weight_var": 479.14,
+      "n": 2198
+    },
+    "RIDAGEYR=18-37__RIDRETH1=White": {
+      "height_mean": 171.04,
+      "height_std": 9.43,
+      "height_var": 88.88,
+      "weight_mean": 82.85,
+      "weight_std": 24.04,
+      "weight_var": 578.08,
+      "n": 8113
+    },
+    "RIDAGEYR=18-37__RIDRETH1=OtherHispanic": {
+      "height_mean": 165.71,
+      "height_std": 9.66,
+      "height_var": 93.24,
+      "weight_mean": 78.73,
+      "weight_std": 21.55,
+      "weight_var": 464.34,
+      "n": 1858
+    },
+    "RIDAGEYR=18-37__RIDRETH1=MexicanAmerican": {
+      "height_mean": 165.39,
+      "height_std": 8.92,
+      "height_var": 79.59,
+      "weight_mean": 81.72,
+      "weight_std": 22.78,
+      "weight_var": 518.75,
+      "n": 1565
+    },
+    "RIDAGEYR=18-37__RIDRETH1=Black": {
+      "height_mean": 167.92,
+      "height_std": 10.37,
+      "height_var": 107.53,
+      "weight_mean": 88.08,
+      "weight_std": 26.22,
+      "weight_var": 687.66,
+      "n": 1940
+    },
+    "RIDAGEYR=54-63__RIDRETH1=Other": {
+      "height_mean": 164.55,
+      "height_std": 9.99,
+      "height_var": 99.86,
+      "weight_mean": 79.08,
+      "weight_std": 24.75,
+      "weight_var": 612.55,
+      "n": 1413
+    },
+    "RIDAGEYR=54-63__RIDRETH1=White": {
+      "height_mean": 168.97,
+      "height_std": 9.73,
+      "height_var": 94.7,
+      "weight_mean": 85.82,
+      "weight_std": 21.68,
+      "weight_var": 470.08,
+      "n": 9725
+    },
+    "RIDAGEYR=54-63__RIDRETH1=OtherHispanic": {
+      "height_mean": 162.08,
+      "height_std": 9.0,
+      "height_var": 81.09,
+      "weight_mean": 78.46,
+      "weight_std": 18.81,
+      "weight_var": 353.79,
+      "n": 1658
+    },
+    "RIDAGEYR=54-63__RIDRETH1=MexicanAmerican": {
+      "height_mean": 162.28,
+      "height_std": 9.16,
+      "height_var": 83.87,
+      "weight_mean": 82.78,
+      "weight_std": 19.16,
+      "weight_var": 367.0,
+      "n": 895
+    },
+    "RIDAGEYR=54-63__RIDRETH1=Black": {
+      "height_mean": 168.93,
+      "height_std": 9.19,
+      "height_var": 84.47,
+      "weight_mean": 88.12,
+      "weight_std": 21.24,
+      "weight_var": 451.12,
+      "n": 1626
+    },
+    "RIDAGEYR=72-80__RIDRETH1=Other": {
+      "height_mean": 165.25,
+      "height_std": 10.06,
+      "height_var": 101.28,
+      "weight_mean": 76.99,
+      "weight_std": 21.26,
+      "weight_var": 451.96,
+      "n": 1048
+    },
+    "RIDAGEYR=72-80__RIDRETH1=White": {
+      "height_mean": 165.2,
+      "height_std": 9.84,
+      "height_var": 96.79,
+      "weight_mean": 78.09,
+      "weight_std": 18.17,
+      "weight_var": 330.19,
+      "n": 10400
+    },
+    "RIDAGEYR=72-80__RIDRETH1=OtherHispanic": {
+      "height_mean": 160.33,
+      "height_std": 10.61,
+      "height_var": 112.55,
+      "weight_mean": 75.22,
+      "weight_std": 16.28,
+      "weight_var": 265.12,
+      "n": 930
+    },
+    "RIDAGEYR=72-80__RIDRETH1=MexicanAmerican": {
+      "height_mean": 161.36,
+      "height_std": 9.88,
+      "height_var": 97.58,
+      "weight_mean": 74.95,
+      "weight_std": 19.78,
+      "weight_var": 391.3,
+      "n": 292
+    },
+    "RIDAGEYR=72-80__RIDRETH1=Black": {
+      "height_mean": 165.78,
+      "height_std": 8.0,
+      "height_var": 63.94,
+      "weight_mean": 81.98,
+      "weight_std": 16.82,
+      "weight_var": 282.85,
+      "n": 859
+    },
+    "RIAGENDR=Male__SMQ020=Yes": {
+      "height_mean": 174.18,
+      "height_std": 7.37,
+      "height_var": 54.3,
+      "weight_mean": 88.71,
+      "weight_std": 20.32,
+      "weight_var": 412.87,
+      "n": 14863
+    },
+    "RIAGENDR=Male__SMQ020=No": {
+      "height_mean": 175.26,
+      "height_std": 7.91,
+      "height_var": 62.63,
+      "weight_mean": 89.43,
+      "weight_std": 22.25,
+      "weight_var": 494.85,
+      "n": 18357
+    },
+    "RIAGENDR=Female__SMQ020=Yes": {
+      "height_mean": 160.71,
+      "height_std": 6.66,
+      "height_var": 44.35,
+      "weight_mean": 78.61,
+      "weight_std": 20.65,
+      "weight_var": 426.41,
+      "n": 14296
+    },
+    "RIAGENDR=Female__SMQ020=No": {
+      "height_mean": 161.15,
+      "height_std": 7.08,
+      "height_var": 50.17,
+      "weight_mean": 76.51,
+      "weight_std": 20.73,
+      "weight_var": 429.67,
+      "n": 27636
+    },
+    "RIAGENDR=Male__DMDEDUC2=CollegeGrad": {
+      "height_mean": 176.14,
+      "height_std": 7.4,
+      "height_var": 54.81,
+      "weight_mean": 87.17,
+      "weight_std": 18.78,
+      "weight_var": 352.71,
+      "n": 13865
+    },
+    "RIAGENDR=Male__DMDEDUC2=HighSchool": {
+      "height_mean": 173.77,
+      "height_std": 7.31,
+      "height_var": 53.37,
+      "weight_mean": 90.21,
+      "weight_std": 20.76,
+      "weight_var": 430.87,
+      "n": 6349
+    },
+    "RIAGENDR=Male__DMDEDUC2=SomeCollege": {
+      "height_mean": 175.19,
+      "height_std": 7.41,
+      "height_var": 54.87,
+      "weight_mean": 93.96,
+      "weight_std": 24.47,
+      "weight_var": 598.68,
+      "n": 8723
+    },
+    "RIAGENDR=Male__DMDEDUC2=9thTo11th": {
+      "height_mean": 171.54,
+      "height_std": 7.51,
+      "height_var": 56.38,
+      "weight_mean": 88.11,
+      "weight_std": 22.32,
+      "weight_var": 498.38,
+      "n": 2192
+    },
+    "RIAGENDR=Male__DMDEDUC2=LessThan9th": {
+      "height_mean": 166.95,
+      "height_std": 8.32,
+      "height_var": 69.19,
+      "weight_mean": 83.2,
+      "weight_std": 18.26,
+      "weight_var": 333.44,
+      "n": 1099
+    },
+    "RIAGENDR=Female__DMDEDUC2=CollegeGrad": {
+      "height_mean": 162.29,
+      "height_std": 6.63,
+      "height_var": 43.97,
+      "weight_mean": 74.76,
+      "weight_std": 19.81,
+      "weight_var": 392.41,
+      "n": 17692
+    },
+    "RIAGENDR=Female__DMDEDUC2=HighSchool": {
+      "height_mean": 159.55,
+      "height_std": 6.8,
+      "height_var": 46.24,
+      "weight_mean": 78.81,
+      "weight_std": 20.65,
+      "weight_var": 426.51,
+      "n": 6795
+    },
+    "RIAGENDR=Female__DMDEDUC2=SomeCollege": {
+      "height_mean": 161.02,
+      "height_std": 6.88,
+      "height_var": 47.34,
+      "weight_mean": 80.65,
+      "weight_std": 21.95,
+      "weight_var": 481.65,
+      "n": 12910
+    },
+    "RIAGENDR=Female__DMDEDUC2=9thTo11th": {
+      "height_mean": 158.62,
+      "height_std": 6.62,
+      "height_var": 43.87,
+      "weight_mean": 78.5,
+      "weight_std": 19.97,
+      "weight_var": 398.63,
+      "n": 2226
+    },
+    "RIAGENDR=Female__DMDEDUC2=LessThan9th": {
+      "height_mean": 155.07,
+      "height_std": 7.19,
+      "height_var": 51.75,
+      "weight_mean": 73.87,
+      "weight_std": 16.0,
+      "weight_var": 255.97,
+      "n": 1366
+    },
+    "RIDAGEYR=38-53__DMDEDUC2=CollegeGrad": {
+      "height_mean": 169.19,
+      "height_std": 9.81,
+      "height_var": 96.18,
+      "weight_mean": 82.42,
+      "weight_std": 21.43,
+      "weight_var": 459.32,
+      "n": 6886
+    },
+    "RIDAGEYR=38-53__DMDEDUC2=HighSchool": {
+      "height_mean": 166.88,
+      "height_std": 10.02,
+      "height_var": 100.45,
+      "weight_mean": 87.42,
+      "weight_std": 24.22,
+      "weight_var": 586.75,
+      "n": 2254
+    },
+    "RIDAGEYR=38-53__DMDEDUC2=SomeCollege": {
+      "height_mean": 166.93,
+      "height_std": 10.21,
+      "height_var": 104.22,
+      "weight_mean": 89.75,
+      "weight_std": 26.53,
+      "weight_var": 703.83,
+      "n": 4315
+    },
+    "RIDAGEYR=38-53__DMDEDUC2=9thTo11th": {
+      "height_mean": 164.33,
+      "height_std": 8.07,
+      "height_var": 65.08,
+      "weight_mean": 87.87,
+      "weight_std": 26.67,
+      "weight_var": 711.26,
+      "n": 825
+    },
+    "RIDAGEYR=38-53__DMDEDUC2=LessThan9th": {
+      "height_mean": 160.14,
+      "height_std": 10.11,
+      "height_var": 102.17,
+      "weight_mean": 77.61,
+      "weight_std": 21.67,
+      "weight_var": 469.71,
+      "n": 472
+    },
+    "RIDAGEYR=64-71__DMDEDUC2=CollegeGrad": {
+      "height_mean": 167.37,
+      "height_std": 9.51,
+      "height_var": 90.39,
+      "weight_mean": 80.07,
+      "weight_std": 19.35,
+      "weight_var": 374.33,
+      "n": 6577
+    },
+    "RIDAGEYR=64-71__DMDEDUC2=HighSchool": {
+      "height_mean": 166.51,
+      "height_std": 9.94,
+      "height_var": 98.8,
+      "weight_mean": 84.64,
+      "weight_std": 20.5,
+      "weight_var": 420.09,
+      "n": 3191
+    },
+    "RIDAGEYR=64-71__DMDEDUC2=SomeCollege": {
+      "height_mean": 166.23,
+      "height_std": 9.33,
+      "height_var": 86.97,
+      "weight_mean": 84.6,
+      "weight_std": 20.23,
+      "weight_var": 409.23,
+      "n": 4823
+    },
+    "RIDAGEYR=64-71__DMDEDUC2=9thTo11th": {
+      "height_mean": 166.48,
+      "height_std": 9.35,
+      "height_var": 87.41,
+      "weight_mean": 82.49,
+      "weight_std": 19.01,
+      "weight_var": 361.26,
+      "n": 814
+    },
+    "RIDAGEYR=64-71__DMDEDUC2=LessThan9th": {
+      "height_mean": 158.91,
+      "height_std": 8.44,
+      "height_var": 71.15,
+      "weight_mean": 75.25,
+      "weight_std": 11.8,
+      "weight_var": 139.15,
+      "n": 628
+    },
+    "RIDAGEYR=18-37__DMDEDUC2=CollegeGrad": {
+      "height_mean": 169.2,
+      "height_std": 9.92,
+      "height_var": 98.45,
+      "weight_mean": 78.01,
+      "weight_std": 20.11,
+      "weight_var": 404.37,
+      "n": 6449
+    },
+    "RIDAGEYR=18-37__DMDEDUC2=HighSchool": {
+      "height_mean": 168.24,
+      "height_std": 9.73,
+      "height_var": 94.58,
+      "weight_mean": 87.62,
+      "weight_std": 23.95,
+      "weight_var": 573.46,
+      "n": 2099
+    },
+    "RIDAGEYR=18-37__DMDEDUC2=SomeCollege": {
+      "height_mean": 169.73,
+      "height_std": 10.06,
+      "height_var": 101.11,
+      "weight_mean": 89.06,
+      "weight_std": 27.81,
+      "weight_var": 773.4,
+      "n": 4088
+    },
+    "RIDAGEYR=18-37__DMDEDUC2=9thTo11th": {
+      "height_mean": 166.88,
+      "height_std": 10.55,
+      "height_var": 111.27,
+      "weight_mean": 83.92,
+      "weight_std": 22.53,
+      "weight_var": 507.72,
+      "n": 745
+    },
+    "RIDAGEYR=18-37__DMDEDUC2=LessThan9th": {
+      "height_mean": 163.24,
+      "height_std": 7.23,
+      "height_var": 52.33,
+      "weight_mean": 86.51,
+      "weight_std": 23.2,
+      "weight_var": 538.1,
+      "n": 205
+    },
+    "RIDAGEYR=54-63__DMDEDUC2=CollegeGrad": {
+      "height_mean": 169.47,
+      "height_std": 9.78,
+      "height_var": 95.66,
+      "weight_mean": 83.73,
+      "weight_std": 21.7,
+      "weight_var": 471.0,
+      "n": 5791
+    },
+    "RIDAGEYR=54-63__DMDEDUC2=HighSchool": {
+      "height_mean": 166.63,
+      "height_std": 10.11,
+      "height_var": 102.16,
+      "weight_mean": 83.85,
+      "weight_std": 19.94,
+      "weight_var": 397.42,
+      "n": 3080
+    },
+    "RIDAGEYR=54-63__DMDEDUC2=SomeCollege": {
+      "height_mean": 166.77,
+      "height_std": 9.45,
+      "height_var": 89.38,
+      "weight_mean": 86.2,
+      "weight_std": 23.12,
+      "weight_var": 534.7,
+      "n": 4716
+    },
+    "RIDAGEYR=54-63__DMDEDUC2=9thTo11th": {
+      "height_mean": 165.81,
+      "height_std": 9.62,
+      "height_var": 92.53,
+      "weight_mean": 85.2,
+      "weight_std": 21.77,
+      "weight_var": 474.14,
+      "n": 1144
+    },
+    "RIDAGEYR=54-63__DMDEDUC2=LessThan9th": {
+      "height_mean": 159.75,
+      "height_std": 9.87,
+      "height_var": 97.32,
+      "weight_mean": 79.63,
+      "weight_std": 17.54,
+      "weight_var": 307.53,
+      "n": 586
+    },
+    "RIDAGEYR=72-80__DMDEDUC2=CollegeGrad": {
+      "height_mean": 166.54,
+      "height_std": 9.61,
+      "height_var": 92.35,
+      "weight_mean": 76.7,
+      "weight_std": 17.84,
+      "weight_var": 318.23,
+      "n": 5854
+    },
+    "RIDAGEYR=72-80__DMDEDUC2=HighSchool": {
+      "height_mean": 164.11,
+      "height_std": 9.8,
+      "height_var": 96.05,
+      "weight_mean": 78.96,
+      "weight_std": 18.39,
+      "weight_var": 338.37,
+      "n": 2520
+    },
+    "RIDAGEYR=72-80__DMDEDUC2=SomeCollege": {
+      "height_mean": 163.79,
+      "height_std": 9.89,
+      "height_var": 97.85,
+      "weight_mean": 79.88,
+      "weight_std": 19.64,
+      "weight_var": 385.68,
+      "n": 3691
+    },
+    "RIDAGEYR=72-80__DMDEDUC2=9thTo11th": {
+      "height_mean": 161.83,
+      "height_std": 9.35,
+      "height_var": 87.46,
+      "weight_mean": 76.68,
+      "weight_std": 15.74,
+      "weight_var": 247.82,
+      "n": 890
+    },
+    "RIDAGEYR=72-80__DMDEDUC2=LessThan9th": {
+      "height_mean": 161.73,
+      "height_std": 10.88,
+      "height_var": 118.41,
+      "weight_mean": 76.74,
+      "weight_std": 16.09,
+      "weight_var": 258.86,
+      "n": 574
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53__RIDRETH1=Other": {
+      "height_mean": 172.64,
+      "height_std": 7.72,
+      "height_var": 59.54,
+      "weight_mean": 80.59,
+      "weight_std": 18.07,
+      "weight_var": 326.58,
+      "n": 837
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53__RIDRETH1=White": {
+      "height_mean": 178.64,
+      "height_std": 6.85,
+      "height_var": 46.93,
+      "weight_mean": 97.71,
+      "weight_std": 24.28,
+      "weight_var": 589.65,
+      "n": 3325
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53__RIDRETH1=OtherHispanic": {
+      "height_mean": 171.79,
+      "height_std": 6.3,
+      "height_var": 39.65,
+      "weight_mean": 86.1,
+      "weight_std": 16.92,
+      "weight_var": 286.28,
+      "n": 704
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53__RIDRETH1=MexicanAmerican": {
+      "height_mean": 168.28,
+      "height_std": 8.78,
+      "height_var": 77.01,
+      "weight_mean": 90.35,
+      "weight_std": 22.4,
+      "weight_var": 501.61,
+      "n": 638
+    },
+    "RIAGENDR=Male__RIDAGEYR=38-53__RIDRETH1=Black": {
+      "height_mean": 176.98,
+      "height_std": 5.9,
+      "height_var": 34.85,
+      "weight_mean": 103.02,
+      "weight_std": 30.77,
+      "weight_var": 946.94,
+      "n": 647
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71__RIDRETH1=Other": {
+      "height_mean": 172.84,
+      "height_std": 7.29,
+      "height_var": 53.2,
+      "weight_mean": 80.91,
+      "weight_std": 20.68,
+      "weight_var": 427.53,
+      "n": 742
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71__RIDRETH1=White": {
+      "height_mean": 175.07,
+      "height_std": 6.75,
+      "height_var": 45.53,
+      "weight_mean": 90.64,
+      "weight_std": 18.59,
+      "weight_var": 345.69,
+      "n": 4869
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71__RIDRETH1=OtherHispanic": {
+      "height_mean": 168.5,
+      "height_std": 8.32,
+      "height_var": 69.18,
+      "weight_mean": 85.98,
+      "weight_std": 16.87,
+      "weight_var": 284.71,
+      "n": 383
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71__RIDRETH1=MexicanAmerican": {
+      "height_mean": 167.53,
+      "height_std": 5.07,
+      "height_var": 25.69,
+      "weight_mean": 85.86,
+      "weight_std": 14.16,
+      "weight_var": 200.44,
+      "n": 341
+    },
+    "RIAGENDR=Male__RIDAGEYR=64-71__RIDRETH1=Black": {
+      "height_mean": 174.35,
+      "height_std": 6.31,
+      "height_var": 39.75,
+      "weight_mean": 90.64,
+      "weight_std": 21.46,
+      "weight_var": 460.65,
+      "n": 656
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37__RIDRETH1=Other": {
+      "height_mean": 174.89,
+      "height_std": 6.87,
+      "height_var": 47.24,
+      "weight_mean": 81.48,
+      "weight_std": 21.46,
+      "weight_var": 460.55,
+      "n": 966
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37__RIDRETH1=White": {
+      "height_mean": 178.29,
+      "height_std": 7.43,
+      "height_var": 55.23,
+      "weight_mean": 87.87,
+      "weight_std": 22.82,
+      "weight_var": 520.76,
+      "n": 3633
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37__RIDRETH1=OtherHispanic": {
+      "height_mean": 172.84,
+      "height_std": 8.0,
+      "height_var": 63.95,
+      "weight_mean": 85.32,
+      "weight_std": 21.37,
+      "weight_var": 456.82,
+      "n": 845
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37__RIDRETH1=MexicanAmerican": {
+      "height_mean": 172.68,
+      "height_std": 5.83,
+      "height_var": 34.03,
+      "weight_mean": 88.67,
+      "weight_std": 22.05,
+      "weight_var": 486.05,
+      "n": 688
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-37__RIDRETH1=Black": {
+      "height_mean": 176.9,
+      "height_std": 8.56,
+      "height_var": 73.34,
+      "weight_mean": 93.0,
+      "weight_std": 28.96,
+      "weight_var": 838.53,
+      "n": 776
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63__RIDRETH1=Other": {
+      "height_mean": 171.75,
+      "height_std": 7.9,
+      "height_var": 62.49,
+      "weight_mean": 84.31,
+      "weight_std": 21.94,
+      "weight_var": 481.53,
+      "n": 648
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63__RIDRETH1=White": {
+      "height_mean": 177.0,
+      "height_std": 6.82,
+      "height_var": 46.52,
+      "weight_mean": 93.25,
+      "weight_std": 21.27,
+      "weight_var": 452.48,
+      "n": 4332
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63__RIDRETH1=OtherHispanic": {
+      "height_mean": 169.69,
+      "height_std": 7.49,
+      "height_var": 56.1,
+      "weight_mean": 83.64,
+      "weight_std": 18.65,
+      "weight_var": 347.75,
+      "n": 698
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63__RIDRETH1=MexicanAmerican": {
+      "height_mean": 168.82,
+      "height_std": 7.01,
+      "height_var": 49.07,
+      "weight_mean": 88.58,
+      "weight_std": 21.18,
+      "weight_var": 448.39,
+      "n": 417
+    },
+    "RIAGENDR=Male__RIDAGEYR=54-63__RIDRETH1=Black": {
+      "height_mean": 176.4,
+      "height_std": 7.25,
+      "height_var": 52.6,
+      "weight_mean": 89.01,
+      "weight_std": 19.71,
+      "weight_var": 388.52,
+      "n": 716
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80__RIDRETH1=Other": {
+      "height_mean": 171.62,
+      "height_std": 8.43,
+      "height_var": 71.04,
+      "weight_mean": 82.79,
+      "weight_std": 19.2,
+      "weight_var": 368.72,
+      "n": 579
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80__RIDRETH1=White": {
+      "height_mean": 173.1,
+      "height_std": 6.9,
+      "height_var": 47.62,
+      "weight_mean": 85.44,
+      "weight_std": 16.93,
+      "weight_var": 286.59,
+      "n": 4808
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80__RIDRETH1=OtherHispanic": {
+      "height_mean": 167.94,
+      "height_std": 8.13,
+      "height_var": 66.17,
+      "weight_mean": 82.35,
+      "weight_std": 18.72,
+      "weight_var": 350.59,
+      "n": 446
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80__RIDRETH1=MexicanAmerican": {
+      "height_mean": 166.88,
+      "height_std": 8.09,
+      "height_var": 65.38,
+      "weight_mean": 79.11,
+      "weight_std": 19.49,
+      "weight_var": 379.93,
+      "n": 158
+    },
+    "RIAGENDR=Male__RIDAGEYR=72-80__RIDRETH1=Black": {
+      "height_mean": 171.57,
+      "height_std": 5.97,
+      "height_var": 35.66,
+      "weight_mean": 86.16,
+      "weight_std": 16.01,
+      "weight_var": 256.39,
+      "n": 411
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53__RIDRETH1=Other": {
+      "height_mean": 159.58,
+      "height_std": 5.56,
+      "height_var": 30.89,
+      "weight_mean": 71.63,
+      "weight_std": 20.16,
+      "weight_var": 406.34,
+      "n": 1149
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53__RIDRETH1=White": {
+      "height_mean": 163.91,
+      "height_std": 6.39,
+      "height_var": 40.77,
+      "weight_mean": 81.89,
+      "weight_std": 23.11,
+      "weight_var": 533.98,
+      "n": 4577
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53__RIDRETH1=OtherHispanic": {
+      "height_mean": 159.36,
+      "height_std": 6.92,
+      "height_var": 47.93,
+      "weight_mean": 72.73,
+      "weight_std": 13.82,
+      "weight_var": 190.89,
+      "n": 945
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53__RIDRETH1=MexicanAmerican": {
+      "height_mean": 156.42,
+      "height_std": 5.62,
+      "height_var": 31.54,
+      "weight_mean": 73.81,
+      "weight_std": 15.38,
+      "weight_var": 236.65,
+      "n": 926
+    },
+    "RIAGENDR=Female__RIDAGEYR=38-53__RIDRETH1=Black": {
+      "height_mean": 161.75,
+      "height_std": 6.89,
+      "height_var": 47.49,
+      "weight_mean": 89.22,
+      "weight_std": 23.07,
+      "weight_var": 532.38,
+      "n": 1004
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71__RIDRETH1=Other": {
+      "height_mean": 159.08,
+      "height_std": 6.64,
+      "height_var": 44.07,
+      "weight_mean": 74.24,
+      "weight_std": 22.9,
+      "weight_var": 524.29,
+      "n": 770
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71__RIDRETH1=White": {
+      "height_mean": 161.22,
+      "height_std": 6.64,
+      "height_var": 44.08,
+      "weight_mean": 76.36,
+      "weight_std": 18.38,
+      "weight_var": 337.91,
+      "n": 6573
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71__RIDRETH1=OtherHispanic": {
+      "height_mean": 155.77,
+      "height_std": 5.8,
+      "height_var": 33.69,
+      "weight_mean": 75.87,
+      "weight_std": 17.12,
+      "weight_var": 293.12,
+      "n": 592
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71__RIDRETH1=MexicanAmerican": {
+      "height_mean": 157.34,
+      "height_std": 7.24,
+      "height_var": 52.35,
+      "weight_mean": 81.3,
+      "weight_std": 15.15,
+      "weight_var": 229.42,
+      "n": 345
+    },
+    "RIAGENDR=Female__RIDAGEYR=64-71__RIDRETH1=Black": {
+      "height_mean": 162.5,
+      "height_std": 7.02,
+      "height_var": 49.24,
+      "weight_mean": 84.05,
+      "weight_std": 16.38,
+      "weight_var": 268.22,
+      "n": 762
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37__RIDRETH1=Other": {
+      "height_mean": 160.32,
+      "height_std": 7.97,
+      "height_var": 63.5,
+      "weight_mean": 69.31,
+      "weight_std": 20.71,
+      "weight_var": 428.93,
+      "n": 1232
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37__RIDRETH1=White": {
+      "height_mean": 165.15,
+      "height_std": 6.23,
+      "height_var": 38.84,
+      "weight_mean": 78.78,
+      "weight_std": 24.24,
+      "weight_var": 587.69,
+      "n": 4480
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37__RIDRETH1=OtherHispanic": {
+      "height_mean": 159.76,
+      "height_std": 6.31,
+      "height_var": 39.88,
+      "weight_mean": 73.23,
+      "weight_std": 20.11,
+      "weight_var": 404.43,
+      "n": 1013
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37__RIDRETH1=MexicanAmerican": {
+      "height_mean": 159.68,
+      "height_std": 6.4,
+      "height_var": 41.0,
+      "weight_mean": 76.26,
+      "weight_std": 21.85,
+      "weight_var": 477.23,
+      "n": 877
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-37__RIDRETH1=Black": {
+      "height_mean": 161.92,
+      "height_std": 6.37,
+      "height_var": 40.56,
+      "weight_mean": 84.8,
+      "weight_std": 23.68,
+      "weight_var": 560.77,
+      "n": 1164
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63__RIDRETH1=Other": {
+      "height_mean": 158.45,
+      "height_std": 7.09,
+      "height_var": 50.31,
+      "weight_mean": 74.66,
+      "weight_std": 26.11,
+      "weight_var": 681.55,
+      "n": 765
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63__RIDRETH1=White": {
+      "height_mean": 162.52,
+      "height_std": 6.32,
+      "height_var": 39.92,
+      "weight_mean": 79.86,
+      "weight_std": 20.11,
+      "weight_var": 404.37,
+      "n": 5393
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63__RIDRETH1=OtherHispanic": {
+      "height_mean": 156.54,
+      "height_std": 5.15,
+      "height_var": 26.48,
+      "weight_mean": 74.69,
+      "weight_std": 18.02,
+      "weight_var": 324.81,
+      "n": 960
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63__RIDRETH1=MexicanAmerican": {
+      "height_mean": 156.58,
+      "height_std": 6.66,
+      "height_var": 44.36,
+      "weight_mean": 77.71,
+      "weight_std": 15.54,
+      "weight_var": 241.57,
+      "n": 478
+    },
+    "RIAGENDR=Female__RIDAGEYR=54-63__RIDRETH1=Black": {
+      "height_mean": 163.05,
+      "height_std": 5.57,
+      "height_var": 30.99,
+      "weight_mean": 87.42,
+      "weight_std": 22.36,
+      "weight_var": 499.75,
+      "n": 910
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80__RIDRETH1=Other": {
+      "height_mean": 157.39,
+      "height_std": 5.18,
+      "height_var": 26.81,
+      "weight_mean": 69.83,
+      "weight_std": 21.51,
+      "weight_var": 462.67,
+      "n": 469
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80__RIDRETH1=White": {
+      "height_mean": 158.41,
+      "height_std": 6.27,
+      "height_var": 39.35,
+      "weight_mean": 71.78,
+      "weight_std": 16.78,
+      "weight_var": 281.4,
+      "n": 5592
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80__RIDRETH1=OtherHispanic": {
+      "height_mean": 153.31,
+      "height_std": 7.25,
+      "height_var": 52.55,
+      "weight_mean": 68.64,
+      "weight_std": 9.83,
+      "weight_var": 96.6,
+      "n": 484
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80__RIDRETH1=MexicanAmerican": {
+      "height_mean": 154.85,
+      "height_std": 7.58,
+      "height_var": 57.49,
+      "weight_mean": 70.05,
+      "weight_std": 19.05,
+      "weight_var": 362.86,
+      "n": 134
+    },
+    "RIAGENDR=Female__RIDAGEYR=72-80__RIDRETH1=Black": {
+      "height_mean": 160.46,
+      "height_std": 5.56,
+      "height_var": 30.88,
+      "weight_mean": 78.15,
+      "weight_std": 16.64,
+      "weight_var": 276.97,
+      "n": 448
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.94,
+      "height_std": 7.95,
+      "height_var": 63.15,
+      "weight_mean": 80.08,
+      "weight_std": 16.5,
+      "weight_var": 272.32,
+      "n": 207
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.64,
+      "height_std": 5.99,
+      "height_var": 35.89,
+      "weight_mean": 75.82,
+      "weight_std": 18.69,
+      "weight_var": 349.17,
+      "n": 200
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.71,
+      "height_std": 4.18,
+      "height_var": 17.47,
+      "weight_mean": 72.25,
+      "weight_std": 15.63,
+      "weight_var": 244.43,
+      "n": 62
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 163.21,
+      "height_std": 6.9,
+      "height_var": 47.57,
+      "weight_mean": 93.12,
+      "weight_std": 23.66,
+      "weight_var": 559.82,
+      "n": 209
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 161.81,
+      "height_std": 5.78,
+      "height_var": 33.44,
+      "weight_mean": 75.35,
+      "weight_std": 14.96,
+      "weight_var": 223.94,
+      "n": 165
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.05,
+      "height_std": 8.16,
+      "height_var": 66.54,
+      "weight_mean": 81.52,
+      "weight_std": 32.33,
+      "weight_var": 1044.98,
+      "n": 69
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 161.94,
+      "height_std": 6.03,
+      "height_var": 36.31,
+      "weight_mean": 92.07,
+      "weight_std": 22.77,
+      "weight_var": 518.52,
+      "n": 111
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 158.89,
+      "height_std": 4.6,
+      "height_var": 21.16,
+      "weight_mean": 61.19,
+      "weight_std": 12.26,
+      "weight_var": 150.33,
+      "n": 72
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.45,
+      "height_std": 8.23,
+      "height_var": 67.81,
+      "weight_mean": 61.74,
+      "weight_std": 12.52,
+      "weight_var": 156.73,
+      "n": 462
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 161.48,
+      "height_std": 8.63,
+      "height_var": 74.45,
+      "weight_mean": 71.76,
+      "weight_std": 24.44,
+      "weight_var": 597.42,
+      "n": 64
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.65,
+      "height_std": 8.57,
+      "height_var": 73.38,
+      "weight_mean": 89.34,
+      "weight_std": 25.74,
+      "weight_var": 662.68,
+      "n": 84
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.71,
+      "height_std": 8.21,
+      "height_var": 67.37,
+      "weight_mean": 82.79,
+      "weight_std": 19.87,
+      "weight_var": 394.95,
+      "n": 154
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 155.34,
+      "height_std": 6.85,
+      "height_var": 46.94,
+      "weight_mean": 67.05,
+      "weight_std": 8.81,
+      "weight_var": 77.67,
+      "n": 56
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.25,
+      "height_std": 4.44,
+      "height_var": 19.75,
+      "weight_mean": 72.58,
+      "weight_std": 18.12,
+      "weight_var": 328.17,
+      "n": 218
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.04,
+      "height_std": 6.89,
+      "height_var": 47.41,
+      "weight_mean": 75.32,
+      "weight_std": 26.12,
+      "weight_var": 682.3,
+      "n": 114
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.18,
+      "height_std": 6.3,
+      "height_var": 39.66,
+      "weight_mean": 78.62,
+      "weight_std": 22.7,
+      "weight_var": 515.19,
+      "n": 78
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.71,
+      "height_std": 6.18,
+      "height_var": 38.24,
+      "weight_mean": 71.69,
+      "weight_std": 18.53,
+      "weight_var": 343.19,
+      "n": 156
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 158.16,
+      "height_std": 3.98,
+      "height_var": 15.84,
+      "weight_mean": 74.28,
+      "weight_std": 15.08,
+      "weight_var": 227.55,
+      "n": 62
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 164.93,
+      "height_std": 4.93,
+      "height_var": 24.3,
+      "weight_mean": 73.07,
+      "weight_std": 17.27,
+      "weight_var": 298.33,
+      "n": 284
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 167.29,
+      "height_std": 6.0,
+      "height_var": 36.0,
+      "weight_mean": 70.06,
+      "weight_std": 15.49,
+      "weight_var": 239.98,
+      "n": 182
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 163.72,
+      "height_std": 7.77,
+      "height_var": 60.36,
+      "weight_mean": 73.3,
+      "weight_std": 9.62,
+      "weight_var": 92.45,
+      "n": 55
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 165.04,
+      "height_std": 6.21,
+      "height_var": 38.53,
+      "weight_mean": 75.26,
+      "weight_std": 22.76,
+      "weight_var": 518.23,
+      "n": 1721
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.65,
+      "height_std": 6.3,
+      "height_var": 39.73,
+      "weight_mean": 89.03,
+      "weight_std": 19.04,
+      "weight_var": 362.68,
+      "n": 113
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 164.82,
+      "height_std": 5.14,
+      "height_var": 26.41,
+      "weight_mean": 96.82,
+      "weight_std": 24.69,
+      "weight_var": 609.74,
+      "n": 214
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 163.79,
+      "height_std": 5.88,
+      "height_var": 34.55,
+      "weight_mean": 78.99,
+      "weight_std": 14.84,
+      "weight_var": 220.3,
+      "n": 189
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 167.56,
+      "height_std": 4.82,
+      "height_var": 23.24,
+      "weight_mean": 78.72,
+      "weight_std": 20.98,
+      "weight_var": 439.99,
+      "n": 87
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 166.51,
+      "height_std": 5.5,
+      "height_var": 30.27,
+      "weight_mean": 89.62,
+      "weight_std": 28.43,
+      "weight_var": 807.99,
+      "n": 669
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 181.47,
+      "height_std": 8.31,
+      "height_var": 69.1,
+      "weight_mean": 88.43,
+      "weight_std": 18.65,
+      "weight_var": 347.72,
+      "n": 100
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 167.7,
+      "height_std": 11.56,
+      "height_var": 133.66,
+      "weight_mean": 76.82,
+      "weight_std": 13.24,
+      "weight_var": 175.19,
+      "n": 96
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 181.04,
+      "height_std": 5.64,
+      "height_var": 31.85,
+      "weight_mean": 92.88,
+      "weight_std": 28.22,
+      "weight_var": 796.54,
+      "n": 176
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.29,
+      "height_std": 4.05,
+      "height_var": 16.37,
+      "weight_mean": 88.42,
+      "weight_std": 13.36,
+      "weight_var": 178.52,
+      "n": 127
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 174.08,
+      "height_std": 5.85,
+      "height_var": 34.27,
+      "weight_mean": 97.18,
+      "weight_std": 26.23,
+      "weight_var": 687.89,
+      "n": 89
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.61,
+      "height_std": 6.46,
+      "height_var": 41.74,
+      "weight_mean": 83.75,
+      "weight_std": 20.99,
+      "weight_var": 440.78,
+      "n": 156
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 172.09,
+      "height_std": 5.92,
+      "height_var": 35.04,
+      "weight_mean": 82.93,
+      "weight_std": 24.91,
+      "weight_var": 620.73,
+      "n": 335
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 174.22,
+      "height_std": 5.74,
+      "height_var": 32.98,
+      "weight_mean": 89.82,
+      "weight_std": 22.0,
+      "weight_var": 483.84,
+      "n": 77
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.57,
+      "height_std": 8.98,
+      "height_var": 80.65,
+      "weight_mean": 79.69,
+      "weight_std": 9.93,
+      "weight_var": 98.65,
+      "n": 102
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 171.53,
+      "height_std": 6.76,
+      "height_var": 45.73,
+      "weight_mean": 84.69,
+      "weight_std": 14.81,
+      "weight_var": 219.45,
+      "n": 91
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 170.02,
+      "height_std": 6.02,
+      "height_var": 36.2,
+      "weight_mean": 85.71,
+      "weight_std": 9.65,
+      "weight_var": 93.08,
+      "n": 55
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 172.67,
+      "height_std": 4.05,
+      "height_var": 16.38,
+      "weight_mean": 91.97,
+      "weight_std": 19.67,
+      "weight_var": 387.04,
+      "n": 65
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.34,
+      "height_std": 10.51,
+      "height_var": 110.39,
+      "weight_mean": 80.41,
+      "weight_std": 25.1,
+      "weight_var": 629.85,
+      "n": 110
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=20kTo45k__OCD150=Sedentary": {
+      "height_mean": 175.89,
+      "height_std": 0.68,
+      "height_var": 0.46,
+      "weight_mean": 71.54,
+      "weight_std": 4.03,
+      "weight_var": 16.26,
+      "n": 51
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 179.17,
+      "height_std": 4.44,
+      "height_var": 19.74,
+      "weight_mean": 74.65,
+      "weight_std": 16.7,
+      "weight_var": 278.89,
+      "n": 80
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 180.03,
+      "height_std": 6.82,
+      "height_var": 46.53,
+      "weight_mean": 86.35,
+      "weight_std": 13.69,
+      "weight_var": 187.31,
+      "n": 1331
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 168.88,
+      "height_std": 10.46,
+      "height_var": 109.42,
+      "weight_mean": 98.15,
+      "weight_std": 21.52,
+      "weight_var": 463.12,
+      "n": 84
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.13,
+      "height_std": 6.25,
+      "height_var": 39.01,
+      "weight_mean": 90.08,
+      "weight_std": 20.11,
+      "weight_var": 404.28,
+      "n": 312
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 178.75,
+      "height_std": 5.74,
+      "height_var": 33.0,
+      "weight_mean": 87.31,
+      "weight_std": 29.88,
+      "weight_var": 892.87,
+      "n": 102
+    },
+    "RIDAGEYR=18-37__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 178.18,
+      "height_std": 6.51,
+      "height_var": 42.41,
+      "weight_mean": 96.87,
+      "weight_std": 32.52,
+      "weight_var": 1057.54,
+      "n": 772
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.82,
+      "height_std": 6.15,
+      "height_var": 37.77,
+      "weight_mean": 85.83,
+      "weight_std": 19.74,
+      "weight_var": 389.59,
+      "n": 253
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.98,
+      "height_std": 7.05,
+      "height_var": 49.72,
+      "weight_mean": 91.49,
+      "weight_std": 25.37,
+      "weight_var": 643.7,
+      "n": 186
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 162.97,
+      "height_std": 7.88,
+      "height_var": 62.12,
+      "weight_mean": 76.46,
+      "weight_std": 11.55,
+      "weight_var": 133.32,
+      "n": 95
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.39,
+      "height_std": 7.95,
+      "height_var": 63.24,
+      "weight_mean": 91.58,
+      "weight_std": 21.8,
+      "weight_var": 475.34,
+      "n": 200
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 156.86,
+      "height_std": 5.03,
+      "height_var": 25.3,
+      "weight_mean": 61.41,
+      "weight_std": 7.03,
+      "weight_var": 49.42,
+      "n": 108
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 161.3,
+      "height_std": 1.95,
+      "height_var": 3.79,
+      "weight_mean": 74.98,
+      "weight_std": 10.92,
+      "weight_var": 119.31,
+      "n": 87
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 151.13,
+      "height_std": 1.5,
+      "height_var": 2.26,
+      "weight_mean": 66.59,
+      "weight_std": 7.93,
+      "weight_var": 62.94,
+      "n": 70
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 152.18,
+      "height_std": 6.96,
+      "height_var": 48.42,
+      "weight_mean": 69.93,
+      "weight_std": 12.21,
+      "weight_var": 148.97,
+      "n": 69
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 152.23,
+      "height_std": 3.23,
+      "height_var": 10.45,
+      "weight_mean": 67.57,
+      "weight_std": 6.4,
+      "weight_var": 40.95,
+      "n": 84
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 155.95,
+      "height_std": 5.36,
+      "height_var": 28.68,
+      "weight_mean": 71.01,
+      "weight_std": 11.88,
+      "weight_var": 141.19,
+      "n": 241
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 157.78,
+      "height_std": 7.78,
+      "height_var": 60.49,
+      "weight_mean": 55.26,
+      "weight_std": 13.98,
+      "weight_var": 195.41,
+      "n": 84
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 158.28,
+      "height_std": 4.56,
+      "height_var": 20.82,
+      "weight_mean": 67.43,
+      "weight_std": 14.02,
+      "weight_var": 196.55,
+      "n": 530
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.79,
+      "height_std": 6.04,
+      "height_var": 36.46,
+      "weight_mean": 73.6,
+      "weight_std": 17.51,
+      "weight_var": 306.6,
+      "n": 95
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.15,
+      "height_std": 6.89,
+      "height_var": 47.53,
+      "weight_mean": 73.8,
+      "weight_std": 10.56,
+      "weight_var": 111.61,
+      "n": 174
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.56,
+      "height_std": 2.94,
+      "height_var": 8.66,
+      "weight_mean": 70.56,
+      "weight_std": 5.76,
+      "weight_var": 33.15,
+      "n": 51
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 163.77,
+      "height_std": 6.14,
+      "height_var": 37.72,
+      "weight_mean": 71.93,
+      "weight_std": 9.96,
+      "weight_var": 99.29,
+      "n": 88
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.6,
+      "height_std": 6.2,
+      "height_var": 38.41,
+      "weight_mean": 80.26,
+      "weight_std": 13.82,
+      "weight_var": 190.95,
+      "n": 146
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 152.89,
+      "height_std": 7.34,
+      "height_var": 53.91,
+      "weight_mean": 70.78,
+      "weight_std": 6.89,
+      "weight_var": 47.53,
+      "n": 88
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.9,
+      "height_std": 7.26,
+      "height_var": 52.75,
+      "weight_mean": 76.79,
+      "weight_std": 11.58,
+      "weight_var": 134.14,
+      "n": 136
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.85,
+      "height_std": 6.48,
+      "height_var": 42.04,
+      "weight_mean": 75.34,
+      "weight_std": 13.71,
+      "weight_var": 187.91,
+      "n": 55
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.22,
+      "height_std": 6.82,
+      "height_var": 46.54,
+      "weight_mean": 63.73,
+      "weight_std": 7.63,
+      "weight_var": 58.24,
+      "n": 155
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 165.54,
+      "height_std": 6.83,
+      "height_var": 46.71,
+      "weight_mean": 82.26,
+      "weight_std": 13.92,
+      "weight_var": 193.79,
+      "n": 213
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 167.15,
+      "height_std": 5.12,
+      "height_var": 26.24,
+      "weight_mean": 70.55,
+      "weight_std": 17.73,
+      "weight_var": 314.18,
+      "n": 233
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 165.75,
+      "height_std": 3.88,
+      "height_var": 15.09,
+      "weight_mean": 70.52,
+      "weight_std": 3.6,
+      "weight_var": 12.99,
+      "n": 72
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 164.76,
+      "height_std": 6.16,
+      "height_var": 37.88,
+      "weight_mean": 81.82,
+      "weight_std": 23.86,
+      "weight_var": 569.34,
+      "n": 1894
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.92,
+      "height_std": 5.77,
+      "height_var": 33.3,
+      "weight_mean": 77.27,
+      "weight_std": 13.64,
+      "weight_var": 186.05,
+      "n": 96
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 164.19,
+      "height_std": 5.81,
+      "height_var": 33.78,
+      "weight_mean": 85.69,
+      "weight_std": 25.01,
+      "weight_var": 625.63,
+      "n": 308
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.87,
+      "height_std": 9.34,
+      "height_var": 87.2,
+      "weight_mean": 80.29,
+      "weight_std": 25.9,
+      "weight_var": 670.7,
+      "n": 215
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 163.03,
+      "height_std": 4.61,
+      "height_var": 21.29,
+      "weight_mean": 83.66,
+      "weight_std": 12.47,
+      "weight_var": 155.44,
+      "n": 87
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 165.82,
+      "height_std": 2.72,
+      "height_var": 7.42,
+      "weight_mean": 79.22,
+      "weight_std": 8.98,
+      "weight_var": 80.64,
+      "n": 73
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.56,
+      "height_std": 6.26,
+      "height_var": 39.15,
+      "weight_mean": 87.89,
+      "weight_std": 24.65,
+      "weight_var": 607.43,
+      "n": 939
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 180.77,
+      "height_std": 5.27,
+      "height_var": 27.82,
+      "weight_mean": 95.25,
+      "weight_std": 14.78,
+      "weight_var": 218.59,
+      "n": 95
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.25,
+      "height_std": 4.49,
+      "height_var": 20.13,
+      "weight_mean": 89.05,
+      "weight_std": 27.48,
+      "weight_var": 755.07,
+      "n": 84
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 178.13,
+      "height_std": 4.19,
+      "height_var": 17.57,
+      "weight_mean": 129.52,
+      "weight_std": 35.67,
+      "weight_var": 1272.01,
+      "n": 52
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 176.62,
+      "height_std": 6.25,
+      "height_var": 39.08,
+      "weight_mean": 109.34,
+      "weight_std": 32.46,
+      "weight_var": 1053.67,
+      "n": 74
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.09,
+      "height_std": 6.28,
+      "height_var": 39.38,
+      "weight_mean": 103.05,
+      "weight_std": 42.5,
+      "weight_var": 1806.2,
+      "n": 162
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 165.97,
+      "height_std": 6.46,
+      "height_var": 41.71,
+      "weight_mean": 78.4,
+      "weight_std": 10.7,
+      "weight_var": 114.59,
+      "n": 92
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.99,
+      "height_std": 7.04,
+      "height_var": 49.6,
+      "weight_mean": 92.97,
+      "weight_std": 13.27,
+      "weight_var": 176.04,
+      "n": 69
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 167.7,
+      "height_std": 6.42,
+      "height_var": 41.21,
+      "weight_mean": 98.94,
+      "weight_std": 23.41,
+      "weight_var": 548.0,
+      "n": 182
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.15,
+      "height_std": 10.33,
+      "height_var": 106.76,
+      "weight_mean": 77.23,
+      "weight_std": 22.66,
+      "weight_var": 513.53,
+      "n": 84
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.17,
+      "height_std": 2.84,
+      "height_var": 8.04,
+      "weight_mean": 96.28,
+      "weight_std": 25.88,
+      "weight_var": 669.54,
+      "n": 60
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 176.0,
+      "height_std": 3.97,
+      "height_var": 15.8,
+      "weight_mean": 80.15,
+      "weight_std": 18.38,
+      "weight_var": 337.84,
+      "n": 57
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.0,
+      "height_std": 7.64,
+      "height_var": 58.37,
+      "weight_mean": 78.96,
+      "weight_std": 16.0,
+      "weight_var": 256.08,
+      "n": 396
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 168.76,
+      "height_std": 10.03,
+      "height_var": 100.5,
+      "weight_mean": 92.94,
+      "weight_std": 19.72,
+      "weight_var": 388.89,
+      "n": 65
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 167.83,
+      "height_std": 5.59,
+      "height_var": 31.26,
+      "weight_mean": 77.62,
+      "weight_std": 17.87,
+      "weight_var": 319.45,
+      "n": 79
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 169.45,
+      "height_std": 4.31,
+      "height_var": 18.56,
+      "weight_mean": 87.1,
+      "weight_std": 18.1,
+      "weight_var": 327.69,
+      "n": 63
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.5,
+      "height_std": 7.08,
+      "height_var": 50.15,
+      "weight_mean": 86.94,
+      "weight_std": 11.1,
+      "weight_var": 123.13,
+      "n": 173
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.28,
+      "height_std": 4.9,
+      "height_var": 23.97,
+      "weight_mean": 84.6,
+      "weight_std": 14.27,
+      "weight_var": 203.56,
+      "n": 76
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.03,
+      "height_std": 3.71,
+      "height_var": 13.78,
+      "weight_mean": 105.41,
+      "weight_std": 19.69,
+      "weight_var": 387.73,
+      "n": 50
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.59,
+      "height_std": 6.43,
+      "height_var": 41.28,
+      "weight_mean": 130.47,
+      "weight_std": 36.43,
+      "weight_var": 1327.18,
+      "n": 56
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 177.47,
+      "height_std": 2.35,
+      "height_var": 5.51,
+      "weight_mean": 91.75,
+      "weight_std": 21.0,
+      "weight_var": 441.02,
+      "n": 87
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 178.33,
+      "height_std": 4.23,
+      "height_var": 17.86,
+      "weight_mean": 84.25,
+      "weight_std": 12.59,
+      "weight_var": 158.44,
+      "n": 82
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 176.09,
+      "height_std": 3.12,
+      "height_var": 9.73,
+      "weight_mean": 98.89,
+      "weight_std": 19.51,
+      "weight_var": 380.72,
+      "n": 56
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 179.59,
+      "height_std": 6.47,
+      "height_var": 41.88,
+      "weight_mean": 94.65,
+      "weight_std": 21.37,
+      "weight_var": 456.81,
+      "n": 1377
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 174.14,
+      "height_std": 4.24,
+      "height_var": 18.01,
+      "weight_mean": 93.33,
+      "weight_std": 30.96,
+      "weight_var": 958.23,
+      "n": 53
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 176.46,
+      "height_std": 4.48,
+      "height_var": 20.07,
+      "weight_mean": 87.03,
+      "weight_std": 27.22,
+      "weight_var": 740.98,
+      "n": 55
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 179.99,
+      "height_std": 6.38,
+      "height_var": 40.76,
+      "weight_mean": 100.78,
+      "weight_std": 25.74,
+      "weight_var": 662.65,
+      "n": 325
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 179.78,
+      "height_std": 8.4,
+      "height_var": 70.53,
+      "weight_mean": 103.54,
+      "weight_std": 27.76,
+      "weight_var": 770.82,
+      "n": 238
+    },
+    "RIDAGEYR=38-53__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.5,
+      "height_std": 7.58,
+      "height_var": 57.41,
+      "weight_mean": 98.64,
+      "weight_std": 22.32,
+      "weight_var": 498.05,
+      "n": 667
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 165.76,
+      "height_std": 1.48,
+      "height_var": 2.2,
+      "weight_mean": 60.99,
+      "weight_std": 16.91,
+      "weight_var": 285.98,
+      "n": 70
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.95,
+      "height_std": 2.58,
+      "height_var": 6.67,
+      "weight_mean": 80.39,
+      "weight_std": 15.99,
+      "weight_var": 255.62,
+      "n": 81
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 166.44,
+      "height_std": 6.28,
+      "height_var": 39.39,
+      "weight_mean": 86.69,
+      "weight_std": 18.36,
+      "weight_var": 337.15,
+      "n": 146
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 164.78,
+      "height_std": 6.24,
+      "height_var": 38.89,
+      "weight_mean": 100.11,
+      "weight_std": 20.95,
+      "weight_var": 439.04,
+      "n": 160
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 162.36,
+      "height_std": 5.83,
+      "height_var": 34.02,
+      "weight_mean": 94.3,
+      "weight_std": 24.98,
+      "weight_var": 624.03,
+      "n": 117
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.1,
+      "height_std": 4.68,
+      "height_var": 21.95,
+      "weight_mean": 78.84,
+      "weight_std": 11.93,
+      "weight_var": 142.28,
+      "n": 125
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.23,
+      "height_std": 6.71,
+      "height_var": 45.06,
+      "weight_mean": 76.9,
+      "weight_std": 6.62,
+      "weight_var": 43.8,
+      "n": 95
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 152.35,
+      "height_std": 1.52,
+      "height_var": 2.31,
+      "weight_mean": 75.31,
+      "weight_std": 10.8,
+      "weight_var": 116.7,
+      "n": 66
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.9,
+      "height_std": 6.54,
+      "height_var": 42.79,
+      "weight_mean": 69.84,
+      "weight_std": 16.32,
+      "weight_var": 266.29,
+      "n": 56
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.7,
+      "height_std": 6.34,
+      "height_var": 40.15,
+      "weight_mean": 77.89,
+      "weight_std": 17.54,
+      "weight_var": 307.71,
+      "n": 75
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.03,
+      "height_std": 7.31,
+      "height_var": 53.42,
+      "weight_mean": 74.25,
+      "weight_std": 23.12,
+      "weight_var": 534.33,
+      "n": 218
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.67,
+      "height_std": 8.21,
+      "height_var": 67.44,
+      "weight_mean": 69.33,
+      "weight_std": 18.46,
+      "weight_var": 340.95,
+      "n": 154
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.78,
+      "height_std": 3.84,
+      "height_var": 14.75,
+      "weight_mean": 64.37,
+      "weight_std": 15.67,
+      "weight_var": 245.45,
+      "n": 180
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 152.09,
+      "height_std": 4.47,
+      "height_var": 19.94,
+      "weight_mean": 69.6,
+      "weight_std": 11.77,
+      "weight_var": 138.45,
+      "n": 104
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.93,
+      "height_std": 4.49,
+      "height_var": 20.16,
+      "weight_mean": 86.17,
+      "weight_std": 16.15,
+      "weight_var": 260.74,
+      "n": 103
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 154.11,
+      "height_std": 4.33,
+      "height_var": 18.74,
+      "weight_mean": 66.21,
+      "weight_std": 11.94,
+      "weight_var": 142.54,
+      "n": 71
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.95,
+      "height_std": 9.48,
+      "height_var": 89.95,
+      "weight_mean": 97.05,
+      "weight_std": 23.3,
+      "weight_var": 542.69,
+      "n": 52
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.5,
+      "height_std": 4.26,
+      "height_var": 18.16,
+      "weight_mean": 75.5,
+      "weight_std": 13.6,
+      "weight_var": 184.9,
+      "n": 72
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.29,
+      "height_std": 5.31,
+      "height_var": 28.21,
+      "weight_mean": 75.25,
+      "weight_std": 16.02,
+      "weight_var": 256.72,
+      "n": 88
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 157.42,
+      "height_std": 1.27,
+      "height_var": 1.62,
+      "weight_mean": 85.83,
+      "weight_std": 9.91,
+      "weight_var": 98.2,
+      "n": 63
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 164.43,
+      "height_std": 4.9,
+      "height_var": 24.06,
+      "weight_mean": 77.09,
+      "weight_std": 16.1,
+      "weight_var": 259.13,
+      "n": 447
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 165.88,
+      "height_std": 5.9,
+      "height_var": 34.83,
+      "weight_mean": 77.3,
+      "weight_std": 12.6,
+      "weight_var": 158.88,
+      "n": 101
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 164.4,
+      "height_std": 3.98,
+      "height_var": 15.85,
+      "weight_mean": 91.47,
+      "weight_std": 34.66,
+      "weight_var": 1201.38,
+      "n": 94
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 163.89,
+      "height_std": 6.2,
+      "height_var": 38.45,
+      "weight_mean": 77.11,
+      "weight_std": 17.49,
+      "weight_var": 305.93,
+      "n": 1324
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.14,
+      "height_std": 5.42,
+      "height_var": 29.41,
+      "weight_mean": 77.33,
+      "weight_std": 18.43,
+      "weight_var": 339.81,
+      "n": 437
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 160.75,
+      "height_std": 6.41,
+      "height_var": 41.08,
+      "weight_mean": 81.06,
+      "weight_std": 22.26,
+      "weight_var": 495.41,
+      "n": 537
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=45kTo75k__OCD150=Sedentary": {
+      "height_mean": 168.7,
+      "height_std": 1.05,
+      "height_var": 1.09,
+      "weight_mean": 96.27,
+      "weight_std": 16.6,
+      "weight_var": 275.57,
+      "n": 72
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 162.48,
+      "height_std": 6.19,
+      "height_var": 38.32,
+      "weight_mean": 80.35,
+      "weight_std": 20.27,
+      "weight_var": 410.89,
+      "n": 696
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 165.56,
+      "height_std": 4.68,
+      "height_var": 21.88,
+      "weight_mean": 66.82,
+      "weight_std": 3.39,
+      "weight_var": 11.49,
+      "n": 55
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Moderate": {
+      "height_mean": 159.4,
+      "height_std": 10.71,
+      "height_var": 114.71,
+      "weight_mean": 80.84,
+      "weight_std": 11.6,
+      "weight_var": 134.49,
+      "n": 113
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.45,
+      "height_std": 5.42,
+      "height_var": 29.37,
+      "weight_mean": 84.19,
+      "weight_std": 23.92,
+      "weight_var": 572.15,
+      "n": 894
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.51,
+      "height_std": 7.93,
+      "height_var": 62.91,
+      "weight_mean": 99.77,
+      "weight_std": 26.91,
+      "weight_var": 724.34,
+      "n": 97
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.8,
+      "height_std": 10.94,
+      "height_var": 119.73,
+      "weight_mean": 95.03,
+      "weight_std": 15.69,
+      "weight_var": 246.29,
+      "n": 81
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 176.39,
+      "height_std": 3.26,
+      "height_var": 10.61,
+      "weight_mean": 86.43,
+      "weight_std": 22.19,
+      "weight_var": 492.19,
+      "n": 90
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 176.4,
+      "height_std": 6.75,
+      "height_var": 45.63,
+      "weight_mean": 79.33,
+      "weight_std": 16.01,
+      "weight_var": 256.35,
+      "n": 68
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 176.46,
+      "height_std": 4.3,
+      "height_var": 18.52,
+      "weight_mean": 84.24,
+      "weight_std": 5.77,
+      "weight_var": 33.32,
+      "n": 53
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 178.11,
+      "height_std": 7.19,
+      "height_var": 51.75,
+      "weight_mean": 88.93,
+      "weight_std": 16.71,
+      "weight_var": 279.26,
+      "n": 159
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 170.24,
+      "height_std": 5.66,
+      "height_var": 32.09,
+      "weight_mean": 107.87,
+      "weight_std": 39.94,
+      "weight_var": 1595.02,
+      "n": 59
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 177.75,
+      "height_std": 6.96,
+      "height_var": 48.43,
+      "weight_mean": 95.81,
+      "weight_std": 21.21,
+      "weight_var": 449.95,
+      "n": 51
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 163.57,
+      "height_std": 9.11,
+      "height_var": 83.07,
+      "weight_mean": 79.88,
+      "weight_std": 8.13,
+      "weight_var": 66.15,
+      "n": 68
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 172.68,
+      "height_std": 2.94,
+      "height_var": 8.64,
+      "weight_mean": 91.29,
+      "weight_std": 12.2,
+      "weight_var": 148.89,
+      "n": 86
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 171.96,
+      "height_std": 8.35,
+      "height_var": 69.7,
+      "weight_mean": 86.06,
+      "weight_std": 28.97,
+      "weight_var": 839.05,
+      "n": 167
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.49,
+      "height_std": 5.9,
+      "height_var": 34.76,
+      "weight_mean": 83.63,
+      "weight_std": 14.38,
+      "weight_var": 206.75,
+      "n": 80
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 167.53,
+      "height_std": 9.12,
+      "height_var": 83.24,
+      "weight_mean": 92.26,
+      "weight_std": 34.06,
+      "weight_var": 1160.2,
+      "n": 76
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.38,
+      "height_std": 8.88,
+      "height_var": 78.93,
+      "weight_mean": 86.7,
+      "weight_std": 18.97,
+      "weight_var": 359.9,
+      "n": 74
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 172.92,
+      "height_std": 5.94,
+      "height_var": 35.28,
+      "weight_mean": 82.4,
+      "weight_std": 18.03,
+      "weight_var": 325.0,
+      "n": 87
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 172.88,
+      "height_std": 5.88,
+      "height_var": 34.58,
+      "weight_mean": 84.66,
+      "weight_std": 11.55,
+      "weight_var": 133.33,
+      "n": 88
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 165.63,
+      "height_std": 5.16,
+      "height_var": 26.66,
+      "weight_mean": 78.56,
+      "weight_std": 7.79,
+      "weight_var": 60.66,
+      "n": 65
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.85,
+      "height_std": 11.28,
+      "height_var": 127.25,
+      "weight_mean": 93.85,
+      "weight_std": 29.15,
+      "weight_var": 849.46,
+      "n": 76
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 172.31,
+      "height_std": 6.65,
+      "height_var": 44.22,
+      "weight_mean": 93.38,
+      "weight_std": 17.42,
+      "weight_var": 303.34,
+      "n": 145
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 178.44,
+      "height_std": 6.38,
+      "height_var": 40.75,
+      "weight_mean": 93.03,
+      "weight_std": 20.27,
+      "weight_var": 410.99,
+      "n": 399
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 178.57,
+      "height_std": 6.3,
+      "height_var": 39.68,
+      "weight_mean": 93.1,
+      "weight_std": 21.88,
+      "weight_var": 478.73,
+      "n": 1448
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 177.5,
+      "height_std": 5.38,
+      "height_var": 28.96,
+      "weight_mean": 89.48,
+      "weight_std": 21.04,
+      "weight_var": 442.74,
+      "n": 252
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 174.88,
+      "height_std": 5.68,
+      "height_var": 32.26,
+      "weight_mean": 89.58,
+      "weight_std": 18.46,
+      "weight_var": 340.81,
+      "n": 459
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 176.24,
+      "height_std": 6.48,
+      "height_var": 42.0,
+      "weight_mean": 101.03,
+      "weight_std": 26.24,
+      "weight_var": 688.37,
+      "n": 339
+    },
+    "RIDAGEYR=54-63__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.42,
+      "height_std": 7.57,
+      "height_var": 57.23,
+      "weight_mean": 94.52,
+      "weight_std": 21.36,
+      "weight_var": 456.18,
+      "n": 653
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.75,
+      "height_std": 4.89,
+      "height_var": 23.87,
+      "weight_mean": 91.95,
+      "weight_std": 23.13,
+      "weight_var": 534.94,
+      "n": 132
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.42,
+      "height_std": 3.64,
+      "height_var": 13.27,
+      "weight_mean": 81.86,
+      "weight_std": 12.35,
+      "weight_var": 152.47,
+      "n": 132
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 164.54,
+      "height_std": 8.92,
+      "height_var": 79.57,
+      "weight_mean": 83.95,
+      "weight_std": 15.98,
+      "weight_var": 255.47,
+      "n": 204
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 150.47,
+      "height_std": 5.03,
+      "height_var": 25.28,
+      "weight_mean": 76.36,
+      "weight_std": 11.34,
+      "weight_var": 128.56,
+      "n": 114
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=MexicanAmerican__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.4,
+      "height_std": 6.33,
+      "height_var": 40.05,
+      "weight_mean": 91.92,
+      "weight_std": 19.16,
+      "weight_var": 367.15,
+      "n": 70
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.08,
+      "height_std": 6.56,
+      "height_var": 43.06,
+      "weight_mean": 74.42,
+      "weight_std": 27.19,
+      "weight_var": 739.06,
+      "n": 195
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.11,
+      "height_std": 9.24,
+      "height_var": 85.41,
+      "weight_mean": 73.88,
+      "weight_std": 21.56,
+      "weight_var": 465.01,
+      "n": 104
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 160.52,
+      "height_std": 6.57,
+      "height_var": 43.14,
+      "weight_mean": 78.69,
+      "weight_std": 24.98,
+      "weight_var": 624.02,
+      "n": 232
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 151.19,
+      "height_std": 7.21,
+      "height_var": 51.94,
+      "weight_mean": 80.75,
+      "weight_std": 15.36,
+      "weight_var": 235.83,
+      "n": 50
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.35,
+      "height_std": 5.45,
+      "height_var": 29.68,
+      "weight_mean": 77.11,
+      "weight_std": 24.62,
+      "weight_var": 606.0,
+      "n": 62
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 154.53,
+      "height_std": 3.61,
+      "height_var": 13.04,
+      "weight_mean": 63.65,
+      "weight_std": 7.9,
+      "weight_var": 62.44,
+      "n": 79
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.09,
+      "height_std": 2.8,
+      "height_var": 7.81,
+      "weight_mean": 74.53,
+      "weight_std": 5.48,
+      "weight_var": 30.03,
+      "n": 92
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 154.88,
+      "height_std": 5.03,
+      "height_var": 25.27,
+      "weight_mean": 83.78,
+      "weight_std": 15.04,
+      "weight_var": 226.25,
+      "n": 56
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.23,
+      "height_std": 0.61,
+      "height_var": 0.37,
+      "weight_mean": 79.63,
+      "weight_std": 10.23,
+      "weight_var": 104.74,
+      "n": 92
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.78,
+      "height_std": 4.88,
+      "height_var": 23.79,
+      "weight_mean": 76.98,
+      "weight_std": 19.75,
+      "weight_var": 390.24,
+      "n": 112
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 161.81,
+      "height_std": 5.91,
+      "height_var": 34.87,
+      "weight_mean": 74.9,
+      "weight_std": 18.82,
+      "weight_var": 354.23,
+      "n": 1834
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 163.28,
+      "height_std": 2.84,
+      "height_var": 8.07,
+      "weight_mean": 70.55,
+      "weight_std": 16.59,
+      "weight_var": 275.35,
+      "n": 181
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 163.21,
+      "height_std": 6.36,
+      "height_var": 40.4,
+      "weight_mean": 72.58,
+      "weight_std": 14.61,
+      "weight_var": 213.4,
+      "n": 843
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.33,
+      "height_std": 6.53,
+      "height_var": 42.65,
+      "weight_mean": 76.87,
+      "weight_std": 19.74,
+      "weight_var": 389.55,
+      "n": 827
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 162.11,
+      "height_std": 5.81,
+      "height_var": 33.76,
+      "weight_mean": 76.07,
+      "weight_std": 17.14,
+      "weight_var": 293.65,
+      "n": 238
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=20kTo45k__OCD150=Sedentary": {
+      "height_mean": 168.89,
+      "height_std": 2.95,
+      "height_var": 8.69,
+      "weight_mean": 91.85,
+      "weight_std": 22.25,
+      "weight_var": 495.27,
+      "n": 69
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 160.81,
+      "height_std": 6.33,
+      "height_var": 40.06,
+      "weight_mean": 79.19,
+      "weight_std": 17.79,
+      "weight_var": 316.51,
+      "n": 1262
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.61,
+      "height_std": 7.71,
+      "height_var": 59.48,
+      "weight_mean": 74.98,
+      "weight_std": 19.44,
+      "weight_var": 378.03,
+      "n": 466
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.33,
+      "height_std": 7.01,
+      "height_var": 49.14,
+      "weight_mean": 86.08,
+      "weight_std": 20.29,
+      "weight_var": 411.68,
+      "n": 113
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.49,
+      "height_std": 5.81,
+      "height_var": 33.79,
+      "weight_mean": 98.15,
+      "weight_std": 32.38,
+      "weight_var": 1048.33,
+      "n": 169
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.49,
+      "height_std": 4.08,
+      "height_var": 16.64,
+      "weight_mean": 95.69,
+      "weight_std": 18.1,
+      "weight_var": 327.57,
+      "n": 64
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.71,
+      "height_std": 9.84,
+      "height_var": 96.83,
+      "weight_mean": 82.43,
+      "weight_std": 11.99,
+      "weight_var": 143.8,
+      "n": 104
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.75,
+      "height_std": 6.43,
+      "height_var": 41.3,
+      "weight_mean": 87.66,
+      "weight_std": 24.89,
+      "weight_var": 619.64,
+      "n": 81
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.27,
+      "height_std": 8.12,
+      "height_var": 65.87,
+      "weight_mean": 75.62,
+      "weight_std": 14.01,
+      "weight_var": 196.2,
+      "n": 149
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.72,
+      "height_std": 6.05,
+      "height_var": 36.6,
+      "weight_mean": 75.5,
+      "weight_std": 13.14,
+      "weight_var": 172.74,
+      "n": 133
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.58,
+      "height_std": 4.34,
+      "height_var": 18.87,
+      "weight_mean": 96.22,
+      "weight_std": 18.53,
+      "weight_var": 343.19,
+      "n": 93
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.86,
+      "height_std": 7.03,
+      "height_var": 49.36,
+      "weight_mean": 84.53,
+      "weight_std": 37.71,
+      "weight_var": 1421.82,
+      "n": 91
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 171.18,
+      "height_std": 7.28,
+      "height_var": 53.0,
+      "weight_mean": 75.77,
+      "weight_std": 12.91,
+      "weight_var": 166.79,
+      "n": 55
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.62,
+      "height_std": 3.9,
+      "height_var": 15.24,
+      "weight_mean": 99.21,
+      "weight_std": 9.65,
+      "weight_var": 93.05,
+      "n": 74
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 163.03,
+      "height_std": 9.29,
+      "height_var": 86.33,
+      "weight_mean": 70.3,
+      "weight_std": 9.84,
+      "weight_var": 96.88,
+      "n": 80
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.08,
+      "height_std": 7.49,
+      "height_var": 56.11,
+      "weight_mean": 79.02,
+      "weight_std": 21.82,
+      "weight_var": 476.03,
+      "n": 96
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.15,
+      "height_std": 6.34,
+      "height_var": 40.17,
+      "weight_mean": 87.6,
+      "weight_std": 17.75,
+      "weight_var": 315.16,
+      "n": 1172
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 177.49,
+      "height_std": 6.29,
+      "height_var": 39.62,
+      "weight_mean": 88.03,
+      "weight_std": 18.91,
+      "weight_var": 357.6,
+      "n": 753
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.96,
+      "height_std": 7.8,
+      "height_var": 60.81,
+      "weight_mean": 92.94,
+      "weight_std": 17.48,
+      "weight_var": 305.4,
+      "n": 528
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 174.07,
+      "height_std": 8.86,
+      "height_var": 78.54,
+      "weight_mean": 92.34,
+      "weight_std": 20.3,
+      "weight_var": 412.1,
+      "n": 360
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 175.13,
+      "height_std": 6.06,
+      "height_var": 36.72,
+      "weight_mean": 97.03,
+      "weight_std": 19.47,
+      "weight_var": 379.22,
+      "n": 947
+    },
+    "RIDAGEYR=64-71__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 174.36,
+      "height_std": 6.13,
+      "height_var": 37.62,
+      "weight_mean": 87.91,
+      "weight_std": 19.71,
+      "weight_var": 388.47,
+      "n": 363
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 164.37,
+      "height_std": 4.45,
+      "height_var": 19.81,
+      "weight_mean": 81.03,
+      "weight_std": 15.89,
+      "weight_var": 252.47,
+      "n": 79
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 160.74,
+      "height_std": 2.41,
+      "height_var": 5.82,
+      "weight_mean": 74.24,
+      "weight_std": 22.46,
+      "weight_var": 504.66,
+      "n": 57
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.55,
+      "height_std": 6.76,
+      "height_var": 45.67,
+      "weight_mean": 78.8,
+      "weight_std": 16.37,
+      "weight_var": 267.87,
+      "n": 168
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.46,
+      "height_std": 3.44,
+      "height_var": 11.85,
+      "weight_mean": 60.15,
+      "weight_std": 16.25,
+      "weight_var": 264.01,
+      "n": 152
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 158.98,
+      "height_std": 5.91,
+      "height_var": 34.97,
+      "weight_mean": 71.37,
+      "weight_std": 20.4,
+      "weight_var": 416.09,
+      "n": 204
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 152.63,
+      "height_std": 3.79,
+      "height_var": 14.34,
+      "weight_mean": 64.66,
+      "weight_std": 9.23,
+      "weight_var": 85.18,
+      "n": 90
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.22,
+      "height_std": 5.31,
+      "height_var": 28.18,
+      "weight_mean": 75.19,
+      "weight_std": 9.91,
+      "weight_var": 98.3,
+      "n": 92
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 151.27,
+      "height_std": 7.56,
+      "height_var": 57.23,
+      "weight_mean": 59.65,
+      "weight_std": 4.91,
+      "weight_var": 24.09,
+      "n": 90
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 148.19,
+      "height_std": 8.93,
+      "height_var": 79.7,
+      "weight_mean": 70.82,
+      "weight_std": 4.94,
+      "weight_var": 24.39,
+      "n": 71
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=OtherHispanic__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.66,
+      "height_std": 4.59,
+      "height_var": 21.05,
+      "weight_mean": 74.64,
+      "weight_std": 8.57,
+      "weight_var": 73.48,
+      "n": 74
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 155.71,
+      "height_std": 6.49,
+      "height_var": 42.06,
+      "weight_mean": 74.6,
+      "weight_std": 15.24,
+      "weight_var": 232.12,
+      "n": 200
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 159.14,
+      "height_std": 6.48,
+      "height_var": 41.93,
+      "weight_mean": 68.51,
+      "weight_std": 15.98,
+      "weight_var": 255.46,
+      "n": 1946
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 159.83,
+      "height_std": 4.13,
+      "height_var": 17.03,
+      "weight_mean": 71.49,
+      "weight_std": 17.32,
+      "weight_var": 300.03,
+      "n": 250
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.49,
+      "height_std": 5.91,
+      "height_var": 34.89,
+      "weight_mean": 73.91,
+      "weight_std": 16.96,
+      "weight_var": 287.51,
+      "n": 945
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 163.3,
+      "height_std": 3.87,
+      "height_var": 15.0,
+      "weight_mean": 80.49,
+      "weight_std": 22.0,
+      "weight_var": 483.95,
+      "n": 76
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 154.95,
+      "height_std": 4.35,
+      "height_var": 18.91,
+      "weight_mean": 68.7,
+      "weight_std": 6.31,
+      "weight_var": 39.76,
+      "n": 71
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 157.87,
+      "height_std": 5.89,
+      "height_var": 34.75,
+      "weight_mean": 72.92,
+      "weight_std": 18.23,
+      "weight_var": 332.25,
+      "n": 1299
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 158.26,
+      "height_std": 4.75,
+      "height_var": 22.6,
+      "weight_mean": 71.4,
+      "weight_std": 15.39,
+      "weight_var": 236.75,
+      "n": 190
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 173.15,
+      "height_std": 6.92,
+      "height_var": 47.9,
+      "weight_mean": 87.18,
+      "weight_std": 12.18,
+      "weight_var": 148.25,
+      "n": 128
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Black__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.03,
+      "height_std": 5.65,
+      "height_var": 31.94,
+      "weight_mean": 82.94,
+      "weight_std": 19.52,
+      "weight_var": 380.88,
+      "n": 53
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=MexicanAmerican__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 163.01,
+      "height_std": 3.39,
+      "height_var": 11.46,
+      "weight_mean": 67.69,
+      "weight_std": 3.87,
+      "weight_var": 14.99,
+      "n": 55
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 172.36,
+      "height_std": 11.89,
+      "height_var": 141.37,
+      "weight_mean": 86.01,
+      "weight_std": 20.18,
+      "weight_var": 407.22,
+      "n": 174
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 173.49,
+      "height_std": 9.28,
+      "height_var": 86.15,
+      "weight_mean": 79.01,
+      "weight_std": 11.35,
+      "weight_var": 128.84,
+      "n": 72
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 168.16,
+      "height_std": 7.59,
+      "height_var": 57.66,
+      "weight_mean": 85.47,
+      "weight_std": 21.65,
+      "weight_var": 468.93,
+      "n": 75
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=Other__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 172.04,
+      "height_std": 3.73,
+      "height_var": 13.92,
+      "weight_mean": 75.9,
+      "weight_std": 16.8,
+      "weight_var": 282.18,
+      "n": 136
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 167.94,
+      "height_std": 9.5,
+      "height_var": 90.28,
+      "weight_mean": 83.07,
+      "weight_std": 18.88,
+      "weight_var": 356.4,
+      "n": 146
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 169.93,
+      "height_std": 3.03,
+      "height_var": 9.18,
+      "weight_mean": 77.48,
+      "weight_std": 9.89,
+      "weight_var": 97.91,
+      "n": 60
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=OtherHispanic__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 165.49,
+      "height_std": 8.33,
+      "height_var": 69.46,
+      "weight_mean": 76.16,
+      "weight_std": 15.33,
+      "weight_var": 235.01,
+      "n": 95
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=9thTo11th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.66,
+      "height_std": 6.11,
+      "height_var": 37.28,
+      "weight_mean": 86.73,
+      "weight_std": 14.5,
+      "weight_var": 210.18,
+      "n": 205
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 172.26,
+      "height_std": 6.43,
+      "height_var": 41.36,
+      "weight_mean": 82.08,
+      "weight_std": 16.64,
+      "weight_var": 276.8,
+      "n": 2040
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Light": {
+      "height_mean": 173.47,
+      "height_std": 2.85,
+      "height_var": 8.11,
+      "weight_mean": 83.69,
+      "weight_std": 6.06,
+      "weight_var": 36.76,
+      "n": 76
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 177.2,
+      "height_std": 7.39,
+      "height_var": 54.67,
+      "weight_mean": 87.41,
+      "weight_std": 10.77,
+      "weight_var": 116.08,
+      "n": 338
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 171.24,
+      "height_std": 8.22,
+      "height_var": 67.55,
+      "weight_mean": 84.9,
+      "weight_std": 19.67,
+      "weight_var": 387.06,
+      "n": 652
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=HighSchool__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 172.76,
+      "height_std": 3.11,
+      "height_var": 9.68,
+      "weight_mean": 83.22,
+      "weight_std": 8.44,
+      "weight_var": 71.31,
+      "n": 89
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=LessThan9th__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 170.41,
+      "height_std": 6.21,
+      "height_var": 38.62,
+      "weight_mean": 83.39,
+      "weight_std": 12.79,
+      "weight_var": 163.51,
+      "n": 113
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Heavy": {
+      "height_mean": 174.43,
+      "height_std": 7.06,
+      "height_var": 49.85,
+      "weight_mean": 91.41,
+      "weight_std": 15.95,
+      "weight_var": 254.54,
+      "n": 748
+    },
+    "RIDAGEYR=72-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=SomeCollege__INQ300=Under20k__OCD150=Sedentary": {
+      "height_mean": 175.68,
+      "height_std": 4.27,
+      "height_var": 18.22,
+      "weight_mean": 92.15,
+      "weight_std": 16.9,
+      "weight_var": 285.64,
+      "n": 154
+    }
+  }
+}
