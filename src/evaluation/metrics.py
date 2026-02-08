@@ -11,13 +11,16 @@ Implements metrics for evaluating probabilistic predictions:
 from __future__ import annotations
 
 import numpy as np
-from typing import TYPE_CHECKING, List, Optional
+from scipy import stats as scipy_stats
+from typing import TYPE_CHECKING, Dict, List, Optional
 
 if TYPE_CHECKING:
     from models.schemas import (
         AggregatedMetrics,
+        DistributionMetrics,
         EvaluationMetrics,
         ExperimentResult,
+        PopulationGroundTruth,
     )
 
 
@@ -281,6 +284,274 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
                 f"| {out_tok} "
                 f"| {total_tok} "
                 f"| {turns_str} |\n"
+            )
+
+    return table
+
+
+# ============================================================================
+# Distribution-to-Distribution Metrics
+# ============================================================================
+# These functions compare two Normal distributions (predicted vs ground truth
+# population) rather than a distribution vs a single point.
+
+
+def kl_divergence_normal(
+    mu_gt: float, sigma_gt: float, mu_pred: float, sigma_pred: float
+) -> float:
+    """
+    KL divergence from ground truth to predicted distribution: KL(gt || pred).
+
+    Measures information lost when using the predicted distribution to
+    approximate the ground truth distribution. Lower is better, 0 = identical.
+
+    KL(gt || pred) = log(σ_pred/σ_gt) + (σ_gt² + (μ_gt - μ_pred)²) / (2σ_pred²) - 0.5
+
+    Args:
+        mu_gt: Ground truth distribution mean
+        sigma_gt: Ground truth distribution std
+        mu_pred: Predicted distribution mean
+        sigma_pred: Predicted distribution std
+
+    Returns:
+        KL divergence (non-negative, lower is better)
+    """
+    return (
+        np.log(sigma_pred / sigma_gt)
+        + (sigma_gt**2 + (mu_gt - mu_pred) ** 2) / (2 * sigma_pred**2)
+        - 0.5
+    )
+
+
+def wasserstein2_normal(
+    mu_gt: float, sigma_gt: float, mu_pred: float, sigma_pred: float
+) -> float:
+    """
+    Squared Wasserstein-2 distance between two Normal distributions.
+
+    Also known as Earth Mover's Distance squared. Measures the "cost" of
+    transforming one distribution into the other. Lower is better, 0 = identical.
+
+    W₂² = (μ_pred - μ_gt)² + (σ_pred - σ_gt)²
+
+    Args:
+        mu_gt: Ground truth distribution mean
+        sigma_gt: Ground truth distribution std
+        mu_pred: Predicted distribution mean
+        sigma_pred: Predicted distribution std
+
+    Returns:
+        Squared Wasserstein-2 distance (non-negative, lower is better)
+    """
+    return (mu_pred - mu_gt) ** 2 + (sigma_pred - sigma_gt) ** 2
+
+
+def compute_mean_shift(mu_gt: float, mu_pred: float) -> float:
+    """
+    Absolute difference between distribution means.
+
+    Simple measure of location mismatch. Lower is better.
+
+    Args:
+        mu_gt: Ground truth mean
+        mu_pred: Predicted mean
+
+    Returns:
+        |μ_pred - μ_gt| (non-negative, lower is better)
+    """
+    return abs(mu_pred - mu_gt)
+
+
+def compute_sigma_ratio(sigma_gt: float, sigma_pred: float) -> float:
+    """
+    Ratio of predicted to ground truth standard deviations.
+
+    Measures calibration of uncertainty. Ideal value is 1.0.
+    - > 1.0: predicted distribution is wider (underconfident)
+    - < 1.0: predicted distribution is narrower (overconfident)
+
+    Args:
+        sigma_gt: Ground truth std
+        sigma_pred: Predicted std
+
+    Returns:
+        σ_pred / σ_gt (positive, ideal = 1.0)
+    """
+    return sigma_pred / sigma_gt
+
+
+def overlap_coefficient_normal(
+    mu1: float, sigma1: float, mu2: float, sigma2: float
+) -> float:
+    """
+    Overlap coefficient (OVL) between two Normal distributions.
+
+    Computed as the integral of min(f(x), g(x)) dx, which gives the
+    area of overlap between the two PDFs. Range [0, 1].
+    1.0 = identical distributions, 0.0 = no overlap.
+
+    Uses numerical integration over a wide range for robustness.
+
+    Args:
+        mu1, sigma1: First distribution parameters
+        mu2, sigma2: Second distribution parameters
+
+    Returns:
+        Overlap coefficient in [0, 1] (higher is better)
+    """
+    # Handle identical distributions
+    if abs(mu1 - mu2) < 1e-10 and abs(sigma1 - sigma2) < 1e-10:
+        return 1.0
+
+    # Handle equal variances (single intersection point → closed-form)
+    if abs(sigma1 - sigma2) < 1e-10:
+        # When σ₁ = σ₂, OVL = 2Φ(-|μ₁-μ₂|/(2σ)) where Φ is std normal CDF
+        d = abs(mu1 - mu2) / (2 * sigma1)
+        return float(2 * scipy_stats.norm.cdf(-d))
+
+    # General case: numerical integration of min(f, g)
+    # Use a range that covers both distributions well (±6σ from each mean)
+    max_sigma = max(sigma1, sigma2)
+    lo = min(mu1, mu2) - 6 * max_sigma
+    hi = max(mu1, mu2) + 6 * max_sigma
+    n_points = 10000
+
+    x = np.linspace(lo, hi, n_points)
+    f1 = scipy_stats.norm.pdf(x, mu1, sigma1)
+    f2 = scipy_stats.norm.pdf(x, mu2, sigma2)
+    min_vals = np.minimum(f1, f2)
+    dx = x[1] - x[0]
+    overlap = float(np.sum(min_vals) * dx)
+
+    return float(np.clip(overlap, 0.0, 1.0))
+
+
+def evaluate_against_distribution(
+    prediction, gt_distribution: "PopulationGroundTruth"
+) -> Optional["DistributionMetrics"]:
+    """
+    Evaluate a predicted distribution against a ground truth population distribution.
+
+    Computes distribution-to-distribution metrics for both height and weight.
+
+    Args:
+        prediction: PredictionResult with height_distribution and weight_distribution
+        gt_distribution: PopulationGroundTruth with population-level stats
+
+    Returns:
+        DistributionMetrics if prediction is valid, None otherwise
+    """
+    from models.schemas import DistributionMetrics
+
+    if not prediction.is_valid:
+        return None
+
+    pred_h_mu = prediction.height_distribution.mu
+    pred_h_sigma = prediction.height_distribution.sigma
+    pred_w_mu = prediction.weight_distribution.mu
+    pred_w_sigma = prediction.weight_distribution.sigma
+
+    gt_h_mu = gt_distribution.height_mean
+    gt_h_sigma = gt_distribution.height_std
+    gt_w_mu = gt_distribution.weight_mean
+    gt_w_sigma = gt_distribution.weight_std
+
+    return DistributionMetrics(
+        kl_div_height=kl_divergence_normal(gt_h_mu, gt_h_sigma, pred_h_mu, pred_h_sigma),
+        kl_div_weight=kl_divergence_normal(gt_w_mu, gt_w_sigma, pred_w_mu, pred_w_sigma),
+        wasserstein_height=wasserstein2_normal(gt_h_mu, gt_h_sigma, pred_h_mu, pred_h_sigma),
+        wasserstein_weight=wasserstein2_normal(gt_w_mu, gt_w_sigma, pred_w_mu, pred_w_sigma),
+        mean_shift_height=compute_mean_shift(gt_h_mu, pred_h_mu),
+        mean_shift_weight=compute_mean_shift(gt_w_mu, pred_w_mu),
+        sigma_ratio_height=compute_sigma_ratio(gt_h_sigma, pred_h_sigma),
+        sigma_ratio_weight=compute_sigma_ratio(gt_w_sigma, pred_w_sigma),
+        overlap_height=overlap_coefficient_normal(gt_h_mu, gt_h_sigma, pred_h_mu, pred_h_sigma),
+        overlap_weight=overlap_coefficient_normal(gt_w_mu, gt_w_sigma, pred_w_mu, pred_w_sigma),
+    )
+
+
+def aggregate_distribution_results(
+    results: List["ExperimentResult"],
+) -> Dict[str, Optional[float]]:
+    """
+    Aggregate distribution metrics across all subjects for one approach.
+
+    Args:
+        results: List of ExperimentResult objects for one approach
+
+    Returns:
+        Dict with aggregated metric names and values
+    """
+    valid = [r for r in results if r.distribution_metrics is not None]
+    n_valid = len(valid)
+
+    if n_valid == 0:
+        return {
+            "n_with_dist_metrics": 0,
+            "mean_kl_div_height": None,
+            "mean_kl_div_weight": None,
+            "mean_wasserstein_height": None,
+            "mean_wasserstein_weight": None,
+            "mean_mean_shift_height": None,
+            "mean_mean_shift_weight": None,
+            "mean_sigma_ratio_height": None,
+            "mean_sigma_ratio_weight": None,
+            "mean_overlap_height": None,
+            "mean_overlap_weight": None,
+        }
+
+    return {
+        "n_with_dist_metrics": n_valid,
+        "mean_kl_div_height": float(np.mean([r.distribution_metrics.kl_div_height for r in valid])),
+        "mean_kl_div_weight": float(np.mean([r.distribution_metrics.kl_div_weight for r in valid])),
+        "mean_wasserstein_height": float(np.mean([r.distribution_metrics.wasserstein_height for r in valid])),
+        "mean_wasserstein_weight": float(np.mean([r.distribution_metrics.wasserstein_weight for r in valid])),
+        "mean_mean_shift_height": float(np.mean([r.distribution_metrics.mean_shift_height for r in valid])),
+        "mean_mean_shift_weight": float(np.mean([r.distribution_metrics.mean_shift_weight for r in valid])),
+        "mean_sigma_ratio_height": float(np.mean([r.distribution_metrics.sigma_ratio_height for r in valid])),
+        "mean_sigma_ratio_weight": float(np.mean([r.distribution_metrics.sigma_ratio_weight for r in valid])),
+        "mean_overlap_height": float(np.mean([r.distribution_metrics.overlap_height for r in valid])),
+        "mean_overlap_weight": float(np.mean([r.distribution_metrics.overlap_weight for r in valid])),
+        "std_kl_div_height": float(np.std([r.distribution_metrics.kl_div_height for r in valid], ddof=1)) if n_valid >= 2 else 0.0,
+        "std_kl_div_weight": float(np.std([r.distribution_metrics.kl_div_weight for r in valid], ddof=1)) if n_valid >= 2 else 0.0,
+        "std_wasserstein_height": float(np.std([r.distribution_metrics.wasserstein_height for r in valid], ddof=1)) if n_valid >= 2 else 0.0,
+        "std_wasserstein_weight": float(np.std([r.distribution_metrics.wasserstein_weight for r in valid], ddof=1)) if n_valid >= 2 else 0.0,
+    }
+
+
+def format_distribution_results_table(
+    approach_metrics: List[tuple],
+) -> str:
+    """
+    Format distribution metrics as a markdown table.
+
+    Args:
+        approach_metrics: List of (approach_name, aggregated_dict) tuples
+
+    Returns:
+        Markdown formatted table string
+    """
+    table = "| Approach | N | KL Div (H) | KL Div (W) | W₂² (H) | W₂² (W) | Shift H (cm) | Shift W (kg) | σ Ratio H | σ Ratio W | Overlap H | Overlap W |\n"
+    table += "|----------|---|------------|------------|----------|----------|--------------|--------------|-----------|-----------|-----------|----------|\n"
+
+    for approach, metrics in approach_metrics:
+        n = metrics.get("n_with_dist_metrics", 0)
+        if n == 0:
+            table += f"| {approach} | 0 | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |\n"
+        else:
+            table += (
+                f"| {approach} "
+                f"| {n} "
+                f"| {metrics['mean_kl_div_height']:.3f} "
+                f"| {metrics['mean_kl_div_weight']:.3f} "
+                f"| {metrics['mean_wasserstein_height']:.1f} "
+                f"| {metrics['mean_wasserstein_weight']:.1f} "
+                f"| {metrics['mean_mean_shift_height']:.1f} "
+                f"| {metrics['mean_mean_shift_weight']:.1f} "
+                f"| {metrics['mean_sigma_ratio_height']:.2f} "
+                f"| {metrics['mean_sigma_ratio_weight']:.2f} "
+                f"| {metrics['mean_overlap_height']:.3f} "
+                f"| {metrics['mean_overlap_weight']:.3f} |\n"
             )
 
     return table

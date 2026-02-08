@@ -80,6 +80,67 @@ class PredictionResult(BaseModel):
         )
 
 
+class SubjectDemographics(BaseModel):
+    """Demographic variables for matching to ground truth distributions.
+
+    Variable names match NHANES column names used in nhanes_ground_truth.json.
+    All fields are optional to support subjects with incomplete demographic data.
+    """
+
+    RIDAGEYR: Optional[str] = None  # Age bin (e.g., "18-37", "38-53")
+    RIAGENDR: Optional[str] = None  # Gender ("Male", "Female")
+    RIDRETH1: Optional[str] = None  # Race/Ethnicity (e.g., "White", "Black")
+    DMDEDUC2: Optional[str] = None  # Education level (e.g., "CollegeGrad")
+    INQ300: Optional[str] = None  # Household income (e.g., "Under20k")
+    OCD150: Optional[str] = None  # Work activity level (e.g., "Sedentary")
+    SMQ020: Optional[str] = None  # Smoking status ("Yes", "No")
+
+
+class PopulationGroundTruth(BaseModel):
+    """Ground truth population distribution for a demographic group.
+
+    Represents the distribution of height/weight for people with
+    matching demographic characteristics, from NHANES data.
+    """
+
+    distribution_key: str = Field(..., description="Matched key in nhanes_ground_truth.json")
+    height_mean: float
+    height_std: float = Field(..., gt=0)
+    weight_mean: float
+    weight_std: float = Field(..., gt=0)
+    n: int = Field(..., gt=0, description="Number of NHANES samples in this group")
+    n_variables_matched: int = Field(
+        ..., ge=0, description="Number of demographic variables used in the match"
+    )
+
+
+class DistributionMetrics(BaseModel):
+    """Metrics for comparing predicted distribution against ground truth population distribution.
+
+    All metrics compare two Normal distributions (predicted vs population).
+    """
+
+    # KL divergence: KL(gt || pred) — lower is better, 0 = identical
+    kl_div_height: float
+    kl_div_weight: float
+
+    # Wasserstein-2 distance — lower is better, 0 = identical
+    wasserstein_height: float
+    wasserstein_weight: float
+
+    # Mean shift: |μ_pred - μ_gt| — lower is better
+    mean_shift_height: float
+    mean_shift_weight: float
+
+    # Sigma ratio: σ_pred / σ_gt — ideal = 1.0; >1 underconfident, <1 overconfident
+    sigma_ratio_height: float
+    sigma_ratio_weight: float
+
+    # Overlap coefficient — higher is better, 0-1 range
+    overlap_height: float
+    overlap_weight: float
+
+
 class GroundTruth(BaseModel):
     """Ground truth actual measurements for a subject."""
 
@@ -87,6 +148,7 @@ class GroundTruth(BaseModel):
     height_cm: float = Field(..., gt=0, description="Actual measured height in centimeters")
     weight_kg: float = Field(..., gt=0, description="Actual measured weight in kilograms")
     text_description: str = Field(..., description="The input paragraph")
+    demographics: Optional[SubjectDemographics] = None
 
 
 class EvaluationMetrics(BaseModel):
@@ -122,6 +184,8 @@ class ExperimentResult(BaseModel):
     ground_truth: GroundTruth
     metrics: Optional[EvaluationMetrics] = None  # None if prediction is invalid
     token_usage: Optional[TokenUsage] = None  # Token usage for this prediction
+    population_ground_truth: Optional[PopulationGroundTruth] = None  # Matched population distribution
+    distribution_metrics: Optional[DistributionMetrics] = None  # Distribution-vs-distribution metrics
 
     @property
     def is_success(self) -> bool:
