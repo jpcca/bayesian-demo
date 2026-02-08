@@ -17,18 +17,7 @@ COLUMN_DEFINITIONS = {
             "RIDRETH1": "Race/Hispanic origin",
             "DMDEDUC2": "Education level - Adults 20+",
             "DMDMARTZ": "Marital status",
-            "INDFMPIR": "Family poverty income ratio",
-        },
-    },
-    "DR1IFF_L": {
-        "description": "Dietary Interview - Individual Foods",
-        "columns": {
-            "SEQN": "Subject ID",
-            "DR1IFDCD": "USDA food code",
-            "DR1IGRMS": "Grams consumed",
-            "DR1_030Z": "Name of eating occasion (breakfast/lunch etc.)",
-            "DR1_040Z": "Time of eating occasion",
-            "DR1FS": "Food source",
+            "INDFMPIR": "Family poverty income ratio (0-5 scale)",
         },
     },
     "BPXO_L": {
@@ -52,13 +41,6 @@ COLUMN_DEFINITIONS = {
             "SEQN": "Subject ID",
             "BMXHT": "Standing height (cm)",
             "BMXWT": "Weight (kg)",
-        },
-    },
-    "INQ_L": {
-        "description": "Income",
-        "columns": {
-            "SEQN": "Subject ID",
-            "INQ300": "Total family income",
         },
     },
     "OCQ_L": {
