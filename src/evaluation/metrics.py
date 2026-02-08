@@ -190,6 +190,26 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
     coverage_height = (sum(in_95ci_height) / n_valid) * 100
     coverage_weight = (sum(in_95ci_weight) / n_valid) * 100
 
+    # Calculate token usage statistics (across ALL predictions, including invalid)
+    results_with_tokens = [r for r in results if r.token_usage is not None]
+    mean_input_tokens = None
+    mean_output_tokens = None
+    mean_total_tokens = None
+    mean_num_turns = None
+    total_tokens_all = None
+
+    if results_with_tokens:
+        input_tokens = [r.token_usage.input_tokens for r in results_with_tokens]
+        output_tokens = [r.token_usage.output_tokens for r in results_with_tokens]
+        total_tokens = [r.token_usage.total_tokens for r in results_with_tokens]
+        num_turns = [r.token_usage.num_turns for r in results_with_tokens]
+
+        mean_input_tokens = float(np.mean(input_tokens))
+        mean_output_tokens = float(np.mean(output_tokens))
+        mean_total_tokens = float(np.mean(total_tokens))
+        mean_num_turns = float(np.mean(num_turns))
+        total_tokens_all = int(np.sum(total_tokens))
+
     return AggregatedMetrics(
         approach=approach,
         n_total=n_total,
@@ -206,11 +226,18 @@ def aggregate_results(results: List["ExperimentResult"]) -> "AggregatedMetrics":
         # Coverage (should be ~95% for well-calibrated predictions)
         coverage_95ci_height_percent=coverage_height,
         coverage_95ci_weight_percent=coverage_weight,
-        # Standard deviations (for error bars in plots)
-        std_nll_height=float(np.std(nll_height)),
-        std_nll_weight=float(np.std(nll_weight)),
-        std_abs_error_height=float(np.std(abs_error_height)),
-        std_abs_error_weight=float(np.std(abs_error_weight)),
+        # Standard deviations (for error bars in plots), using ddof=1 for sample std
+        # Falls back to 0.0 when n_valid < 2 (ddof=1 requires at least 2 samples)
+        std_nll_height=float(np.std(nll_height, ddof=1)) if n_valid >= 2 else 0.0,
+        std_nll_weight=float(np.std(nll_weight, ddof=1)) if n_valid >= 2 else 0.0,
+        std_abs_error_height=float(np.std(abs_error_height, ddof=1)) if n_valid >= 2 else 0.0,
+        std_abs_error_weight=float(np.std(abs_error_weight, ddof=1)) if n_valid >= 2 else 0.0,
+        # Token usage statistics
+        mean_input_tokens=mean_input_tokens,
+        mean_output_tokens=mean_output_tokens,
+        mean_total_tokens=mean_total_tokens,
+        mean_num_turns=mean_num_turns,
+        total_tokens_all_predictions=total_tokens_all,
     )
 
 
@@ -225,14 +252,18 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
         Markdown formatted table string
     """
     # Build header
-    table = "| Approach | N Valid | Invalid % | NLL (H) | NLL (W) | Abs Err H (cm) | Abs Err W (kg) | Mean |z| H | Mean |z| W | 95% CI H | 95% CI W |\n"
-    table += "|----------|---------|-----------|---------|---------|----------------|----------------|----------|----------|----------|----------|\n"
+    table = "| Approach | N Valid | Invalid % | NLL (H) | NLL (W) | Abs Err H (cm) | Abs Err W (kg) | Mean |z| H | Mean |z| W | 95% CI H | 95% CI W | Input Tok | Output Tok | Total Tok | Turns |\n"
+    table += "|----------|---------|-----------|---------|---------|----------------|----------------|----------|----------|----------|----------|-----------|------------|-----------|-------|\n"
 
     # Build rows
     for metrics in aggregated_metrics:
+        in_tok = f"{metrics.mean_input_tokens:.0f}" if metrics.mean_input_tokens else "N/A"
+        out_tok = f"{metrics.mean_output_tokens:.0f}" if metrics.mean_output_tokens else "N/A"
+        total_tok = f"{metrics.mean_total_tokens:.0f}" if metrics.mean_total_tokens else "N/A"
+        turns_str = f"{metrics.mean_num_turns:.1f}" if metrics.mean_num_turns else "N/A"
+
         if metrics.n_valid == 0:
-            # No valid predictions
-            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |\n"
+            table += f"| {metrics.approach} | 0 | {metrics.invalid_rate_percent:.1f} | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A | {in_tok} | {out_tok} | {total_tok} | {turns_str} |\n"
         else:
             table += (
                 f"| {metrics.approach} "
@@ -245,7 +276,11 @@ def format_results_table(aggregated_metrics: List["AggregatedMetrics"]) -> str:
                 f"| {metrics.mean_abs_z_score_height:.2f} "
                 f"| {metrics.mean_abs_z_score_weight:.2f} "
                 f"| {metrics.coverage_95ci_height_percent:.0f}% "
-                f"| {metrics.coverage_95ci_weight_percent:.0f}% |\n"
+                f"| {metrics.coverage_95ci_weight_percent:.0f}% "
+                f"| {in_tok} "
+                f"| {out_tok} "
+                f"| {total_tok} "
+                f"| {turns_str} |\n"
             )
 
     return table
