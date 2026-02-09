@@ -77,6 +77,51 @@ def sample_ground_truth():
 
 
 @pytest.fixture
+def sample_ground_truth_with_demographics():
+    """Sample ground truth with demographics for distribution matching."""
+    return {
+        "subject_id": "001",
+        "text_description": "She is a 30-year-old white woman with a college degree.",
+        "height_cm": 165.0,
+        "weight_kg": 60.0,
+        "demographics": {
+            "RIDAGEYR": "18-37",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+        },
+    }
+
+
+@pytest.fixture
+def sample_population_distribution():
+    """Sample population distribution for testing distribution metrics."""
+    return {
+        "Overall": {
+            "height_mean": 167.0,
+            "height_std": 10.0,
+            "weight_mean": 82.0,
+            "weight_std": 22.0,
+            "n": 75000,
+        },
+        "RIAGENDR=Female": {
+            "height_mean": 161.0,
+            "height_std": 7.0,
+            "weight_mean": 77.0,
+            "weight_std": 21.0,
+            "n": 42000,
+        },
+        "RIAGENDR=Female__RIDAGEYR=18-37": {
+            "height_mean": 163.0,
+            "height_std": 6.5,
+            "weight_mean": 72.0,
+            "weight_std": 19.0,
+            "n": 8000,
+        },
+    }
+
+
+@pytest.fixture
 def mock_claude_response(sample_prediction_json):
     """
     Create a mock async generator that simulates Claude Agent SDK query() response.
