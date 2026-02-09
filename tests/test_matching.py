@@ -143,7 +143,7 @@ class TestMatchSubjectToDistribution:
             RIDRETH1="Other",
             DMDEDUC2="CollegeGrad",
             OCD150="Sedentary",
-            INQ300="Under20k",
+            INDFMPIR="LowIncome",
             SMQ020="No",
         )
         result = match_subject_to_distribution(demographics, sample_distributions)

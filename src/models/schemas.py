@@ -87,11 +87,11 @@ class SubjectDemographics(BaseModel):
     All fields are optional to support subjects with incomplete demographic data.
     """
 
-    RIDAGEYR: Optional[str] = None  # Age bin (e.g., "18-37", "38-53")
+    RIDAGEYR: Optional[str] = None  # Age bin (e.g., "18-33", "34-48")
     RIAGENDR: Optional[str] = None  # Gender ("Male", "Female")
     RIDRETH1: Optional[str] = None  # Race/Ethnicity (e.g., "White", "Black")
     DMDEDUC2: Optional[str] = None  # Education level (e.g., "CollegeGrad")
-    INQ300: Optional[str] = None  # Household income (e.g., "Under20k")
+    INDFMPIR: Optional[str] = None  # Poverty income ratio (e.g., "BelowPoverty", "HighIncome")
     OCD150: Optional[str] = None  # Work activity level (e.g., "Sedentary")
     SMQ020: Optional[str] = None  # Smoking status ("Yes", "No")
 

@@ -48,20 +48,22 @@ ACTIVITY_MAP = {
 SMOKING_MAP = {1.0: "Yes", 2.0: "No"}
 
 
-def map_income(x):
-    """Map INQ300 codes to income categories (matches nhanes_joint_distribution.ipynb)."""
+def map_income_ratio(x):
+    """Map INDFMPIR (poverty income ratio, 0-5 scale) to categories.
+
+    Matches nhanes_joint_distribution.ipynb bins:
+      0-1: BelowPoverty, 1-2.5: LowIncome, 2.5-4: MiddleIncome, 4-5: HighIncome
+    """
     if pd.isna(x):
         return None
-    elif x <= 4:
-        return "Under20k"
-    elif x <= 7:
-        return "20kTo45k"
-    elif x <= 10:
-        return "45kTo75k"
-    elif x <= 14:
-        return "75kTo100k"
+    elif x < 1:
+        return "BelowPoverty"
+    elif x < 2.5:
+        return "LowIncome"
+    elif x < 4:
+        return "MiddleIncome"
     else:
-        return "Over100k"
+        return "HighIncome"
 
 
 def map_age_to_bin(age: float, gt_path: Path) -> str | None:
@@ -120,9 +122,9 @@ def main():
         if not pd.isna(row.get("DMDEDUC2")):
             demo["DMDEDUC2"] = EDUCATION_MAP.get(row["DMDEDUC2"])
 
-        # Income
-        if not pd.isna(row.get("INQ300")):
-            demo["INQ300"] = map_income(row["INQ300"])
+        # Income (poverty income ratio)
+        if not pd.isna(row.get("INDFMPIR")):
+            demo["INDFMPIR"] = map_income_ratio(row["INDFMPIR"])
 
         # Work activity
         if not pd.isna(row.get("OCD150")):

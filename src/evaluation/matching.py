@@ -24,7 +24,7 @@ VARIABLE_PRIORITY = [
     "RIDRETH1",  # Race/Ethnicity
     "DMDEDUC2",  # Education level
     "OCD150",    # Work activity level
-    "INQ300",    # Household income
+    "INDFMPIR",  # Poverty income ratio
     "SMQ020",    # Smoking status — least informative for body size
 ]
 

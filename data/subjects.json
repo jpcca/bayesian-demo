@@ -5,11 +5,11 @@
         "height_cm": 153.2,
         "weight_kg": 99.6,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -20,11 +20,10 @@
         "height_cm": 165.1,
         "weight_kg": 88.4,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "Black",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "45kTo75k",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -35,11 +34,11 @@
         "height_cm": 171.0,
         "weight_kg": 92.0,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -50,11 +49,11 @@
         "height_cm": 189.9,
         "weight_kg": 88.8,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -65,11 +64,11 @@
         "height_cm": 168.6,
         "weight_kg": 60.5,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -80,11 +79,11 @@
         "height_cm": 157.9,
         "weight_kg": 73.5,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "Black",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Light",
             "SMQ020": "No"
         }
@@ -95,11 +94,11 @@
         "height_cm": 169.2,
         "weight_kg": 61.3,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Light",
             "SMQ020": "Yes"
         }
@@ -110,11 +109,11 @@
         "height_cm": 177.3,
         "weight_kg": 91.8,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "9thTo11th",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -125,11 +124,11 @@
         "height_cm": 172.2,
         "weight_kg": 98.5,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Male",
             "RIDRETH1": "OtherHispanic",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -140,11 +139,11 @@
         "height_cm": 170.1,
         "weight_kg": 86.8,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Female",
             "RIDRETH1": "Other",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -155,11 +154,11 @@
         "height_cm": 172.0,
         "weight_kg": 75.6,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -170,11 +169,11 @@
         "height_cm": 167.7,
         "weight_kg": 124.9,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Male",
             "RIDRETH1": "Black",
             "DMDEDUC2": "9thTo11th",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -185,11 +184,11 @@
         "height_cm": 181.2,
         "weight_kg": 103.6,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -200,11 +199,11 @@
         "height_cm": 153.9,
         "weight_kg": 92.0,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -215,11 +214,11 @@
         "height_cm": 162.8,
         "weight_kg": 131.2,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -230,11 +229,11 @@
         "height_cm": 174.6,
         "weight_kg": 88.3,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Male",
             "RIDRETH1": "Black",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -245,11 +244,11 @@
         "height_cm": 177.6,
         "weight_kg": 73.5,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Light",
             "SMQ020": "No"
         }
@@ -260,11 +259,11 @@
         "height_cm": 155.3,
         "weight_kg": 83.0,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -275,11 +274,11 @@
         "height_cm": 182.9,
         "weight_kg": 108.9,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "9thTo11th",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Moderate",
             "SMQ020": "No"
         }
@@ -290,11 +289,11 @@
         "height_cm": 177.3,
         "weight_kg": 123.5,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -305,11 +304,11 @@
         "height_cm": 183.2,
         "weight_kg": 96.6,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -320,11 +319,11 @@
         "height_cm": 166.3,
         "weight_kg": 113.1,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -335,11 +334,11 @@
         "height_cm": 160.3,
         "weight_kg": 55.0,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -350,11 +349,11 @@
         "height_cm": 172.9,
         "weight_kg": 62.8,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -365,11 +364,11 @@
         "height_cm": 169.9,
         "weight_kg": 87.0,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -380,11 +379,11 @@
         "height_cm": 157.1,
         "weight_kg": 81.6,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "49-61",
             "RIAGENDR": "Female",
             "RIDRETH1": "OtherHispanic",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -395,11 +394,11 @@
         "height_cm": 166.6,
         "weight_kg": 69.9,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -410,11 +409,11 @@
         "height_cm": 158.7,
         "weight_kg": 66.0,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -425,11 +424,11 @@
         "height_cm": 169.0,
         "weight_kg": 108.3,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "Black",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -440,11 +439,11 @@
         "height_cm": 172.6,
         "weight_kg": 69.8,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -455,11 +454,11 @@
         "height_cm": 182.1,
         "weight_kg": 103.8,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -470,11 +469,11 @@
         "height_cm": 167.9,
         "weight_kg": 91.9,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -485,11 +484,11 @@
         "height_cm": 164.2,
         "weight_kg": 100.0,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -500,11 +499,11 @@
         "height_cm": 162.2,
         "weight_kg": 77.9,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -515,11 +514,11 @@
         "height_cm": 173.1,
         "weight_kg": 98.2,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -530,11 +529,11 @@
         "height_cm": 185.2,
         "weight_kg": 122.4,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -545,11 +544,11 @@
         "height_cm": 165.2,
         "weight_kg": 101.7,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -560,11 +559,11 @@
         "height_cm": 173.6,
         "weight_kg": 81.1,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Light",
             "SMQ020": "Yes"
         }
@@ -575,11 +574,11 @@
         "height_cm": 174.6,
         "weight_kg": 120.8,
         "demographics": {
-            "RIDAGEYR": "64-71",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -590,11 +589,11 @@
         "height_cm": 154.6,
         "weight_kg": 71.6,
         "demographics": {
-            "RIDAGEYR": "54-63",
+            "RIDAGEYR": "62-70",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Heavy",
             "SMQ020": "No"
         }
@@ -605,11 +604,11 @@
         "height_cm": 160.7,
         "weight_kg": 66.6,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Light",
             "SMQ020": "Yes"
         }
@@ -620,11 +619,11 @@
         "height_cm": 173.3,
         "weight_kg": 122.0,
         "demographics": {
-            "RIDAGEYR": "72-80",
+            "RIDAGEYR": "71-80",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Heavy",
             "SMQ020": "Yes"
         }
@@ -635,11 +634,11 @@
         "height_cm": 164.3,
         "weight_kg": 67.3,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "9thTo11th",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -650,11 +649,11 @@
         "height_cm": 162.8,
         "weight_kg": 87.2,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "OtherHispanic",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "No"
         }
@@ -665,7 +664,7 @@
         "height_cm": 174.1,
         "weight_kg": 73.9,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "Other",
             "DMDEDUC2": "SomeCollege",
@@ -679,11 +678,11 @@
         "height_cm": 172.5,
         "weight_kg": 82.2,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -694,11 +693,11 @@
         "height_cm": 175.7,
         "weight_kg": 86.2,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "HighSchool",
-            "INQ300": "Under20k",
+            "INDFMPIR": "LowIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -709,11 +708,11 @@
         "height_cm": 156.3,
         "weight_kg": 88.3,
         "demographics": {
-            "RIDAGEYR": "38-53",
+            "RIDAGEYR": "34-48",
             "RIAGENDR": "Female",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "MiddleIncome",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
@@ -724,11 +723,11 @@
         "height_cm": 183.9,
         "weight_kg": 60.5,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Male",
             "RIDRETH1": "White",
             "DMDEDUC2": "CollegeGrad",
-            "INQ300": "Under20k",
+            "INDFMPIR": "HighIncome",
             "OCD150": "Light",
             "SMQ020": "Yes"
         }
@@ -739,11 +738,11 @@
         "height_cm": 149.8,
         "weight_kg": 65.6,
         "demographics": {
-            "RIDAGEYR": "18-37",
+            "RIDAGEYR": "18-33",
             "RIAGENDR": "Female",
             "RIDRETH1": "OtherHispanic",
             "DMDEDUC2": "SomeCollege",
-            "INQ300": "Under20k",
+            "INDFMPIR": "BelowPoverty",
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
