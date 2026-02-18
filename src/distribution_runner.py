@@ -91,14 +91,21 @@ class DistributionExperimentRunner:
                 intermediate_dir, f"{approach}_{subject.subject_id}.json"
             )
             if os.path.exists(cached_file):
-                print(
-                    f"[{approach}] Subject {i + 1}/{len(subjects)} "
-                    f"(id={subject.subject_id}) already done — loading cache"
-                )
                 with open(cached_file) as f:
                     result = ExperimentResult(**json.load(f))
-                results.append(result)
-                continue
+                if result.prediction.error:
+                    print(
+                        f"[{approach}] Subject {i + 1}/{len(subjects)} "
+                        f"(id={subject.subject_id}) cached result has error — retrying"
+                    )
+                    os.remove(cached_file)
+                else:
+                    print(
+                        f"[{approach}] Subject {i + 1}/{len(subjects)} "
+                        f"(id={subject.subject_id}) already done — loading cache"
+                    )
+                    results.append(result)
+                    continue
 
             print(f"[{approach}] Processing subject {i + 1}/{len(subjects)}...")
 
@@ -138,6 +145,10 @@ class DistributionExperimentRunner:
             )
             results.append(result)
             self._save_intermediate(result)
+
+            # Brief pause between subjects to avoid saturating rate limits
+            if i < len(subjects) - 1:
+                await asyncio.sleep(2)
 
         return results
 

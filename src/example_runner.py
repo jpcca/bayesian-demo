@@ -222,7 +222,10 @@ Please respond with ONLY the JSON object, no additional text."""
 
             except Exception as e:
                 print(f"Attempt {attempt + 1}/{max_retries} failed for {self.approach}: {e}")
-                if attempt == max_retries - 1:
+                # Rate-limit errors need long backoff (handled by the caller);
+                # retrying quickly here just wastes quota.
+                is_rate_limit = "rate_limit" in str(e).lower()
+                if attempt == max_retries - 1 or is_rate_limit:
                     # Return invalid result with empty token usage
                     return (
                         PredictionResult(
