@@ -17,6 +17,26 @@ from typing import List, Literal
 
 from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
 
+# Monkey-patch: silently skip unknown SDK message types (e.g. rate_limit_event)
+# instead of crashing the async generator. See:
+# https://github.com/anthropics/claude-agent-sdk-python/issues/583
+import claude_agent_sdk._internal.client as _sdk_client
+from claude_agent_sdk._errors import MessageParseError as _MessageParseError
+
+_original_parse_message = _sdk_client.parse_message
+
+
+def _safe_parse_message(data):
+    try:
+        return _original_parse_message(data)
+    except _MessageParseError as e:
+        if "Unknown message type" in str(e):
+            return None
+        raise
+
+
+_sdk_client.parse_message = _safe_parse_message
+
 from models.schemas import (
     PredictionResult,
     GroundTruth,
@@ -184,6 +204,11 @@ Please respond with ONLY the JSON object, no additional text."""
 
                     # Collect token usage from ResultMessage at the end
                     elif isinstance(message, ResultMessage):
+                        if message.is_error:
+                            error_detail = message.result or "unknown error"
+                            raise RuntimeError(f"rate_limit_event: {error_detail}"
+                                               if "rate_limit" in error_detail.lower()
+                                               else f"Claude returned error: {error_detail}")
                         if hasattr(message, 'usage'):
                             usage = message.usage
                             total_input_tokens = usage.get("input_tokens", 0)

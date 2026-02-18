@@ -2,6 +2,22 @@
 
 import asyncio
 from claude_agent_sdk import query, ClaudeAgentOptions, AssistantMessage, ResultMessage
+import claude_agent_sdk._internal.client as _sdk_client
+from claude_agent_sdk._errors import MessageParseError as _MessageParseError
+
+_orig_parse = _sdk_client.parse_message
+
+
+def _safe_parse(data):
+    try:
+        return _orig_parse(data)
+    except _MessageParseError as e:
+        if "Unknown message type" in str(e):
+            return None
+        raise
+
+
+_sdk_client.parse_message = _safe_parse
 
 
 async def main():
