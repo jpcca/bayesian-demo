@@ -7,9 +7,16 @@ in addition to the existing point-based metrics.
 
 Usage:
     cd src
-    python distribution_runner.py
+    python distribution_runner.py                        # run all approaches
+    python distribution_runner.py --approach baseline    # run one approach
+    python distribution_runner.py --approach baseline web_search  # run two
+
+Resume behaviour: if results/intermediate/{approach}_{subject_id}.json already
+exists the subject is skipped automatically, so re-running the script after an
+interruption picks up where it left off.
 """
 
+import argparse
 import asyncio
 import json
 import os
@@ -56,25 +63,54 @@ class DistributionExperimentRunner:
         self.distributions = load_ground_truth_distributions(gt_path)
         print(f"Loaded {len(self.distributions)} population distributions")
 
+    # Delays (seconds) to wait after each consecutive rate-limit hit before retrying.
+    _RATE_LIMIT_DELAYS = [60, 120, 300]
+
     async def run_single_experiment(
         self,
         approach: Literal["baseline", "web_search", "probabilistic"],
         subjects: List[GroundTruth],
     ) -> List[ExperimentResult]:
-        """Run experiment for one approach across all subjects."""
+        """Run experiment for one approach across all subjects.
+
+        Subjects whose intermediate result file already exists are skipped so
+        that the run can be resumed after an interruption without re-processing
+        completed subjects.
+
+        When a rate-limit error is detected in the prediction result the method
+        waits progressively longer (60 s → 120 s → 300 s) before retrying the
+        same subject.
+        """
         predictor = ClaudePredictor(approach=approach)
+        intermediate_dir = os.path.join(self.results_dir, "intermediate")
         results = []
 
         for i, subject in enumerate(subjects):
+            # ── Resume: load cached result if available ──────────────────────
+            cached_file = os.path.join(
+                intermediate_dir, f"{approach}_{subject.subject_id}.json"
+            )
+            if os.path.exists(cached_file):
+                print(
+                    f"[{approach}] Subject {i + 1}/{len(subjects)} "
+                    f"(id={subject.subject_id}) already done — loading cache"
+                )
+                with open(cached_file) as f:
+                    result = ExperimentResult(**json.load(f))
+                results.append(result)
+                continue
+
             print(f"[{approach}] Processing subject {i + 1}/{len(subjects)}...")
 
-            # Make prediction (reuses ClaudePredictor from example_runner)
-            prediction, token_usage = await predictor.predict(subject.text_description)
+            # ── Predict with rate-limit outer retry ───────────────────────────
+            prediction, token_usage = await self._predict_with_rate_limit_retry(
+                predictor, subject.text_description, approach
+            )
 
-            # Point-based evaluation (existing metrics)
+            # ── Point-based evaluation ────────────────────────────────────────
             point_metrics = evaluate_prediction(prediction, subject)
 
-            # Distribution-based evaluation (new metrics)
+            # ── Distribution-based evaluation ─────────────────────────────────
             pop_gt = None
             dist_metrics = None
             if subject.demographics is not None:
@@ -89,7 +125,7 @@ class DistributionExperimentRunner:
                         f"({pop_gt.n_variables_matched} vars, n={pop_gt.n})"
                     )
 
-            # Store result with both metric types
+            # ── Store & persist ───────────────────────────────────────────────
             result = ExperimentResult(
                 subject_id=subject.subject_id,
                 approach=approach,
@@ -101,11 +137,47 @@ class DistributionExperimentRunner:
                 distribution_metrics=dist_metrics,
             )
             results.append(result)
-
-            # Save intermediate results
             self._save_intermediate(result)
 
         return results
+
+    async def _predict_with_rate_limit_retry(
+        self,
+        predictor: "ClaudePredictor",
+        text_description: str,
+        approach: str,
+    ):
+        """Call predictor.predict() and retry with backoff on rate-limit errors.
+
+        predict() never raises — it returns an error PredictionResult instead.
+        We detect rate-limit failures via the error string and wait before
+        retrying so the caller doesn't need to worry about rate limits.
+        """
+        for delay_idx, delay in enumerate(self._RATE_LIMIT_DELAYS + [None]):
+            prediction, token_usage = await predictor.predict(text_description)
+
+            # Success or non-rate-limit error — return immediately
+            if not prediction.error or "rate_limit" not in prediction.error.lower():
+                return prediction, token_usage
+
+            # Rate limited
+            if delay is None:
+                # Exhausted all retries
+                print(
+                    f"  [{approach}] Rate limit retries exhausted. "
+                    "Returning error result."
+                )
+                return prediction, token_usage
+
+            print(
+                f"  [{approach}] Rate limited "
+                f"(attempt {delay_idx + 1}/{len(self._RATE_LIMIT_DELAYS)}). "
+                f"Waiting {delay}s before retry..."
+            )
+            await asyncio.sleep(delay)
+
+        # Should not be reached
+        return prediction, token_usage
 
     def _save_intermediate(self, result: ExperimentResult):
         """Save intermediate results to avoid data loss."""
@@ -118,10 +190,13 @@ class DistributionExperimentRunner:
             json.dump(result.model_dump(), f, indent=2)
 
     async def run_all_experiments(
-        self, subjects: List[GroundTruth]
+        self,
+        subjects: List[GroundTruth],
+        approaches: List[str] | None = None,
     ) -> List[AggregatedMetrics]:
-        """Run all three approaches and aggregate results."""
-        approaches = ["baseline", "web_search", "probabilistic"]
+        """Run the specified approaches (default: all three) and aggregate results."""
+        if approaches is None:
+            approaches = ["baseline", "web_search", "probabilistic"]
         all_aggregated = []
         all_dist_aggregated = []
 
@@ -240,13 +315,40 @@ def load_test_data() -> List[GroundTruth]:
     return subjects
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description="Run height/weight prediction evaluation with distribution metrics."
+    )
+    parser.add_argument(
+        "--approach",
+        nargs="+",
+        choices=["baseline", "web_search", "probabilistic"],
+        default=None,
+        metavar="APPROACH",
+        help=(
+            "Which approach(es) to run. Defaults to all three. "
+            "Example: --approach baseline web_search"
+        ),
+    )
+    return parser.parse_args()
+
+
 async def main():
     """Main entry point."""
+    args = parse_args()
+    approaches = args.approach  # None means "all three"
+
     print("Height/Weight Prediction Evaluation (with Distribution Metrics)")
+    print("=" * 60)
+    if approaches:
+        print(f"Approaches: {', '.join(approaches)}")
+    else:
+        print("Approaches: baseline, web_search, probabilistic")
+    print("Resume: subjects with cached intermediate results are skipped")
     print("=" * 60)
 
     # Load test data
-    print("Loading test subjects...")
+    print("\nLoading test subjects...")
     subjects = load_test_data()
     print(f"Loaded {len(subjects)} subjects")
 
@@ -255,7 +357,7 @@ async def main():
 
     # Run experiments
     runner = DistributionExperimentRunner()
-    aggregated_metrics = await runner.run_all_experiments(subjects)
+    aggregated_metrics = await runner.run_all_experiments(subjects, approaches=approaches)
 
     # Save results
     runner.save_results(aggregated_metrics)
