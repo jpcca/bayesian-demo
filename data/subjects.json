@@ -746,5 +746,2227 @@
             "OCD150": "Sedentary",
             "SMQ020": "Yes"
         }
+    },
+    {
+        "subject_id": "137209",
+        "text_description": "He is a 44-year-old other Hispanic man with some college education who is divorced. He has a family income at 221% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 162.0,
+        "weight_kg": 64.4,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "136476",
+        "text_description": "She is a 60-year-old Mexican American woman with less than a 9th-grade education who is married. She has a family income below the poverty line. She reports moderate-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has a history of asthma. She has never smoked.",
+        "height_cm": 145.5,
+        "weight_kg": 49.4,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "LessThan9th",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Moderate",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132956",
+        "text_description": "She is a 54-year-old other race woman with a high school degree or equivalent who is divorced. She has a family income below the poverty line. She reports moderate-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 165.7,
+        "weight_kg": 82.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Moderate",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139638",
+        "text_description": "She is a 71-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 168.2,
+        "weight_kg": 55.7,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141628",
+        "text_description": "She is a 58-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 660 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 164.5,
+        "weight_kg": 89.9,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139128",
+        "text_description": "He is a 43-year-old Mexican American man with some high school education (9th\u201311th grade) who is married. He has a family income at 139% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 120 minutes per day in sedentary activity. He has never smoked.",
+        "height_cm": 167.8,
+        "weight_kg": 86.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137676",
+        "text_description": "She is a 43-year-old non-Hispanic Black woman with a high school degree or equivalent who is divorced. She has a family income below the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 162.6,
+        "weight_kg": 121.9,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "132913",
+        "text_description": "She is a 59-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 660 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 174.6,
+        "weight_kg": 72.0,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "130704",
+        "text_description": "He is a 66-year-old non-Hispanic Black man with a high school degree or equivalent who is divorced. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 360 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 159.3,
+        "weight_kg": 64.7,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137890",
+        "text_description": "She is a 44-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.9,
+        "weight_kg": 57.6,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "139274",
+        "text_description": "She is a 57-year-old non-Hispanic White woman with a high school degree or equivalent who is married. She has a family income at 302% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 156.3,
+        "weight_kg": 53.2,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135357",
+        "text_description": "She is a 73-year-old other race woman with some college education who is widowed. She has a family income at 295% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She has a history of a stroke. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 154.3,
+        "weight_kg": 49.9,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132597",
+        "text_description": "He is a 38-year-old Mexican American man with less than a 9th-grade education who is married. He reports light-intensity physical activity at work. He spends approximately 720 minutes per day in sedentary activity. He engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked.",
+        "height_cm": 182.3,
+        "weight_kg": 127.1,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "LessThan9th",
+            "OCD150": "Light",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140386",
+        "text_description": "He is a 38-year-old non-Hispanic White man with some college education who is married. He has a family income at 277% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 720 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 174.1,
+        "weight_kg": 86.8,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140023",
+        "text_description": "She is a 52-year-old non-Hispanic White woman with some college education who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma and arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 167.9,
+        "weight_kg": 97.7,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136136",
+        "text_description": "He is a 75-year-old non-Hispanic White man with a college degree or above who is divorced. He has a family income at 478% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He engages in 90 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 167.6,
+        "weight_kg": 78.7,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134507",
+        "text_description": "She is a 46-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 170.1,
+        "weight_kg": 66.8,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139344",
+        "text_description": "She is a 49-year-old non-Hispanic White woman with a high school degree or equivalent who is married. She reports sedentary-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 20 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 161.9,
+        "weight_kg": 66.4,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137153",
+        "text_description": "She is a 67-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 346% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 161.3,
+        "weight_kg": 71.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134896",
+        "text_description": "She is a 34-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 114% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 166.0,
+        "weight_kg": 84.3,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137228",
+        "text_description": "She is a 33-year-old other Hispanic woman with some high school education (9th\u201311th grade) who is widowed. She has a family income at 123% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of asthma. She has never smoked.",
+        "height_cm": 160.9,
+        "weight_kg": 113.0,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "133250",
+        "text_description": "She is a 57-year-old Mexican American woman with some college education who is widowed. She has a family income below the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She engages in 15 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 165.4,
+        "weight_kg": 85.1,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134464",
+        "text_description": "She is a 20-year-old non-Hispanic White woman with some college education who is divorced. She has a family income below the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She engages in 90 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a snack during the dietary recall.",
+        "height_cm": 153.9,
+        "weight_kg": 47.3,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135742",
+        "text_description": "He is a 66-year-old non-Hispanic White man with a high school degree or equivalent who is married. He has a family income at 309% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 120 minutes per day in sedentary activity. He has a history of asthma, arthritis and coronary heart disease. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 185.0,
+        "weight_kg": 87.1,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134612",
+        "text_description": "She is a 59-year-old non-Hispanic Black woman with a high school degree or equivalent who is divorced. She has a family income at 191% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of arthritis and coronary heart disease. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 172.5,
+        "weight_kg": 111.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "130611",
+        "text_description": "She is a 70-year-old non-Hispanic White woman with a college degree or above who is married. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 155.0,
+        "weight_kg": 66.6,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141934",
+        "text_description": "He is a 71-year-old non-Hispanic White man with a high school degree or equivalent who is married. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He has a history of asthma and arthritis. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 176.5,
+        "weight_kg": 106.7,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141273",
+        "text_description": "She is a 47-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 286% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She engages in 20 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 157.1,
+        "weight_kg": 75.1,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134249",
+        "text_description": "She is a 44-year-old other Hispanic woman with a college degree or above who is married. She has a family income at 322% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 15 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 171.0,
+        "weight_kg": 84.0,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135822",
+        "text_description": "He is a 46-year-old non-Hispanic White man with a college degree or above who is divorced. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 660 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed a drink during the dietary recall.",
+        "height_cm": 178.8,
+        "weight_kg": 131.1,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141133",
+        "text_description": "He is a 55-year-old non-Hispanic White man with a college degree or above who is married. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He has never smoked.",
+        "height_cm": 180.3,
+        "weight_kg": 86.1,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134781",
+        "text_description": "She is a 25-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 134% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a snack during the dietary recall.",
+        "height_cm": 155.5,
+        "weight_kg": 44.1,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136419",
+        "text_description": "She is a 18-year-old non-Hispanic White woman. She reports heavy-intensity physical activity at work. She spends approximately 420 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.0,
+        "weight_kg": 88.4,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137571",
+        "text_description": "He is a 72-year-old other race man with a high school degree or equivalent who is married. He has a family income at 164% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 120 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis and coronary heart disease. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 168.1,
+        "weight_kg": 90.6,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140420",
+        "text_description": "He is a 18-year-old Mexican American man. He has a family income at 216% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 660 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 164.6,
+        "weight_kg": 70.9,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135161",
+        "text_description": "He is a 19-year-old non-Hispanic White man. He has a family income at 216% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He engages in 15 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 174.9,
+        "weight_kg": 98.3,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132827",
+        "text_description": "He is a 68-year-old non-Hispanic White man with some college education who is married. He has a family income at 203% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He has a history of arthritis, congestive heart failure and coronary heart disease. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 177.0,
+        "weight_kg": 133.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139461",
+        "text_description": "He is a 62-year-old non-Hispanic White man with a high school degree or equivalent who is married. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 480 minutes per day in sedentary activity. He engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 171.2,
+        "weight_kg": 95.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "130901",
+        "text_description": "She is a 79-year-old non-Hispanic White woman with less than a 9th-grade education who is married. She has a family income at 164% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 152.5,
+        "weight_kg": 69.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "LessThan9th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135743",
+        "text_description": "She is a 74-year-old non-Hispanic White woman with some college education who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 161.7,
+        "weight_kg": 75.4,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136294",
+        "text_description": "She is a 52-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 261% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 162.5,
+        "weight_kg": 99.3,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135329",
+        "text_description": "He is a 53-year-old Mexican American man with less than a 9th-grade education who is married. He has a family income at 280% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 540 minutes per day in sedentary activity. He has a history of asthma, arthritis and congestive heart failure. He has smoked at least 100 cigarettes in him lifetime.",
+        "height_cm": 167.3,
+        "weight_kg": 93.9,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "LessThan9th",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139936",
+        "text_description": "She is a 72-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 30 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 159.0,
+        "weight_kg": 58.8,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "142219",
+        "text_description": "She is a 76-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.3,
+        "weight_kg": 55.8,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "138015",
+        "text_description": "She is a 63-year-old non-Hispanic White woman with some college education who is married. She has a family income at 317% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 170.4,
+        "weight_kg": 79.6,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136180",
+        "text_description": "She is a 22-year-old other Hispanic woman with some college education who is divorced. She has a family income at 295% of the poverty line. She reports moderate-intensity physical activity at work. She spends approximately 1200 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 155.3,
+        "weight_kg": 53.6,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Moderate",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132149",
+        "text_description": "He is a 73-year-old other race man with a high school degree or equivalent who is married. He has a family income at 328% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 360 minutes per day in sedentary activity. He has never smoked. He consumed a drink during the dietary recall.",
+        "height_cm": 183.9,
+        "weight_kg": 124.0,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140616",
+        "text_description": "She is a 42-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 117% of the poverty line. She reports light-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has a history of arthritis and a stroke. She has never smoked. She consumed lunch during the dietary recall.",
+        "height_cm": 162.7,
+        "weight_kg": 101.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Light",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140827",
+        "text_description": "She is a 57-year-old non-Hispanic White woman with a college degree or above who is married. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has never smoked.",
+        "height_cm": 166.5,
+        "weight_kg": 51.1,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137455",
+        "text_description": "He is a 76-year-old non-Hispanic White man with a college degree or above who is widowed. He has a family income at 391% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 540 minutes per day in sedentary activity. He has a history of coronary heart disease. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 163.4,
+        "weight_kg": 79.6,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137765",
+        "text_description": "He is a 43-year-old non-Hispanic White man with some college education who is divorced. He has a family income at 106% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He has a history of asthma. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 192.7,
+        "weight_kg": 138.0,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135832",
+        "text_description": "He is a 50-year-old other Hispanic man with some college education who is married. He reports sedentary-intensity physical activity at work. He spends approximately 60 minutes per day in sedentary activity. He has a history of arthritis. He has never smoked.",
+        "height_cm": 165.6,
+        "weight_kg": 75.2,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141230",
+        "text_description": "He is a 32-year-old other race man with a college degree or above who is divorced. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 420 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked.",
+        "height_cm": 169.7,
+        "weight_kg": 77.4,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "133563",
+        "text_description": "He is a 80-year-old non-Hispanic White man with a college degree or above who is widowed. He has a family income at 309% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 169.4,
+        "weight_kg": 75.6,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "133621",
+        "text_description": "She is a 72-year-old non-Hispanic White woman with some college education who is married. She reports heavy-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 157.5,
+        "weight_kg": 69.5,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "130768",
+        "text_description": "She is a 71-year-old non-Hispanic White woman with some college education who is married. She has a family income at 123% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 155.0,
+        "weight_kg": 55.0,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "140088",
+        "text_description": "She is a 76-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 412% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked.",
+        "height_cm": 159.9,
+        "weight_kg": 56.1,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141196",
+        "text_description": "She is a 54-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She engages in 45 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 160.1,
+        "weight_kg": 86.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136839",
+        "text_description": "She is a 61-year-old Mexican American woman with a high school degree or equivalent who is married. She has a family income at 151% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has a history of a stroke. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 152.2,
+        "weight_kg": 105.2,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140514",
+        "text_description": "He is a 43-year-old non-Hispanic White man with some college education who is divorced. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 720 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 179.0,
+        "weight_kg": 66.0,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139312",
+        "text_description": "She is a 62-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 233% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 180 minutes per day in sedentary activity. She engages in 5 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 168.0,
+        "weight_kg": 81.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137953",
+        "text_description": "She is a 65-year-old other Hispanic woman with some college education who is widowed. She has a family income at 392% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 159.1,
+        "weight_kg": 72.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134971",
+        "text_description": "He is a 68-year-old non-Hispanic White man with a high school degree or equivalent who is married. He has a family income at 406% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He has a history of congestive heart failure and coronary heart disease. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 177.0,
+        "weight_kg": 89.5,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "133225",
+        "text_description": "She is a 58-year-old other Hispanic woman with some high school education (9th\u201311th grade) who is widowed. She has a family income below the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 159.8,
+        "weight_kg": 85.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139879",
+        "text_description": "He is a 63-year-old non-Hispanic White man with some college education who is married. He reports sedentary-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He engages in 10 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 163.5,
+        "weight_kg": 67.8,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134362",
+        "text_description": "She is a 37-year-old non-Hispanic Black woman with some high school education (9th\u201311th grade) who is divorced. She has a family income at 109% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 162.9,
+        "weight_kg": 75.8,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "133453",
+        "text_description": "He is a 43-year-old non-Hispanic White man with some college education who is married. He has a family income at 490% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 360 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 179.8,
+        "weight_kg": 109.6,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "133517",
+        "text_description": "She is a 73-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 140% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of arthritis and a stroke. She has never smoked.",
+        "height_cm": 157.2,
+        "weight_kg": 74.3,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "142232",
+        "text_description": "She is a 62-year-old non-Hispanic White woman with some college education who is married. She has a family income at 109% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed a drink during the dietary recall.",
+        "height_cm": 154.7,
+        "weight_kg": 55.6,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "131153",
+        "text_description": "She is a 51-year-old non-Hispanic Black woman with some college education who is widowed. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 172.1,
+        "weight_kg": 121.3,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132622",
+        "text_description": "He is a 55-year-old non-Hispanic White man with a college degree or above who is married. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of asthma. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 172.4,
+        "weight_kg": 96.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141665",
+        "text_description": "She is a 66-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 165.8,
+        "weight_kg": 55.0,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132046",
+        "text_description": "He is a 72-year-old non-Hispanic White man with a college degree or above who is married. He has a family income at 500% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 171.0,
+        "weight_kg": 78.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132768",
+        "text_description": "She is a 54-year-old other Hispanic woman with some high school education (9th\u201311th grade) who is widowed. She reports heavy-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 155.8,
+        "weight_kg": 121.4,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "9thTo11th",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137353",
+        "text_description": "He is a 69-year-old non-Hispanic Black man with some high school education (9th\u201311th grade) who is widowed. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 177.0,
+        "weight_kg": 100.7,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141645",
+        "text_description": "She is a 69-year-old non-Hispanic White woman with a high school degree or equivalent who is widowed. She has a family income at 500% of the poverty line. She reports moderate-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.5,
+        "weight_kg": 82.6,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Moderate",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141305",
+        "text_description": "He is a 71-year-old non-Hispanic White man with a college degree or above who is married. He reports heavy-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime.",
+        "height_cm": 179.9,
+        "weight_kg": 86.6,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "138720",
+        "text_description": "She is a 65-year-old other Hispanic woman with a high school degree or equivalent who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 154.6,
+        "weight_kg": 51.6,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "142115",
+        "text_description": "He is a 34-year-old other race man with a college degree or above who is married. He has a family income at 317% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 780 minutes per day in sedentary activity. He engages in 180 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 183.8,
+        "weight_kg": 148.2,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "132970",
+        "text_description": "She is a 40-year-old other race woman with a college degree or above who is married. She has a family income at 400% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 156.8,
+        "weight_kg": 51.2,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137726",
+        "text_description": "She is a 57-year-old non-Hispanic Black woman with some college education who is widowed. She has a family income at 109% of the poverty line. She reports light-intensity physical activity at work. She spends approximately 4 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has never smoked.",
+        "height_cm": 155.2,
+        "weight_kg": 105.9,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Light",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141399",
+        "text_description": "She is a 72-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 419% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 162.8,
+        "weight_kg": 57.9,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134055",
+        "text_description": "She is a 55-year-old non-Hispanic White woman with a high school degree or equivalent who is widowed. She has a family income below the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 9999 minutes per day in sedentary activity. She has a history of asthma and a stroke. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 167.6,
+        "weight_kg": 77.5,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135172",
+        "text_description": "He is a 62-year-old non-Hispanic White man with a college degree or above who is widowed. He has a family income at 500% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 480 minutes per day in sedentary activity. He engages in 45 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has smoked at least 100 cigarettes in him lifetime.",
+        "height_cm": 191.8,
+        "weight_kg": 103.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135023",
+        "text_description": "She is a 64-year-old non-Hispanic White woman with some college education who is widowed. She has a family income below the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 60 minutes per day in sedentary activity. She engages in 5 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 149.2,
+        "weight_kg": 53.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "133069",
+        "text_description": "She is a 70-year-old Mexican American woman with some high school education (9th\u201311th grade) who is widowed. She has a family income at 194% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 159.0,
+        "weight_kg": 78.1,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "142226",
+        "text_description": "She is a 46-year-old non-Hispanic Black woman with some high school education (9th\u201311th grade) who is widowed. She reports heavy-intensity physical activity at work. She spends approximately 9999 minutes per day in sedentary activity. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 162.8,
+        "weight_kg": 112.3,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "9thTo11th",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "131560",
+        "text_description": "He is a 26-year-old non-Hispanic White man with a high school degree or equivalent who is married. He has a family income at 280% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 360 minutes per day in sedentary activity. He has a history of asthma. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 177.5,
+        "weight_kg": 82.5,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "136229",
+        "text_description": "He is a 63-year-old non-Hispanic White man with some college education who is married. He has a family income at 157% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 1020 minutes per day in sedentary activity. He has a history of arthritis, congestive heart failure, coronary heart disease and a stroke. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 179.2,
+        "weight_kg": 144.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137052",
+        "text_description": "He is a 53-year-old other race man with a college degree or above who is divorced. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He has a history of asthma. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 180.4,
+        "weight_kg": 64.4,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "132540",
+        "text_description": "He is a 67-year-old non-Hispanic White man with a high school degree or equivalent who is widowed. He has a family income at 192% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He engages in 180 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 163.3,
+        "weight_kg": 65.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "132870",
+        "text_description": "He is a 71-year-old other race man with some college education who is married. He has a family income at 144% of the poverty line. He reports light-intensity physical activity at work. He spends approximately 90 minutes per day in sedentary activity. He engages in 480 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 165.0,
+        "weight_kg": 75.8,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Light",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134928",
+        "text_description": "She is a 70-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 412% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma and arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 163.6,
+        "weight_kg": 74.1,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135130",
+        "text_description": "He is a 57-year-old non-Hispanic Black man with some college education who is widowed. He has a family income at 478% of the poverty line. He reports light-intensity physical activity at work. He spends approximately 120 minutes per day in sedentary activity. He engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis and congestive heart failure. He has smoked at least 100 cigarettes in him lifetime. He consumed a snack during the dietary recall.",
+        "height_cm": 176.6,
+        "weight_kg": 117.2,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Light",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "140201",
+        "text_description": "She is a 48-year-old other race woman with some college education who is divorced. She has a family income at 180% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 157.1,
+        "weight_kg": 89.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137738",
+        "text_description": "He is a 67-year-old non-Hispanic White man with a high school degree or equivalent who is widowed. He has a family income at 192% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 720 minutes per day in sedentary activity. He has a history of congestive heart failure and coronary heart disease. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 175.3,
+        "weight_kg": 74.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139607",
+        "text_description": "She is a 63-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 406% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 840 minutes per day in sedentary activity. She engages in 40 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma and arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 162.2,
+        "weight_kg": 99.7,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132418",
+        "text_description": "He is a 18-year-old Mexican American man. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 480 minutes per day in sedentary activity. He has never smoked.",
+        "height_cm": 167.9,
+        "weight_kg": 89.9,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136173",
+        "text_description": "She is a 73-year-old Mexican American woman with some high school education (9th\u201311th grade) who is married. She has a family income at 158% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She has a history of arthritis, congestive heart failure and coronary heart disease. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 154.3,
+        "weight_kg": 99.5,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "133396",
+        "text_description": "She is a 48-year-old non-Hispanic White woman with less than a 9th-grade education who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 174.0,
+        "weight_kg": 89.3,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "LessThan9th",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135043",
+        "text_description": "She is a 48-year-old other race woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 840 minutes per day in sedentary activity. She has never smoked.",
+        "height_cm": 157.3,
+        "weight_kg": 56.6,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134408",
+        "text_description": "He is a 77-year-old non-Hispanic White man with some college education who is married. He has a family income at 218% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He has a history of arthritis. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 172.7,
+        "weight_kg": 78.0,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134940",
+        "text_description": "She is a 51-year-old non-Hispanic White woman with some college education who is divorced. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has never smoked. She consumed a snack during the dietary recall.",
+        "height_cm": 165.7,
+        "weight_kg": 184.2,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134429",
+        "text_description": "She is a 80-year-old non-Hispanic White woman with less than a 9th-grade education who is married. She reports heavy-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has smoked at least 100 cigarettes in her lifetime. She consumed lunch during the dietary recall.",
+        "height_cm": 158.3,
+        "weight_kg": 77.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "LessThan9th",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141728",
+        "text_description": "She is a 47-year-old non-Hispanic White woman with a high school degree or equivalent who is married. She has a family income at 155% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.2,
+        "weight_kg": 102.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135466",
+        "text_description": "She is a 40-year-old non-Hispanic White woman with some college education who is married. She has a family income at 209% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 540 minutes per day in sedentary activity. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 158.8,
+        "weight_kg": 101.0,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137482",
+        "text_description": "She is a 38-year-old non-Hispanic White woman with a high school degree or equivalent who is married. She has a family income below the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 180 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked.",
+        "height_cm": 167.0,
+        "weight_kg": 105.8,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "133086",
+        "text_description": "She is a 18-year-old other Hispanic woman. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 152.5,
+        "weight_kg": 57.0,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140281",
+        "text_description": "She is a 69-year-old other Hispanic woman with less than a 9th-grade education who is married. She has a family income at 262% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked.",
+        "height_cm": 152.6,
+        "weight_kg": 72.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "LessThan9th",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134696",
+        "text_description": "He is a 29-year-old non-Hispanic White man with a college degree or above who is divorced. He reports sedentary-intensity physical activity at work. He spends approximately 720 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 171.5,
+        "weight_kg": 80.2,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "131094",
+        "text_description": "She is a 26-year-old non-Hispanic White woman with a college degree or above who is divorced. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma. She has never smoked.",
+        "height_cm": 168.1,
+        "weight_kg": 75.5,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "142198",
+        "text_description": "He is a 68-year-old non-Hispanic White man with some college education who is married. He has a family income at 130% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He engages in 15 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed a drink during the dietary recall.",
+        "height_cm": 178.6,
+        "weight_kg": 94.8,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "142105",
+        "text_description": "She is a 71-year-old Mexican American woman with some college education who is widowed. She has a family income at 324% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 168.2,
+        "weight_kg": 96.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "131002",
+        "text_description": "She is a 63-year-old non-Hispanic Black woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 158.8,
+        "weight_kg": 58.1,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136431",
+        "text_description": "He is a 54-year-old other Hispanic man with a college degree or above who is divorced. He has a family income at 177% of the poverty line. He reports moderate-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 169.3,
+        "weight_kg": 76.6,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Moderate",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "138896",
+        "text_description": "She is a 67-year-old non-Hispanic White woman with a high school degree or equivalent who is widowed. She has a family income at 254% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She engages in 5 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 166.4,
+        "weight_kg": 63.0,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "140379",
+        "text_description": "She is a 39-year-old Mexican American woman with some high school education (9th\u201311th grade) who is married. She has a family income below the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked.",
+        "height_cm": 150.3,
+        "weight_kg": 62.9,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135550",
+        "text_description": "He is a 39-year-old other race man with a college degree or above who is married. He reports sedentary-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He engages in 15 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked.",
+        "height_cm": 162.4,
+        "weight_kg": 64.0,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "139916",
+        "text_description": "He is a 42-year-old other Hispanic man with a college degree or above who is married. He has a family income at 151% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He engages in 45 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed a drink during the dietary recall.",
+        "height_cm": 177.2,
+        "weight_kg": 111.6,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134771",
+        "text_description": "She is a 80-year-old other race woman with some college education who is widowed. She reports heavy-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She has a history of arthritis and a stroke. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.5,
+        "weight_kg": 54.3,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132172",
+        "text_description": "He is a 19-year-old non-Hispanic White man. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 165.1,
+        "weight_kg": 56.6,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "133223",
+        "text_description": "She is a 32-year-old other Hispanic woman with some high school education (9th\u201311th grade) who is married. She reports sedentary-intensity physical activity at work. She spends approximately 120 minutes per day in sedentary activity. She has never smoked.",
+        "height_cm": 153.3,
+        "weight_kg": 65.2,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "OtherHispanic",
+            "DMDEDUC2": "9thTo11th",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "131643",
+        "text_description": "He is a 70-year-old non-Hispanic White man with a college degree or above who is married. He has a family income at 464% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 360 minutes per day in sedentary activity. He engages in 240 minutes of vigorous-intensity leisure-time physical activity per session. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 172.3,
+        "weight_kg": 84.5,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "140629",
+        "text_description": "She is a 69-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of asthma. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 163.0,
+        "weight_kg": 58.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "139373",
+        "text_description": "He is a 65-year-old non-Hispanic White man with some high school education (9th\u201311th grade) who is divorced. He has a family income at 105% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 600 minutes per day in sedentary activity. He has a history of asthma and arthritis. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 178.2,
+        "weight_kg": 101.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "130972",
+        "text_description": "She is a 37-year-old non-Hispanic Black woman with some college education who is widowed. She has a family income at 139% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has never smoked. She consumed a snack during the dietary recall.",
+        "height_cm": 167.4,
+        "weight_kg": 142.2,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137739",
+        "text_description": "He is a 64-year-old non-Hispanic White man with some high school education (9th\u201311th grade) who is married. He has a family income at 304% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He has smoked at least 100 cigarettes in him lifetime. He consumed breakfast during the dietary recall.",
+        "height_cm": 171.1,
+        "weight_kg": 66.7,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "137354",
+        "text_description": "She is a 68-year-old non-Hispanic White woman with some college education who is married. She reports heavy-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 157.1,
+        "weight_kg": 60.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135622",
+        "text_description": "He is a 65-year-old non-Hispanic White man with a college degree or above who is married. He reports sedentary-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He engages in 90 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 180.9,
+        "weight_kg": 109.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "130603",
+        "text_description": "He is a 75-year-old non-Hispanic White man with some high school education (9th\u201311th grade) who is married. He has a family income at 417% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 180 minutes per day in sedentary activity. He engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis and coronary heart disease. He has smoked at least 100 cigarettes in him lifetime. He consumed a snack during the dietary recall.",
+        "height_cm": 175.2,
+        "weight_kg": 91.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "139370",
+        "text_description": "She is a 64-year-old non-Hispanic White woman with a high school degree or equivalent who is widowed. She has a family income at 180% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime. She consumed a drink during the dietary recall.",
+        "height_cm": 173.0,
+        "weight_kg": 51.8,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "135389",
+        "text_description": "She is a 27-year-old other race woman with a college degree or above who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She engages in 120 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 153.4,
+        "weight_kg": 50.8,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Other",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134024",
+        "text_description": "She is a 66-year-old non-Hispanic White woman with some college education who is married. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime. She consumed a drink during the dietary recall.",
+        "height_cm": 160.5,
+        "weight_kg": 60.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "130745",
+        "text_description": "She is a 38-year-old Mexican American woman with some college education who is married. She has a family income at 185% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She engages in 20 minutes of vigorous-intensity leisure-time physical activity per session. She has smoked at least 100 cigarettes in her lifetime.",
+        "height_cm": 152.2,
+        "weight_kg": 70.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "134337",
+        "text_description": "She is a 69-year-old non-Hispanic White woman with some college education who is married. She has a family income at 172% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has a history of arthritis and congestive heart failure. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 160.4,
+        "weight_kg": 100.4,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "138177",
+        "text_description": "She is a 80-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 500% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has a history of asthma. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 156.9,
+        "weight_kg": 66.1,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141358",
+        "text_description": "She is a 67-year-old non-Hispanic White woman with some college education who is widowed. She reports sedentary-intensity physical activity at work. She spends approximately 90 minutes per day in sedentary activity. She engages in 10 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 166.2,
+        "weight_kg": 76.2,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "138476",
+        "text_description": "She is a 22-year-old Mexican American woman with some college education who is married. She has a family income at 248% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 300 minutes per day in sedentary activity. She has a history of asthma. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 151.6,
+        "weight_kg": 79.5,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "136814",
+        "text_description": "She is a 56-year-old Mexican American woman with some high school education (9th\u201311th grade) who is widowed. She has a family income at 434% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 240 minutes per day in sedentary activity. She has a history of asthma and arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 153.4,
+        "weight_kg": 107.0,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "9thTo11th",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "138520",
+        "text_description": "She is a 54-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 500% of the poverty line. She reports light-intensity physical activity at work. She spends approximately 840 minutes per day in sedentary activity. She engages in 45 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 170.7,
+        "weight_kg": 70.3,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Light",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141186",
+        "text_description": "She is a 71-year-old non-Hispanic White woman with a high school degree or equivalent who is divorced. She has a family income below the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She has a history of arthritis. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 151.1,
+        "weight_kg": 95.1,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "140119",
+        "text_description": "She is a 34-year-old non-Hispanic White woman with a college degree or above who is married. She has a family income at 216% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 480 minutes per day in sedentary activity. She engages in 30 minutes of vigorous-intensity leisure-time physical activity per session. She has never smoked. She consumed a drink during the dietary recall.",
+        "height_cm": 166.1,
+        "weight_kg": 90.1,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "134736",
+        "text_description": "She is a 48-year-old non-Hispanic Black woman with some college education who is widowed. She reports sedentary-intensity physical activity at work. She spends approximately 360 minutes per day in sedentary activity. She has a history of asthma. She has never smoked.",
+        "height_cm": 159.6,
+        "weight_kg": 156.7,
+        "demographics": {
+            "RIDAGEYR": "34-48",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "Black",
+            "DMDEDUC2": "SomeCollege",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "135439",
+        "text_description": "He is a 23-year-old Mexican American man with some college education who is married. He has a family income at 353% of the poverty line. He reports sedentary-intensity physical activity at work. He spends approximately 60 minutes per day in sedentary activity. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 177.1,
+        "weight_kg": 82.1,
+        "demographics": {
+            "RIDAGEYR": "18-33",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "MexicanAmerican",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "132291",
+        "text_description": "He is a 75-year-old non-Hispanic White man with some college education who is married. He has a family income at 203% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 480 minutes per day in sedentary activity. He has a history of arthritis. He has never smoked.",
+        "height_cm": 169.5,
+        "weight_kg": 93.2,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141348",
+        "text_description": "She is a 69-year-old non-Hispanic White woman with a college degree or above who is widowed. She has a family income at 147% of the poverty line. She reports heavy-intensity physical activity at work. She spends approximately 720 minutes per day in sedentary activity. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 158.0,
+        "weight_kg": 87.3,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "LowIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "130566",
+        "text_description": "He is a 66-year-old non-Hispanic White man with a college degree or above who is divorced. He has a family income below the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 300 minutes per day in sedentary activity. He engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. He has a history of arthritis. He has never smoked. He consumed breakfast during the dietary recall.",
+        "height_cm": 164.0,
+        "weight_kg": 89.9,
+        "demographics": {
+            "RIDAGEYR": "62-70",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "BelowPoverty",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "141047",
+        "text_description": "She is a 80-year-old non-Hispanic White woman with some college education who is widowed. She has a family income at 294% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She engages in 60 minutes of vigorous-intensity leisure-time physical activity per session. She has a history of arthritis. She has smoked at least 100 cigarettes in her lifetime. She consumed breakfast during the dietary recall.",
+        "height_cm": 156.7,
+        "weight_kg": 74.0,
+        "demographics": {
+            "RIDAGEYR": "71-80",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "SomeCollege",
+            "INDFMPIR": "MiddleIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "Yes"
+        }
+    },
+    {
+        "subject_id": "141075",
+        "text_description": "He is a 61-year-old non-Hispanic White man with a college degree or above who is divorced. He has a family income at 500% of the poverty line. He reports heavy-intensity physical activity at work. He spends approximately 240 minutes per day in sedentary activity. He has a history of arthritis. He has never smoked.",
+        "height_cm": 174.0,
+        "weight_kg": 89.6,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Male",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "CollegeGrad",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Heavy",
+            "SMQ020": "No"
+        }
+    },
+    {
+        "subject_id": "137858",
+        "text_description": "She is a 54-year-old non-Hispanic White woman with a high school degree or equivalent who is widowed. She has a family income at 500% of the poverty line. She reports sedentary-intensity physical activity at work. She spends approximately 600 minutes per day in sedentary activity. She has never smoked. She consumed breakfast during the dietary recall.",
+        "height_cm": 161.9,
+        "weight_kg": 92.3,
+        "demographics": {
+            "RIDAGEYR": "49-61",
+            "RIAGENDR": "Female",
+            "RIDRETH1": "White",
+            "DMDEDUC2": "HighSchool",
+            "INDFMPIR": "HighIncome",
+            "OCD150": "Sedentary",
+            "SMQ020": "No"
+        }
     }
 ]
