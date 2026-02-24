@@ -1,0 +1,4960 @@
+{
+  "metadata": {
+    "source": "NHANES August2021-August2023",
+    "method": "PyMC Bayesian Estimation",
+    "description": "Ground truth distributions for height (cm) and weight (kg)",
+    "pymc_version": "5.28.0",
+    "min_samples_per_entry": 50,
+    "sampling": {
+      "draws": 1000,
+      "tune": 500,
+      "chains": 2,
+      "random_seed": 42
+    },
+    "priors": {
+      "height": {
+        "mu": "Normal(170, 20)",
+        "sigma": "HalfNormal(15)"
+      },
+      "weight": {
+        "mu": "Normal(80, 30)",
+        "sigma": "HalfNormal(30)"
+      }
+    },
+    "variables": {
+      "RIDAGEYR": {
+        "description": "Age in years (binned by quantiles)",
+        "values": [
+          "18-33",
+          "34-48",
+          "49-61",
+          "62-70",
+          "71-80"
+        ]
+      },
+      "RIAGENDR": {
+        "description": "Gender",
+        "values": [
+          "Male",
+          "Female"
+        ]
+      },
+      "RIDRETH1": {
+        "description": "Race/Ethnicity",
+        "values": [
+          "MexicanAmerican",
+          "OtherHispanic",
+          "White",
+          "Black",
+          "Other"
+        ]
+      },
+      "DMDEDUC2": {
+        "description": "Education level",
+        "values": [
+          "LessThan9th",
+          "9thTo11th",
+          "HighSchool",
+          "SomeCollege",
+          "CollegeGrad"
+        ]
+      },
+      "INDFMPIR": {
+        "description": "Family poverty income ratio (0-5 scale, binned)",
+        "values": [
+          "BelowPoverty",
+          "LowIncome",
+          "MiddleIncome",
+          "HighIncome"
+        ],
+        "bins": "0-1: BelowPoverty, 1-2.5: LowIncome, 2.5-4: MiddleIncome, 4-5: HighIncome"
+      },
+      "OCD150": {
+        "description": "Work activity level",
+        "values": [
+          "Sedentary",
+          "Light",
+          "Moderate",
+          "Heavy"
+        ]
+      },
+      "SMQ020": {
+        "description": "Smoked 100+ cigarettes in life",
+        "values": [
+          "Yes",
+          "No"
+        ]
+      }
+    },
+    "key_format": "COLNAME=value__COLNAME=value"
+  },
+  "distributions": {
+    "Overall": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.97,
+        "sigma": 10.03,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.73,
+          167.21
+        ],
+        "sigma_hdi_94": [
+          9.87,
+          10.2
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.87,
+        "sigma": 22.45,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.33,
+          83.41
+        ],
+        "sigma_hdi_94": [
+          22.07,
+          22.85
+        ]
+      },
+      "n": 6235
+    },
+    "RIDAGEYR=34-48": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.96,
+        "sigma": 9.91,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.39,
+          168.49
+        ],
+        "sigma_hdi_94": [
+          9.54,
+          10.3
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.08,
+        "sigma": 24.5,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.77,
+          87.39
+        ],
+        "sigma_hdi_94": [
+          23.61,
+          25.44
+        ]
+      },
+      "n": 1230
+    },
+    "RIDAGEYR=62-70": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.32,
+        "sigma": 9.75,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.83,
+          166.84
+        ],
+        "sigma_hdi_94": [
+          9.4,
+          10.11
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.72,
+        "sigma": 20.3,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.6,
+          83.82
+        ],
+        "sigma_hdi_94": [
+          19.53,
+          21.08
+        ]
+      },
+      "n": 1296
+    },
+    "RIDAGEYR=18-33": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.8,
+        "sigma": 9.93,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.31,
+          169.29
+        ],
+        "sigma_hdi_94": [
+          9.56,
+          10.28
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.73,
+        "sigma": 23.74,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.44,
+          81.99
+        ],
+        "sigma_hdi_94": [
+          22.93,
+          24.64
+        ]
+      },
+      "n": 1289
+    },
+    "RIDAGEYR=49-61": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.04,
+        "sigma": 10.07,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.51,
+          167.57
+        ],
+        "sigma_hdi_94": [
+          9.69,
+          10.46
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.56,
+        "sigma": 23.35,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.33,
+          86.75
+        ],
+        "sigma_hdi_94": [
+          22.56,
+          24.22
+        ]
+      },
+      "n": 1305
+    },
+    "RIDAGEYR=71-80": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.45,
+        "sigma": 10.05,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.87,
+          165.03
+        ],
+        "sigma_hdi_94": [
+          9.67,
+          10.48
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.75,
+        "sigma": 18.7,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.71,
+          79.8
+        ],
+        "sigma_hdi_94": [
+          17.96,
+          19.45
+        ]
+      },
+      "n": 1115
+    },
+    "RIAGENDR=Male": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 174.47,
+        "sigma": 7.73,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.2,
+          174.74
+        ],
+        "sigma_hdi_94": [
+          7.54,
+          7.94
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 88.79,
+        "sigma": 21.85,
+        "unit": "kg",
+        "mu_hdi_94": [
+          88.04,
+          89.58
+        ],
+        "sigma_hdi_94": [
+          21.31,
+          22.4
+        ]
+      },
+      "n": 2817
+    },
+    "RIAGENDR=Female": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.79,
+        "sigma": 7.06,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.57,
+          161.01
+        ],
+        "sigma_hdi_94": [
+          6.9,
+          7.22
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.0,
+        "sigma": 21.77,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.31,
+          78.69
+        ],
+        "sigma_hdi_94": [
+          21.26,
+          22.28
+        ]
+      },
+      "n": 3418
+    },
+    "RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.26,
+        "sigma": 10.2,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.56,
+          165.96
+        ],
+        "sigma_hdi_94": [
+          9.71,
+          10.74
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.16,
+        "sigma": 23.39,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.57,
+          77.75
+        ],
+        "sigma_hdi_94": [
+          22.32,
+          24.56
+        ]
+      },
+      "n": 759
+    },
+    "RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.24,
+        "sigma": 9.93,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.91,
+          168.56
+        ],
+        "sigma_hdi_94": [
+          9.71,
+          10.15
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.91,
+        "sigma": 22.21,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.24,
+          84.6
+        ],
+        "sigma_hdi_94": [
+          21.72,
+          22.72
+        ]
+      },
+      "n": 3639
+    },
+    "RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.4,
+        "sigma": 9.8,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.67,
+          164.11
+        ],
+        "sigma_hdi_94": [
+          9.3,
+          10.32
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.84,
+        "sigma": 19.43,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.41,
+          80.27
+        ],
+        "sigma_hdi_94": [
+          18.41,
+          20.53
+        ]
+      },
+      "n": 634
+    },
+    "RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.38,
+        "sigma": 9.5,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.54,
+          164.31
+        ],
+        "sigma_hdi_94": [
+          8.92,
+          10.13
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.71,
+        "sigma": 20.46,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.93,
+          83.47
+        ],
+        "sigma_hdi_94": [
+          19.22,
+          21.78
+        ]
+      },
+      "n": 442
+    },
+    "RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.69,
+        "sigma": 9.46,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.04,
+          168.34
+        ],
+        "sigma_hdi_94": [
+          9.0,
+          9.94
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 88.58,
+        "sigma": 24.04,
+        "unit": "kg",
+        "mu_hdi_94": [
+          86.86,
+          90.27
+        ],
+        "sigma_hdi_94": [
+          22.88,
+          25.29
+        ]
+      },
+      "n": 761
+    },
+    "DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.41,
+        "sigma": 9.93,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.01,
+          168.82
+        ],
+        "sigma_hdi_94": [
+          9.63,
+          10.22
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.23,
+        "sigma": 20.91,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.4,
+          82.04
+        ],
+        "sigma_hdi_94": [
+          20.31,
+          21.56
+        ]
+      },
+      "n": 2122
+    },
+    "DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.86,
+        "sigma": 9.85,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.33,
+          167.36
+        ],
+        "sigma_hdi_94": [
+          9.48,
+          10.21
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.87,
+        "sigma": 22.68,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.66,
+          86.14
+        ],
+        "sigma_hdi_94": [
+          21.87,
+          23.53
+        ]
+      },
+      "n": 1269
+    },
+    "DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.77,
+        "sigma": 9.85,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.32,
+          167.19
+        ],
+        "sigma_hdi_94": [
+          9.54,
+          10.17
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.78,
+        "sigma": 23.91,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.73,
+          86.84
+        ],
+        "sigma_hdi_94": [
+          23.17,
+          24.64
+        ]
+      },
+      "n": 1823
+    },
+    "DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.85,
+        "sigma": 9.91,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.02,
+          165.7
+        ],
+        "sigma_hdi_94": [
+          9.33,
+          10.55
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.01,
+        "sigma": 22.32,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.99,
+          84.98
+        ],
+        "sigma_hdi_94": [
+          20.91,
+          23.74
+        ]
+      },
+      "n": 469
+    },
+    "DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.42,
+        "sigma": 10.18,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.31,
+          161.59
+        ],
+        "sigma_hdi_94": [
+          9.42,
+          10.99
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.3,
+        "sigma": 18.28,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.26,
+          78.43
+        ],
+        "sigma_hdi_94": [
+          16.89,
+          19.79
+        ]
+      },
+      "n": 284
+    },
+    "INDFMPIR=HighIncome": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.92,
+        "sigma": 9.9,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.49,
+          169.36
+        ],
+        "sigma_hdi_94": [
+          9.6,
+          10.22
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.81,
+        "sigma": 21.71,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.88,
+          83.75
+        ],
+        "sigma_hdi_94": [
+          21.04,
+          22.39
+        ]
+      },
+      "n": 1866
+    },
+    "INDFMPIR=LowIncome": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.81,
+        "sigma": 9.61,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.35,
+          166.29
+        ],
+        "sigma_hdi_94": [
+          9.29,
+          9.95
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.99,
+        "sigma": 23.3,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.9,
+          84.09
+        ],
+        "sigma_hdi_94": [
+          22.53,
+          24.12
+        ]
+      },
+      "n": 1581
+    },
+    "INDFMPIR=BelowPoverty": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.81,
+        "sigma": 10.27,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.17,
+          165.45
+        ],
+        "sigma_hdi_94": [
+          9.82,
+          10.75
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.97,
+        "sigma": 23.23,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.43,
+          83.37
+        ],
+        "sigma_hdi_94": [
+          22.21,
+          24.32
+        ]
+      },
+      "n": 870
+    },
+    "INDFMPIR=MiddleIncome": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.36,
+        "sigma": 9.99,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.81,
+          167.91
+        ],
+        "sigma_hdi_94": [
+          9.6,
+          10.41
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.1,
+        "sigma": 21.89,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.83,
+          85.39
+        ],
+        "sigma_hdi_94": [
+          21.03,
+          22.78
+        ]
+      },
+      "n": 1106
+    },
+    "OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.46,
+        "sigma": 9.91,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.12,
+          168.8
+        ],
+        "sigma_hdi_94": [
+          9.66,
+          10.14
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.01,
+        "sigma": 22.8,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.28,
+          84.77
+        ],
+        "sigma_hdi_94": [
+          22.28,
+          23.36
+        ]
+      },
+      "n": 3202
+    },
+    "OCD150=Heavy": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.02,
+        "sigma": 10.01,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.65,
+          165.37
+        ],
+        "sigma_hdi_94": [
+          9.74,
+          10.26
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.3,
+        "sigma": 21.66,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.48,
+          82.11
+        ],
+        "sigma_hdi_94": [
+          21.08,
+          22.29
+        ]
+      },
+      "n": 2574
+    },
+    "OCD150=Light": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.33,
+        "sigma": 8.9,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.15,
+          168.5
+        ],
+        "sigma_hdi_94": [
+          8.1,
+          9.77
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.53,
+        "sigma": 23.37,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.43,
+          86.51
+        ],
+        "sigma_hdi_94": [
+          21.35,
+          25.67
+        ]
+      },
+      "n": 201
+    },
+    "OCD150=Moderate": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.55,
+        "sigma": 9.74,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.39,
+          168.69
+        ],
+        "sigma_hdi_94": [
+          8.95,
+          10.57
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.53,
+        "sigma": 24.52,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.8,
+          86.38
+        ],
+        "sigma_hdi_94": [
+          22.61,
+          26.61
+        ]
+      },
+      "n": 257
+    },
+    "SMQ020=Yes": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.67,
+        "sigma": 9.66,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.3,
+          168.03
+        ],
+        "sigma_hdi_94": [
+          9.41,
+          9.93
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.93,
+        "sigma": 21.46,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.07,
+          84.76
+        ],
+        "sigma_hdi_94": [
+          20.88,
+          22.05
+        ]
+      },
+      "n": 2480
+    },
+    "SMQ020=No": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.52,
+        "sigma": 10.27,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.21,
+          166.84
+        ],
+        "sigma_hdi_94": [
+          10.05,
+          10.48
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.16,
+        "sigma": 23.06,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.42,
+          82.89
+        ],
+        "sigma_hdi_94": [
+          22.53,
+          23.58
+        ]
+      },
+      "n": 3746
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.72,
+        "sigma": 7.85,
+        "unit": "cm",
+        "mu_hdi_94": [
+          175.06,
+          176.34
+        ],
+        "sigma_hdi_94": [
+          7.41,
+          8.31
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 92.55,
+        "sigma": 23.28,
+        "unit": "kg",
+        "mu_hdi_94": [
+          90.6,
+          94.44
+        ],
+        "sigma_hdi_94": [
+          21.96,
+          24.65
+        ]
+      },
+      "n": 518
+    },
+    "RIAGENDR=Male__RIDAGEYR=62-70": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.77,
+        "sigma": 7.5,
+        "unit": "cm",
+        "mu_hdi_94": [
+          173.2,
+          174.35
+        ],
+        "sigma_hdi_94": [
+          7.11,
+          7.93
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 89.22,
+        "sigma": 19.74,
+        "unit": "kg",
+        "mu_hdi_94": [
+          87.63,
+          90.82
+        ],
+        "sigma_hdi_94": [
+          18.7,
+          20.9
+        ]
+      },
+      "n": 572
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 176.07,
+        "sigma": 7.68,
+        "unit": "cm",
+        "mu_hdi_94": [
+          175.48,
+          176.64
+        ],
+        "sigma_hdi_94": [
+          7.28,
+          8.12
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.57,
+        "sigma": 23.33,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.85,
+          87.34
+        ],
+        "sigma_hdi_94": [
+          22.15,
+          24.61
+        ]
+      },
+      "n": 600
+    },
+    "RIAGENDR=Male__RIDAGEYR=49-61": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 174.68,
+        "sigma": 7.64,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.14,
+          175.24
+        ],
+        "sigma_hdi_94": [
+          7.22,
+          8.07
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 91.47,
+        "sigma": 23.29,
+        "unit": "kg",
+        "mu_hdi_94": [
+          89.66,
+          93.24
+        ],
+        "sigma_hdi_94": [
+          22.02,
+          24.6
+        ]
+      },
+      "n": 594
+    },
+    "RIAGENDR=Male__RIDAGEYR=71-80": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.97,
+        "sigma": 7.39,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.35,
+          172.6
+        ],
+        "sigma_hdi_94": [
+          6.99,
+          7.85
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.22,
+        "sigma": 18.06,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.83,
+          86.67
+        ],
+        "sigma_hdi_94": [
+          17.05,
+          19.09
+        ]
+      },
+      "n": 533
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.29,
+        "sigma": 6.98,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.79,
+          162.79
+        ],
+        "sigma_hdi_94": [
+          6.62,
+          7.34
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.38,
+        "sigma": 24.35,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.7,
+          83.02
+        ],
+        "sigma_hdi_94": [
+          23.16,
+          25.6
+        ]
+      },
+      "n": 712
+    },
+    "RIAGENDR=Female__RIDAGEYR=62-70": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.43,
+        "sigma": 6.85,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.93,
+          160.92
+        ],
+        "sigma_hdi_94": [
+          6.52,
+          7.19
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.63,
+        "sigma": 19.28,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.25,
+          79.05
+        ],
+        "sigma_hdi_94": [
+          18.36,
+          20.28
+        ]
+      },
+      "n": 724
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.49,
+        "sigma": 6.89,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.99,
+          162.97
+        ],
+        "sigma_hdi_94": [
+          6.55,
+          7.25
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.53,
+        "sigma": 23.37,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.87,
+          78.14
+        ],
+        "sigma_hdi_94": [
+          22.27,
+          24.57
+        ]
+      },
+      "n": 689
+    },
+    "RIAGENDR=Female__RIDAGEYR=49-61": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.64,
+        "sigma": 6.88,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.16,
+          161.15
+        ],
+        "sigma_hdi_94": [
+          6.56,
+          7.24
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.67,
+        "sigma": 22.28,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.05,
+          82.34
+        ],
+        "sigma_hdi_94": [
+          21.24,
+          23.4
+        ]
+      },
+      "n": 711
+    },
+    "RIAGENDR=Female__RIDAGEYR=71-80": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.57,
+        "sigma": 6.67,
+        "unit": "cm",
+        "mu_hdi_94": [
+          157.06,
+          158.1
+        ],
+        "sigma_hdi_94": [
+          6.31,
+          7.06
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 72.79,
+        "sigma": 17.29,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.42,
+          74.21
+        ],
+        "sigma_hdi_94": [
+          16.36,
+          18.23
+        ]
+      },
+      "n": 582
+    },
+    "RIAGENDR=Male__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 172.62,
+        "sigma": 7.78,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.84,
+          173.43
+        ],
+        "sigma_hdi_94": [
+          7.24,
+          8.34
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.29,
+        "sigma": 21.9,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.09,
+          84.48
+        ],
+        "sigma_hdi_94": [
+          20.4,
+          23.65
+        ]
+      },
+      "n": 357
+    },
+    "RIAGENDR=Male__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.94,
+        "sigma": 7.37,
+        "unit": "cm",
+        "mu_hdi_94": [
+          175.58,
+          176.29
+        ],
+        "sigma_hdi_94": [
+          7.13,
+          7.61
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.63,
+        "sigma": 21.43,
+        "unit": "kg",
+        "mu_hdi_94": [
+          89.62,
+          91.6
+        ],
+        "sigma_hdi_94": [
+          20.74,
+          22.13
+        ]
+      },
+      "n": 1637
+    },
+    "RIAGENDR=Male__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 170.81,
+        "sigma": 7.96,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.87,
+          171.7
+        ],
+        "sigma_hdi_94": [
+          7.35,
+          8.63
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.7,
+        "sigma": 19.84,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.4,
+          87.11
+        ],
+        "sigma_hdi_94": [
+          18.28,
+          21.54
+        ]
+      },
+      "n": 278
+    },
+    "RIAGENDR=Male__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 170.31,
+        "sigma": 7.15,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.4,
+          171.2
+        ],
+        "sigma_hdi_94": [
+          6.53,
+          7.83
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.25,
+        "sigma": 20.85,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.48,
+          89.94
+        ],
+        "sigma_hdi_94": [
+          18.98,
+          22.98
+        ]
+      },
+      "n": 210
+    },
+    "RIAGENDR=Male__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 174.93,
+        "sigma": 7.41,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.14,
+          175.7
+        ],
+        "sigma_hdi_94": [
+          6.9,
+          7.98
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.94,
+        "sigma": 24.33,
+        "unit": "kg",
+        "mu_hdi_94": [
+          88.45,
+          93.39
+        ],
+        "sigma_hdi_94": [
+          22.59,
+          26.21
+        ]
+      },
+      "n": 335
+    },
+    "RIAGENDR=Female__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.75,
+        "sigma": 7.22,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.06,
+          159.43
+        ],
+        "sigma_hdi_94": [
+          6.77,
+          7.72
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 70.77,
+        "sigma": 23.42,
+        "unit": "kg",
+        "mu_hdi_94": [
+          68.49,
+          72.89
+        ],
+        "sigma_hdi_94": [
+          21.96,
+          24.94
+        ]
+      },
+      "n": 402
+    },
+    "RIAGENDR=Female__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.93,
+        "sigma": 6.83,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.63,
+          162.22
+        ],
+        "sigma_hdi_94": [
+          6.62,
+          7.04
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.42,
+        "sigma": 21.31,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.56,
+          79.33
+        ],
+        "sigma_hdi_94": [
+          20.69,
+          21.97
+        ]
+      },
+      "n": 2002
+    },
+    "RIAGENDR=Female__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.6,
+        "sigma": 6.74,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.97,
+          158.25
+        ],
+        "sigma_hdi_94": [
+          6.29,
+          7.23
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 74.26,
+        "sigma": 17.9,
+        "unit": "kg",
+        "mu_hdi_94": [
+          72.51,
+          76.06
+        ],
+        "sigma_hdi_94": [
+          16.66,
+          19.21
+        ]
+      },
+      "n": 356
+    },
+    "RIAGENDR=Female__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.12,
+        "sigma": 6.58,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.29,
+          157.95
+        ],
+        "sigma_hdi_94": [
+          6.04,
+          7.19
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.71,
+        "sigma": 18.84,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.42,
+          79.13
+        ],
+        "sigma_hdi_94": [
+          17.31,
+          20.55
+        ]
+      },
+      "n": 232
+    },
+    "RIAGENDR=Female__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.99,
+        "sigma": 6.56,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.38,
+          162.59
+        ],
+        "sigma_hdi_94": [
+          6.16,
+          7.0
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.74,
+        "sigma": 23.69,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.55,
+          88.94
+        ],
+        "sigma_hdi_94": [
+          22.19,
+          25.32
+        ]
+      },
+      "n": 426
+    },
+    "RIDAGEYR=34-48__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.16,
+        "sigma": 10.13,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.64,
+          167.77
+        ],
+        "sigma_hdi_94": [
+          9.13,
+          11.23
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.89,
+        "sigma": 24.78,
+        "unit": "kg",
+        "mu_hdi_94": [
+          75.15,
+          82.75
+        ],
+        "sigma_hdi_94": [
+          22.32,
+          27.64
+        ]
+      },
+      "n": 162
+    },
+    "RIDAGEYR=34-48__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 170.09,
+        "sigma": 9.74,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.37,
+          170.82
+        ],
+        "sigma_hdi_94": [
+          9.24,
+          10.27
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.45,
+        "sigma": 24.48,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.55,
+          89.28
+        ],
+        "sigma_hdi_94": [
+          23.29,
+          25.8
+        ]
+      },
+      "n": 644
+    },
+    "RIDAGEYR=34-48__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.25,
+        "sigma": 9.02,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.84,
+          165.71
+        ],
+        "sigma_hdi_94": [
+          8.12,
+          10.08
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.48,
+        "sigma": 20.2,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.28,
+          82.69
+        ],
+        "sigma_hdi_94": [
+          18.11,
+          22.6
+        ]
+      },
+      "n": 147
+    },
+    "RIDAGEYR=34-48__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.92,
+        "sigma": 9.48,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.36,
+          165.57
+        ],
+        "sigma_hdi_94": [
+          8.42,
+          10.73
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.45,
+        "sigma": 19.84,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.02,
+          86.07
+        ],
+        "sigma_hdi_94": [
+          17.61,
+          22.55
+        ]
+      },
+      "n": 119
+    },
+    "RIDAGEYR=34-48__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.62,
+        "sigma": 9.51,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.2,
+          169.09
+        ],
+        "sigma_hdi_94": [
+          8.57,
+          10.55
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 96.55,
+        "sigma": 27.16,
+        "unit": "kg",
+        "mu_hdi_94": [
+          92.58,
+          100.64
+        ],
+        "sigma_hdi_94": [
+          24.39,
+          30.24
+        ]
+      },
+      "n": 158
+    },
+    "RIDAGEYR=62-70__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.84,
+        "sigma": 10.17,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.17,
+          165.47
+        ],
+        "sigma_hdi_94": [
+          9.02,
+          11.41
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 75.71,
+        "sigma": 24.0,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.85,
+          79.53
+        ],
+        "sigma_hdi_94": [
+          21.4,
+          26.99
+        ]
+      },
+      "n": 131
+    },
+    "RIDAGEYR=62-70__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.4,
+        "sigma": 9.64,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.78,
+          168.01
+        ],
+        "sigma_hdi_94": [
+          9.2,
+          10.09
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.71,
+        "sigma": 19.99,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.41,
+          84.97
+        ],
+        "sigma_hdi_94": [
+          19.13,
+          20.88
+        ]
+      },
+      "n": 852
+    },
+    "RIDAGEYR=62-70__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.62,
+        "sigma": 9.32,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.87,
+          163.34
+        ],
+        "sigma_hdi_94": [
+          8.15,
+          10.7
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.36,
+        "sigma": 18.78,
+        "unit": "kg",
+        "mu_hdi_94": [
+          75.86,
+          82.82
+        ],
+        "sigma_hdi_94": [
+          16.42,
+          21.61
+        ]
+      },
+      "n": 103
+    },
+    "RIDAGEYR=62-70__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.94,
+        "sigma": 8.55,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.81,
+          163.15
+        ],
+        "sigma_hdi_94": [
+          7.15,
+          10.31
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.88,
+        "sigma": 17.03,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.66,
+          87.24
+        ],
+        "sigma_hdi_94": [
+          14.25,
+          20.4
+        ]
+      },
+      "n": 56
+    },
+    "RIDAGEYR=62-70__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.55,
+        "sigma": 8.94,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.13,
+          168.99
+        ],
+        "sigma_hdi_94": [
+          8.04,
+          9.94
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.56,
+        "sigma": 19.72,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.5,
+          88.6
+        ],
+        "sigma_hdi_94": [
+          17.71,
+          22.11
+        ]
+      },
+      "n": 154
+    },
+    "RIDAGEYR=18-33__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.37,
+        "sigma": 10.0,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.02,
+          168.76
+        ],
+        "sigma_hdi_94": [
+          9.09,
+          11.06
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 74.83,
+        "sigma": 23.82,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.55,
+          78.04
+        ],
+        "sigma_hdi_94": [
+          21.63,
+          26.31
+        ]
+      },
+      "n": 188
+    },
+    "RIDAGEYR=18-33__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.16,
+        "sigma": 9.31,
+        "unit": "cm",
+        "mu_hdi_94": [
+          170.48,
+          171.84
+        ],
+        "sigma_hdi_94": [
+          8.81,
+          9.84
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.37,
+        "sigma": 23.24,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.56,
+          83.08
+        ],
+        "sigma_hdi_94": [
+          21.99,
+          24.57
+        ]
+      },
+      "n": 604
+    },
+    "RIDAGEYR=18-33__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.66,
+        "sigma": 10.19,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.16,
+          167.14
+        ],
+        "sigma_hdi_94": [
+          9.14,
+          11.36
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.33,
+        "sigma": 21.28,
+        "unit": "kg",
+        "mu_hdi_94": [
+          75.04,
+          81.51
+        ],
+        "sigma_hdi_94": [
+          19.25,
+          23.6
+        ]
+      },
+      "n": 166
+    },
+    "RIDAGEYR=18-33__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.58,
+        "sigma": 9.41,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.07,
+          167.09
+        ],
+        "sigma_hdi_94": [
+          8.41,
+          10.61
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.27,
+        "sigma": 22.96,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.56,
+          84.84
+        ],
+        "sigma_hdi_94": [
+          20.45,
+          25.67
+        ]
+      },
+      "n": 144
+    },
+    "RIDAGEYR=18-33__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.9,
+        "sigma": 10.38,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.44,
+          169.27
+        ],
+        "sigma_hdi_94": [
+          9.38,
+          11.46
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.38,
+        "sigma": 26.8,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.53,
+          90.09
+        ],
+        "sigma_hdi_94": [
+          24.4,
+          29.57
+        ]
+      },
+      "n": 187
+    },
+    "RIDAGEYR=49-61__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.55,
+        "sigma": 10.03,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.12,
+          166.04
+        ],
+        "sigma_hdi_94": [
+          9.01,
+          11.14
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.58,
+        "sigma": 23.32,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.15,
+          80.82
+        ],
+        "sigma_hdi_94": [
+          21.04,
+          25.85
+        ]
+      },
+      "n": 160
+    },
+    "RIDAGEYR=49-61__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.53,
+        "sigma": 9.93,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.84,
+          169.22
+        ],
+        "sigma_hdi_94": [
+          9.46,
+          10.42
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.63,
+        "sigma": 24.13,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.84,
+          89.35
+        ],
+        "sigma_hdi_94": [
+          22.99,
+          25.34
+        ]
+      },
+      "n": 735
+    },
+    "RIDAGEYR=49-61__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.19,
+        "sigma": 9.6,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.66,
+          164.67
+        ],
+        "sigma_hdi_94": [
+          8.57,
+          10.82
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.53,
+        "sigma": 19.16,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.63,
+          83.43
+        ],
+        "sigma_hdi_94": [
+          17.14,
+          21.48
+        ]
+      },
+      "n": 142
+    },
+    "RIDAGEYR=49-61__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.9,
+        "sigma": 9.94,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.95,
+          163.81
+        ],
+        "sigma_hdi_94": [
+          8.65,
+          11.41
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.95,
+        "sigma": 20.61,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.87,
+          85.89
+        ],
+        "sigma_hdi_94": [
+          18.02,
+          23.83
+        ]
+      },
+      "n": 93
+    },
+    "RIDAGEYR=49-61__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.81,
+        "sigma": 9.16,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.48,
+          170.16
+        ],
+        "sigma_hdi_94": [
+          8.24,
+          10.12
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.2,
+        "sigma": 22.63,
+        "unit": "kg",
+        "mu_hdi_94": [
+          87.01,
+          93.47
+        ],
+        "sigma_hdi_94": [
+          20.4,
+          25.07
+        ]
+      },
+      "n": 175
+    },
+    "RIDAGEYR=71-80__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.34,
+        "sigma": 10.63,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.61,
+          165.07
+        ],
+        "sigma_hdi_94": [
+          9.39,
+          12.01
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 73.21,
+        "sigma": 20.61,
+        "unit": "kg",
+        "mu_hdi_94": [
+          69.58,
+          76.67
+        ],
+        "sigma_hdi_94": [
+          18.18,
+          23.26
+        ]
+      },
+      "n": 118
+    },
+    "RIDAGEYR=71-80__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.16,
+        "sigma": 9.94,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.49,
+          165.82
+        ],
+        "sigma_hdi_94": [
+          9.5,
+          10.42
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.77,
+        "sigma": 18.74,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.52,
+          80.98
+        ],
+        "sigma_hdi_94": [
+          17.89,
+          19.63
+        ]
+      },
+      "n": 804
+    },
+    "RIDAGEYR=71-80__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 159.57,
+        "sigma": 10.55,
+        "unit": "cm",
+        "mu_hdi_94": [
+          157.35,
+          161.79
+        ],
+        "sigma_hdi_94": [
+          9.04,
+          12.37
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 74.84,
+        "sigma": 15.7,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.35,
+          78.26
+        ],
+        "sigma_hdi_94": [
+          13.51,
+          18.32
+        ]
+      },
+      "n": 76
+    },
+    "RIDAGEYR=71-80__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.31,
+        "sigma": 9.08,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.48,
+          167.26
+        ],
+        "sigma_hdi_94": [
+          7.88,
+          10.51
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.38,
+        "sigma": 17.23,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.0,
+          83.79
+        ],
+        "sigma_hdi_94": [
+          14.92,
+          19.94
+        ]
+      },
+      "n": 87
+    },
+    "RIAGENDR=Male__SMQ020=Yes": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.86,
+        "sigma": 7.5,
+        "unit": "cm",
+        "mu_hdi_94": [
+          173.49,
+          174.26
+        ],
+        "sigma_hdi_94": [
+          7.21,
+          7.78
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.71,
+        "sigma": 20.38,
+        "unit": "kg",
+        "mu_hdi_94": [
+          86.62,
+          88.81
+        ],
+        "sigma_hdi_94": [
+          19.64,
+          21.13
+        ]
+      },
+      "n": 1303
+    },
+    "RIAGENDR=Male__SMQ020=No": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.01,
+        "sigma": 7.9,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.61,
+          175.39
+        ],
+        "sigma_hdi_94": [
+          7.64,
+          8.18
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 89.7,
+        "sigma": 23.0,
+        "unit": "kg",
+        "mu_hdi_94": [
+          88.63,
+          90.76
+        ],
+        "sigma_hdi_94": [
+          22.24,
+          23.83
+        ]
+      },
+      "n": 1510
+    },
+    "RIAGENDR=Female__SMQ020=Yes": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.79,
+        "sigma": 6.68,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.43,
+          161.17
+        ],
+        "sigma_hdi_94": [
+          6.43,
+          6.95
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.71,
+        "sigma": 21.85,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.48,
+          80.94
+        ],
+        "sigma_hdi_94": [
+          21.0,
+          22.73
+        ]
+      },
+      "n": 1177
+    },
+    "RIAGENDR=Female__SMQ020=No": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.78,
+        "sigma": 7.26,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.5,
+          161.05
+        ],
+        "sigma_hdi_94": [
+          7.04,
+          7.47
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.09,
+        "sigma": 21.69,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.24,
+          77.96
+        ],
+        "sigma_hdi_94": [
+          21.09,
+          22.34
+        ]
+      },
+      "n": 2236
+    },
+    "RIAGENDR=Male__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 176.16,
+        "sigma": 7.49,
+        "unit": "cm",
+        "mu_hdi_94": [
+          175.7,
+          176.61
+        ],
+        "sigma_hdi_94": [
+          7.17,
+          7.84
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.96,
+        "sigma": 19.44,
+        "unit": "kg",
+        "mu_hdi_94": [
+          86.82,
+          89.17
+        ],
+        "sigma_hdi_94": [
+          18.62,
+          20.3
+        ]
+      },
+      "n": 941
+    },
+    "RIAGENDR=Male__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.75,
+        "sigma": 7.27,
+        "unit": "cm",
+        "mu_hdi_94": [
+          173.22,
+          174.29
+        ],
+        "sigma_hdi_94": [
+          6.88,
+          7.67
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 89.71,
+        "sigma": 21.8,
+        "unit": "kg",
+        "mu_hdi_94": [
+          88.06,
+          91.4
+        ],
+        "sigma_hdi_94": [
+          20.72,
+          22.96
+        ]
+      },
+      "n": 632
+    },
+    "RIAGENDR=Male__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 174.93,
+        "sigma": 7.49,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.4,
+          175.46
+        ],
+        "sigma_hdi_94": [
+          7.15,
+          7.87
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 92.84,
+        "sigma": 24.05,
+        "unit": "kg",
+        "mu_hdi_94": [
+          91.15,
+          94.51
+        ],
+        "sigma_hdi_94": [
+          22.88,
+          25.29
+        ]
+      },
+      "n": 748
+    },
+    "RIAGENDR=Male__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.7,
+        "sigma": 7.9,
+        "unit": "cm",
+        "mu_hdi_94": [
+          170.74,
+          172.67
+        ],
+        "sigma_hdi_94": [
+          7.25,
+          8.65
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.64,
+        "sigma": 22.57,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.73,
+          89.62
+        ],
+        "sigma_hdi_94": [
+          20.73,
+          24.64
+        ]
+      },
+      "n": 229
+    },
+    "RIAGENDR=Male__DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.06,
+        "sigma": 8.0,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.71,
+          169.38
+        ],
+        "sigma_hdi_94": [
+          7.11,
+          9.01
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.48,
+        "sigma": 17.54,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.73,
+          85.31
+        ],
+        "sigma_hdi_94": [
+          15.7,
+          19.66
+        ]
+      },
+      "n": 129
+    },
+    "RIAGENDR=Female__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.22,
+        "sigma": 6.81,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.85,
+          162.59
+        ],
+        "sigma_hdi_94": [
+          6.53,
+          7.08
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 75.84,
+        "sigma": 20.51,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.68,
+          76.99
+        ],
+        "sigma_hdi_94": [
+          19.69,
+          21.34
+        ]
+      },
+      "n": 1181
+    },
+    "RIAGENDR=Female__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.05,
+        "sigma": 6.89,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.52,
+          160.6
+        ],
+        "sigma_hdi_94": [
+          6.52,
+          7.26
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.05,
+        "sigma": 22.58,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.36,
+          81.72
+        ],
+        "sigma_hdi_94": [
+          21.45,
+          23.81
+        ]
+      },
+      "n": 637
+    },
+    "RIAGENDR=Female__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.1,
+        "sigma": 6.86,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.72,
+          161.5
+        ],
+        "sigma_hdi_94": [
+          6.6,
+          7.13
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.83,
+        "sigma": 22.58,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.59,
+          82.12
+        ],
+        "sigma_hdi_94": [
+          21.71,
+          23.48
+        ]
+      },
+      "n": 1075
+    },
+    "RIAGENDR=Female__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.31,
+        "sigma": 6.73,
+        "unit": "cm",
+        "mu_hdi_94": [
+          157.51,
+          159.1
+        ],
+        "sigma_hdi_94": [
+          6.17,
+          7.35
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.47,
+        "sigma": 21.68,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.83,
+          82.0
+        ],
+        "sigma_hdi_94": [
+          19.86,
+          23.64
+        ]
+      },
+      "n": 240
+    },
+    "RIAGENDR=Female__DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 153.99,
+        "sigma": 6.89,
+        "unit": "cm",
+        "mu_hdi_94": [
+          152.94,
+          155.05
+        ],
+        "sigma_hdi_94": [
+          6.18,
+          7.69
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 71.24,
+        "sigma": 17.41,
+        "unit": "kg",
+        "mu_hdi_94": [
+          68.5,
+          73.85
+        ],
+        "sigma_hdi_94": [
+          15.66,
+          19.45
+        ]
+      },
+      "n": 155
+    },
+    "RIDAGEYR=34-48__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 169.46,
+        "sigma": 9.8,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.65,
+          170.24
+        ],
+        "sigma_hdi_94": [
+          9.24,
+          10.37
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.53,
+        "sigma": 20.57,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.74,
+          84.25
+        ],
+        "sigma_hdi_94": [
+          19.41,
+          21.77
+        ]
+      },
+      "n": 522
+    },
+    "RIDAGEYR=34-48__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.69,
+        "sigma": 9.73,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.48,
+          168.87
+        ],
+        "sigma_hdi_94": [
+          8.91,
+          10.64
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.6,
+        "sigma": 25.89,
+        "unit": "kg",
+        "mu_hdi_94": [
+          87.44,
+          93.91
+        ],
+        "sigma_hdi_94": [
+          23.67,
+          28.22
+        ]
+      },
+      "n": 222
+    },
+    "RIDAGEYR=34-48__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.91,
+        "sigma": 9.62,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.98,
+          168.88
+        ],
+        "sigma_hdi_94": [
+          9.01,
+          10.31
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.18,
+        "sigma": 27.47,
+        "unit": "kg",
+        "mu_hdi_94": [
+          87.53,
+          93.01
+        ],
+        "sigma_hdi_94": [
+          25.56,
+          29.47
+        ]
+      },
+      "n": 358
+    },
+    "RIDAGEYR=34-48__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.23,
+        "sigma": 9.57,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.3,
+          165.23
+        ],
+        "sigma_hdi_94": [
+          8.27,
+          11.09
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.28,
+        "sigma": 26.39,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.98,
+          87.62
+        ],
+        "sigma_hdi_94": [
+          22.72,
+          30.84
+        ]
+      },
+      "n": 82
+    },
+    "RIDAGEYR=62-70__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.76,
+        "sigma": 9.7,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.88,
+          168.67
+        ],
+        "sigma_hdi_94": [
+          9.07,
+          10.33
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.6,
+        "sigma": 20.35,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.72,
+          83.45
+        ],
+        "sigma_hdi_94": [
+          19.09,
+          21.71
+        ]
+      },
+      "n": 420
+    },
+    "RIDAGEYR=62-70__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.25,
+        "sigma": 9.86,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.18,
+          167.37
+        ],
+        "sigma_hdi_94": [
+          9.15,
+          10.65
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.41,
+        "sigma": 19.98,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.27,
+          85.57
+        ],
+        "sigma_hdi_94": [
+          18.43,
+          21.54
+        ]
+      },
+      "n": 290
+    },
+    "RIDAGEYR=62-70__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.33,
+        "sigma": 9.44,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.43,
+          167.22
+        ],
+        "sigma_hdi_94": [
+          8.8,
+          10.12
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.88,
+        "sigma": 21.42,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.98,
+          86.84
+        ],
+        "sigma_hdi_94": [
+          20.03,
+          22.92
+        ]
+      },
+      "n": 407
+    },
+    "RIDAGEYR=62-70__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.98,
+        "sigma": 9.72,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.28,
+          166.7
+        ],
+        "sigma_hdi_94": [
+          8.57,
+          11.07
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.96,
+        "sigma": 19.37,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.45,
+          85.44
+        ],
+        "sigma_hdi_94": [
+          17.0,
+          22.09
+        ]
+      },
+      "n": 107
+    },
+    "RIDAGEYR=62-70__DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.11,
+        "sigma": 9.39,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.02,
+          162.19
+        ],
+        "sigma_hdi_94": [
+          8.04,
+          10.97
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 75.65,
+        "sigma": 14.83,
+        "unit": "kg",
+        "mu_hdi_94": [
+          72.3,
+          79.11
+        ],
+        "sigma_hdi_94": [
+          12.62,
+          17.47
+        ]
+      },
+      "n": 70
+    },
+    "RIDAGEYR=18-33__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 169.39,
+        "sigma": 10.34,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.36,
+          170.34
+        ],
+        "sigma_hdi_94": [
+          9.63,
+          11.06
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.71,
+        "sigma": 20.94,
+        "unit": "kg",
+        "mu_hdi_94": [
+          75.69,
+          79.75
+        ],
+        "sigma_hdi_94": [
+          19.49,
+          22.54
+        ]
+      },
+      "n": 367
+    },
+    "RIDAGEYR=18-33__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.55,
+        "sigma": 9.59,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.33,
+          169.82
+        ],
+        "sigma_hdi_94": [
+          8.76,
+          10.52
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.12,
+        "sigma": 23.73,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.13,
+          87.21
+        ],
+        "sigma_hdi_94": [
+          21.72,
+          26.08
+        ]
+      },
+      "n": 222
+    },
+    "RIDAGEYR=18-33__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 169.41,
+        "sigma": 9.85,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.38,
+          170.4
+        ],
+        "sigma_hdi_94": [
+          9.19,
+          10.57
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.68,
+        "sigma": 26.03,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.01,
+          89.26
+        ],
+        "sigma_hdi_94": [
+          24.15,
+          27.97
+        ]
+      },
+      "n": 342
+    },
+    "RIDAGEYR=18-33__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.2,
+        "sigma": 10.31,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.93,
+          169.49
+        ],
+        "sigma_hdi_94": [
+          8.86,
+          12.08
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.87,
+        "sigma": 23.71,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.45,
+          90.14
+        ],
+        "sigma_hdi_94": [
+          20.22,
+          27.94
+        ]
+      },
+      "n": 73
+    },
+    "RIDAGEYR=49-61__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 168.74,
+        "sigma": 9.79,
+        "unit": "cm",
+        "mu_hdi_94": [
+          167.81,
+          169.64
+        ],
+        "sigma_hdi_94": [
+          9.17,
+          10.44
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.94,
+        "sigma": 23.17,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.75,
+          87.08
+        ],
+        "sigma_hdi_94": [
+          21.71,
+          24.71
+        ]
+      },
+      "n": 410
+    },
+    "RIDAGEYR=49-61__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 167.27,
+        "sigma": 9.83,
+        "unit": "cm",
+        "mu_hdi_94": [
+          166.22,
+          168.32
+        ],
+        "sigma_hdi_94": [
+          9.12,
+          10.62
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.7,
+        "sigma": 23.61,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.17,
+          88.21
+        ],
+        "sigma_hdi_94": [
+          21.84,
+          25.46
+        ]
+      },
+      "n": 306
+    },
+    "RIDAGEYR=49-61__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.42,
+        "sigma": 10.08,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.52,
+          167.33
+        ],
+        "sigma_hdi_94": [
+          9.45,
+          10.78
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.83,
+        "sigma": 23.7,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.69,
+          88.99
+        ],
+        "sigma_hdi_94": [
+          22.28,
+          25.33
+        ]
+      },
+      "n": 402
+    },
+    "RIDAGEYR=49-61__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.3,
+        "sigma": 10.06,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.38,
+          168.12
+        ],
+        "sigma_hdi_94": [
+          8.87,
+          11.52
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.75,
+        "sigma": 23.82,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.58,
+          92.05
+        ],
+        "sigma_hdi_94": [
+          21.16,
+          27.02
+        ]
+      },
+      "n": 117
+    },
+    "RIDAGEYR=49-61__DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.97,
+        "sigma": 10.62,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.67,
+          163.41
+        ],
+        "sigma_hdi_94": [
+          9.07,
+          12.48
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.88,
+        "sigma": 20.15,
+        "unit": "kg",
+        "mu_hdi_94": [
+          73.23,
+          82.49
+        ],
+        "sigma_hdi_94": [
+          17.18,
+          23.8
+        ]
+      },
+      "n": 70
+    },
+    "RIDAGEYR=71-80__DMDEDUC2=CollegeGrad": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 166.48,
+        "sigma": 9.9,
+        "unit": "cm",
+        "mu_hdi_94": [
+          165.54,
+          167.4
+        ],
+        "sigma_hdi_94": [
+          9.26,
+          10.63
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 78.53,
+        "sigma": 18.71,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.86,
+          80.24
+        ],
+        "sigma_hdi_94": [
+          17.55,
+          20.03
+        ]
+      },
+      "n": 403
+    },
+    "RIDAGEYR=71-80__DMDEDUC2=HighSchool": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.75,
+        "sigma": 10.05,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.45,
+          166.02
+        ],
+        "sigma_hdi_94": [
+          9.21,
+          10.97
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 80.56,
+        "sigma": 19.54,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.23,
+          83.01
+        ],
+        "sigma_hdi_94": [
+          17.79,
+          21.37
+        ]
+      },
+      "n": 229
+    },
+    "RIDAGEYR=71-80__DMDEDUC2=SomeCollege": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.57,
+        "sigma": 9.46,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.59,
+          164.55
+        ],
+        "sigma_hdi_94": [
+          8.74,
+          10.21
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.38,
+        "sigma": 19.07,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.33,
+          81.34
+        ],
+        "sigma_hdi_94": [
+          17.68,
+          20.58
+        ]
+      },
+      "n": 314
+    },
+    "RIDAGEYR=71-80__DMDEDUC2=9thTo11th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.48,
+        "sigma": 9.79,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.56,
+          164.43
+        ],
+        "sigma_hdi_94": [
+          8.47,
+          11.26
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.76,
+        "sigma": 17.92,
+        "unit": "kg",
+        "mu_hdi_94": [
+          73.15,
+          80.51
+        ],
+        "sigma_hdi_94": [
+          15.53,
+          20.66
+        ]
+      },
+      "n": 90
+    },
+    "RIDAGEYR=71-80__DMDEDUC2=LessThan9th": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.91,
+        "sigma": 11.24,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.47,
+          161.32
+        ],
+        "sigma_hdi_94": [
+          9.68,
+          13.13
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 73.95,
+        "sigma": 15.58,
+        "unit": "kg",
+        "mu_hdi_94": [
+          70.73,
+          77.27
+        ],
+        "sigma_hdi_94": [
+          13.46,
+          18.18
+        ]
+      },
+      "n": 79
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.49,
+        "sigma": 7.46,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.84,
+          175.17
+        ],
+        "sigma_hdi_94": [
+          6.36,
+          8.77
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 84.21,
+        "sigma": 23.45,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.14,
+          89.56
+        ],
+        "sigma_hdi_94": [
+          20.01,
+          27.36
+        ]
+      },
+      "n": 74
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 178.16,
+        "sigma": 7.46,
+        "unit": "cm",
+        "mu_hdi_94": [
+          177.33,
+          179.02
+        ],
+        "sigma_hdi_94": [
+          6.89,
+          8.07
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 95.17,
+        "sigma": 23.14,
+        "unit": "kg",
+        "mu_hdi_94": [
+          92.54,
+          97.76
+        ],
+        "sigma_hdi_94": [
+          21.31,
+          25.04
+        ]
+      },
+      "n": 273
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.48,
+        "sigma": 6.65,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.76,
+          173.18
+        ],
+        "sigma_hdi_94": [
+          5.6,
+          8.0
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.7,
+        "sigma": 20.53,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.65,
+          91.8
+        ],
+        "sigma_hdi_94": [
+          17.13,
+          24.78
+        ]
+      },
+      "n": 57
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 170.93,
+        "sigma": 7.56,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.98,
+          172.78
+        ],
+        "sigma_hdi_94": [
+          6.36,
+          9.08
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 89.63,
+        "sigma": 20.15,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.78,
+          94.65
+        ],
+        "sigma_hdi_94": [
+          16.75,
+          24.02
+        ]
+      },
+      "n": 56
+    },
+    "RIAGENDR=Male__RIDAGEYR=34-48__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.98,
+        "sigma": 7.53,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.15,
+          177.88
+        ],
+        "sigma_hdi_94": [
+          6.37,
+          8.99
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 98.87,
+        "sigma": 26.67,
+        "unit": "kg",
+        "mu_hdi_94": [
+          92.21,
+          105.57
+        ],
+        "sigma_hdi_94": [
+          22.43,
+          31.79
+        ]
+      },
+      "n": 58
+    },
+    "RIAGENDR=Male__RIDAGEYR=62-70__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.76,
+        "sigma": 8.25,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.56,
+          173.93
+        ],
+        "sigma_hdi_94": [
+          6.87,
+          9.89
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.97,
+        "sigma": 24.03,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.16,
+          87.75
+        ],
+        "sigma_hdi_94": [
+          20.36,
+          28.63
+        ]
+      },
+      "n": 57
+    },
+    "RIAGENDR=Male__RIDAGEYR=62-70__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.18,
+        "sigma": 7.07,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.5,
+          175.87
+        ],
+        "sigma_hdi_94": [
+          6.61,
+          7.58
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 91.35,
+        "sigma": 19.01,
+        "unit": "kg",
+        "mu_hdi_94": [
+          89.61,
+          93.18
+        ],
+        "sigma_hdi_94": [
+          17.77,
+          20.4
+        ]
+      },
+      "n": 370
+    },
+    "RIAGENDR=Male__RIDAGEYR=62-70__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.53,
+        "sigma": 7.26,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.9,
+          175.06
+        ],
+        "sigma_hdi_94": [
+          6.26,
+          8.49
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 87.47,
+        "sigma": 20.12,
+        "unit": "kg",
+        "mu_hdi_94": [
+          83.32,
+          91.96
+        ],
+        "sigma_hdi_94": [
+          17.14,
+          23.86
+        ]
+      },
+      "n": 74
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.29,
+        "sigma": 6.6,
+        "unit": "cm",
+        "mu_hdi_94": [
+          173.94,
+          176.6
+        ],
+        "sigma_hdi_94": [
+          5.71,
+          7.63
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.89,
+        "sigma": 20.52,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.77,
+          85.98
+        ],
+        "sigma_hdi_94": [
+          17.89,
+          23.63
+        ]
+      },
+      "n": 85
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 177.72,
+        "sigma": 7.33,
+        "unit": "cm",
+        "mu_hdi_94": [
+          176.96,
+          178.52
+        ],
+        "sigma_hdi_94": [
+          6.8,
+          7.92
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.36,
+        "sigma": 22.94,
+        "unit": "kg",
+        "mu_hdi_94": [
+          82.65,
+          88.1
+        ],
+        "sigma_hdi_94": [
+          21.19,
+          24.83
+        ]
+      },
+      "n": 292
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 172.8,
+        "sigma": 8.95,
+        "unit": "cm",
+        "mu_hdi_94": [
+          170.89,
+          174.66
+        ],
+        "sigma_hdi_94": [
+          7.67,
+          10.48
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.49,
+        "sigma": 21.78,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.9,
+          87.91
+        ],
+        "sigma_hdi_94": [
+          18.78,
+          25.05
+        ]
+      },
+      "n": 78
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 172.85,
+        "sigma": 5.99,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.47,
+          174.18
+        ],
+        "sigma_hdi_94": [
+          5.08,
+          7.12
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.66,
+        "sigma": 22.68,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.42,
+          91.97
+        ],
+        "sigma_hdi_94": [
+          19.28,
+          27.16
+        ]
+      },
+      "n": 69
+    },
+    "RIAGENDR=Male__RIDAGEYR=18-33__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 176.72,
+        "sigma": 8.54,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.89,
+          178.6
+        ],
+        "sigma_hdi_94": [
+          7.38,
+          9.94
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 91.49,
+        "sigma": 29.55,
+        "unit": "kg",
+        "mu_hdi_94": [
+          84.93,
+          98.12
+        ],
+        "sigma_hdi_94": [
+          25.37,
+          34.43
+        ]
+      },
+      "n": 76
+    },
+    "RIAGENDR=Male__RIDAGEYR=49-61__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 171.62,
+        "sigma": 8.23,
+        "unit": "cm",
+        "mu_hdi_94": [
+          169.75,
+          173.32
+        ],
+        "sigma_hdi_94": [
+          7.03,
+          9.66
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.78,
+        "sigma": 23.5,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.6,
+          88.66
+        ],
+        "sigma_hdi_94": [
+          20.24,
+          27.81
+        ]
+      },
+      "n": 74
+    },
+    "RIAGENDR=Male__RIDAGEYR=49-61__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 176.76,
+        "sigma": 6.89,
+        "unit": "cm",
+        "mu_hdi_94": [
+          176.07,
+          177.44
+        ],
+        "sigma_hdi_94": [
+          6.42,
+          7.42
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 94.98,
+        "sigma": 23.44,
+        "unit": "kg",
+        "mu_hdi_94": [
+          92.48,
+          97.47
+        ],
+        "sigma_hdi_94": [
+          21.8,
+          25.29
+        ]
+      },
+      "n": 325
+    },
+    "RIAGENDR=Male__RIDAGEYR=49-61__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 170.66,
+        "sigma": 7.6,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.87,
+          172.43
+        ],
+        "sigma_hdi_94": [
+          6.43,
+          9.06
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.61,
+        "sigma": 20.07,
+        "unit": "kg",
+        "mu_hdi_94": [
+          80.76,
+          90.42
+        ],
+        "sigma_hdi_94": [
+          16.96,
+          23.74
+        ]
+      },
+      "n": 66
+    },
+    "RIAGENDR=Male__RIDAGEYR=49-61__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 175.38,
+        "sigma": 6.58,
+        "unit": "cm",
+        "mu_hdi_94": [
+          174.01,
+          176.78
+        ],
+        "sigma_hdi_94": [
+          5.71,
+          7.65
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.69,
+        "sigma": 24.11,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.82,
+          95.55
+        ],
+        "sigma_hdi_94": [
+          20.85,
+          28.11
+        ]
+      },
+      "n": 85
+    },
+    "RIAGENDR=Male__RIDAGEYR=71-80__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 169.96,
+        "sigma": 8.03,
+        "unit": "cm",
+        "mu_hdi_94": [
+          168.09,
+          171.76
+        ],
+        "sigma_hdi_94": [
+          6.86,
+          9.45
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.11,
+        "sigma": 19.6,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.58,
+          83.7
+        ],
+        "sigma_hdi_94": [
+          16.76,
+          23.17
+        ]
+      },
+      "n": 67
+    },
+    "RIAGENDR=Male__RIDAGEYR=71-80__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 172.98,
+        "sigma": 7.04,
+        "unit": "cm",
+        "mu_hdi_94": [
+          172.31,
+          173.68
+        ],
+        "sigma_hdi_94": [
+          6.58,
+          7.52
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 86.94,
+        "sigma": 17.88,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.14,
+          88.66
+        ],
+        "sigma_hdi_94": [
+          16.68,
+          19.17
+        ]
+      },
+      "n": 377
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.03,
+        "sigma": 7.69,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.5,
+          161.61
+        ],
+        "sigma_hdi_94": [
+          6.69,
+          8.88
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 74.47,
+        "sigma": 25.35,
+        "unit": "kg",
+        "mu_hdi_94": [
+          69.18,
+          79.72
+        ],
+        "sigma_hdi_94": [
+          22.11,
+          29.17
+        ]
+      },
+      "n": 88
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.14,
+        "sigma": 6.34,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.5,
+          164.76
+        ],
+        "sigma_hdi_94": [
+          5.92,
+          6.8
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.85,
+        "sigma": 23.99,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.36,
+          84.19
+        ],
+        "sigma_hdi_94": [
+          22.36,
+          25.73
+        ]
+      },
+      "n": 371
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 159.66,
+        "sigma": 7.14,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.29,
+          161.04
+        ],
+        "sigma_hdi_94": [
+          6.25,
+          8.17
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 74.94,
+        "sigma": 18.95,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.25,
+          78.49
+        ],
+        "sigma_hdi_94": [
+          16.4,
+          21.69
+        ]
+      },
+      "n": 90
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.67,
+        "sigma": 6.02,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.25,
+          159.16
+        ],
+        "sigma_hdi_94": [
+          5.08,
+          7.15
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.13,
+        "sigma": 17.62,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.99,
+          80.55
+        ],
+        "sigma_hdi_94": [
+          14.85,
+          20.92
+        ]
+      },
+      "n": 63
+    },
+    "RIAGENDR=Female__RIDAGEYR=34-48__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.74,
+        "sigma": 6.76,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.52,
+          163.99
+        ],
+        "sigma_hdi_94": [
+          5.9,
+          7.69
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 95.05,
+        "sigma": 27.74,
+        "unit": "kg",
+        "mu_hdi_94": [
+          89.65,
+          100.28
+        ],
+        "sigma_hdi_94": [
+          24.35,
+          32.01
+        ]
+      },
+      "n": 100
+    },
+    "RIAGENDR=Female__RIDAGEYR=62-70__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.58,
+        "sigma": 6.58,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.07,
+          159.03
+        ],
+        "sigma_hdi_94": [
+          5.64,
+          7.67
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 70.92,
+        "sigma": 23.29,
+        "unit": "kg",
+        "mu_hdi_94": [
+          65.68,
+          75.95
+        ],
+        "sigma_hdi_94": [
+          19.94,
+          27.41
+        ]
+      },
+      "n": 74
+    },
+    "RIAGENDR=Female__RIDAGEYR=62-70__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.44,
+        "sigma": 6.64,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.89,
+          162.03
+        ],
+        "sigma_hdi_94": [
+          6.24,
+          7.07
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.8,
+        "sigma": 18.79,
+        "unit": "kg",
+        "mu_hdi_94": [
+          76.29,
+          79.34
+        ],
+        "sigma_hdi_94": [
+          17.71,
+          19.94
+        ]
+      },
+      "n": 482
+    },
+    "RIAGENDR=Female__RIDAGEYR=62-70__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 156.06,
+        "sigma": 5.99,
+        "unit": "cm",
+        "mu_hdi_94": [
+          154.56,
+          157.54
+        ],
+        "sigma_hdi_94": [
+          5.06,
+          7.14
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 75.23,
+        "sigma": 18.03,
+        "unit": "kg",
+        "mu_hdi_94": [
+          70.67,
+          79.91
+        ],
+        "sigma_hdi_94": [
+          15.19,
+          21.15
+        ]
+      },
+      "n": 59
+    },
+    "RIAGENDR=Female__RIDAGEYR=62-70__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.03,
+        "sigma": 6.49,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.54,
+          163.38
+        ],
+        "sigma_hdi_94": [
+          5.61,
+          7.59
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 83.8,
+        "sigma": 19.53,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.54,
+          88.27
+        ],
+        "sigma_hdi_94": [
+          16.86,
+          22.71
+        ]
+      },
+      "n": 80
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.84,
+        "sigma": 7.18,
+        "unit": "cm",
+        "mu_hdi_94": [
+          159.52,
+          162.19
+        ],
+        "sigma_hdi_94": [
+          6.31,
+          8.21
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 68.96,
+        "sigma": 24.94,
+        "unit": "kg",
+        "mu_hdi_94": [
+          64.18,
+          73.82
+        ],
+        "sigma_hdi_94": [
+          21.88,
+          28.51
+        ]
+      },
+      "n": 103
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 165.05,
+        "sigma": 6.32,
+        "unit": "cm",
+        "mu_hdi_94": [
+          164.38,
+          165.7
+        ],
+        "sigma_hdi_94": [
+          5.85,
+          6.83
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 77.62,
+        "sigma": 23.11,
+        "unit": "kg",
+        "mu_hdi_94": [
+          75.18,
+          80.12
+        ],
+        "sigma_hdi_94": [
+          21.41,
+          24.96
+        ]
+      },
+      "n": 312
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 159.32,
+        "sigma": 6.25,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.12,
+          160.55
+        ],
+        "sigma_hdi_94": [
+          5.42,
+          7.19
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 73.85,
+        "sigma": 20.0,
+        "unit": "kg",
+        "mu_hdi_94": [
+          69.74,
+          77.99
+        ],
+        "sigma_hdi_94": [
+          17.33,
+          23.11
+        ]
+      },
+      "n": 88
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33__RIDRETH1=MexicanAmerican": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.86,
+        "sigma": 6.48,
+        "unit": "cm",
+        "mu_hdi_94": [
+          157.45,
+          160.21
+        ],
+        "sigma_hdi_94": [
+          5.6,
+          7.64
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.45,
+        "sigma": 22.47,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.69,
+          81.11
+        ],
+        "sigma_hdi_94": [
+          19.2,
+          26.18
+        ]
+      },
+      "n": 75
+    },
+    "RIAGENDR=Female__RIDAGEYR=18-33__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 161.91,
+        "sigma": 6.51,
+        "unit": "cm",
+        "mu_hdi_94": [
+          160.73,
+          163.05
+        ],
+        "sigma_hdi_94": [
+          5.76,
+          7.44
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.88,
+        "sigma": 24.52,
+        "unit": "kg",
+        "mu_hdi_94": [
+          78.51,
+          87.33
+        ],
+        "sigma_hdi_94": [
+          21.61,
+          27.84
+        ]
+      },
+      "n": 111
+    },
+    "RIAGENDR=Female__RIDAGEYR=49-61__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.43,
+        "sigma": 6.98,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.95,
+          159.85
+        ],
+        "sigma_hdi_94": [
+          6.01,
+          8.07
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 72.31,
+        "sigma": 22.16,
+        "unit": "kg",
+        "mu_hdi_94": [
+          67.87,
+          76.79
+        ],
+        "sigma_hdi_94": [
+          19.1,
+          25.66
+        ]
+      },
+      "n": 86
+    },
+    "RIAGENDR=Female__RIDAGEYR=49-61__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.02,
+        "sigma": 6.54,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.42,
+          162.62
+        ],
+        "sigma_hdi_94": [
+          6.13,
+          6.98
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 81.85,
+        "sigma": 23.07,
+        "unit": "kg",
+        "mu_hdi_94": [
+          79.68,
+          83.99
+        ],
+        "sigma_hdi_94": [
+          21.61,
+          24.61
+        ]
+      },
+      "n": 410
+    },
+    "RIAGENDR=Female__RIDAGEYR=49-61__RIDRETH1=OtherHispanic": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 156.76,
+        "sigma": 5.72,
+        "unit": "cm",
+        "mu_hdi_94": [
+          155.54,
+          157.99
+        ],
+        "sigma_hdi_94": [
+          4.91,
+          6.61
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 76.11,
+        "sigma": 17.55,
+        "unit": "kg",
+        "mu_hdi_94": [
+          72.44,
+          79.81
+        ],
+        "sigma_hdi_94": [
+          15.05,
+          20.68
+        ]
+      },
+      "n": 76
+    },
+    "RIAGENDR=Female__RIDAGEYR=49-61__RIDRETH1=Black": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.58,
+        "sigma": 6.56,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.29,
+          163.82
+        ],
+        "sigma_hdi_94": [
+          5.72,
+          7.62
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 89.8,
+        "sigma": 21.54,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.23,
+          94.28
+        ],
+        "sigma_hdi_94": [
+          18.8,
+          24.87
+        ]
+      },
+      "n": 90
+    },
+    "RIAGENDR=Female__RIDAGEYR=71-80__RIDRETH1=Other": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 154.61,
+        "sigma": 6.63,
+        "unit": "cm",
+        "mu_hdi_94": [
+          152.87,
+          156.35
+        ],
+        "sigma_hdi_94": [
+          5.49,
+          8.02
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 65.39,
+        "sigma": 19.86,
+        "unit": "kg",
+        "mu_hdi_94": [
+          60.27,
+          70.27
+        ],
+        "sigma_hdi_94": [
+          16.46,
+          23.96
+        ]
+      },
+      "n": 51
+    },
+    "RIAGENDR=Female__RIDAGEYR=71-80__RIDRETH1=White": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 158.27,
+        "sigma": 6.32,
+        "unit": "cm",
+        "mu_hdi_94": [
+          157.69,
+          158.84
+        ],
+        "sigma_hdi_94": [
+          5.92,
+          6.76
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 73.47,
+        "sigma": 17.24,
+        "unit": "kg",
+        "mu_hdi_94": [
+          71.89,
+          75.03
+        ],
+        "sigma_hdi_94": [
+          16.18,
+          18.38
+        ]
+      },
+      "n": 427
+    },
+    "RIDAGEYR=34-48__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 164.94,
+        "sigma": 5.75,
+        "unit": "cm",
+        "mu_hdi_94": [
+          163.81,
+          166.16
+        ],
+        "sigma_hdi_94": [
+          5.02,
+          6.62
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 79.03,
+        "sigma": 22.65,
+        "unit": "kg",
+        "mu_hdi_94": [
+          74.51,
+          83.58
+        ],
+        "sigma_hdi_94": [
+          19.51,
+          26.29
+        ]
+      },
+      "n": 85
+    },
+    "RIDAGEYR=34-48__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 180.36,
+        "sigma": 6.71,
+        "unit": "cm",
+        "mu_hdi_94": [
+          178.93,
+          181.83
+        ],
+        "sigma_hdi_94": [
+          5.79,
+          7.83
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 91.9,
+        "sigma": 17.91,
+        "unit": "kg",
+        "mu_hdi_94": [
+          88.09,
+          95.65
+        ],
+        "sigma_hdi_94": [
+          15.3,
+          20.86
+        ]
+      },
+      "n": 78
+    },
+    "RIDAGEYR=49-61__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 163.97,
+        "sigma": 6.35,
+        "unit": "cm",
+        "mu_hdi_94": [
+          162.73,
+          165.28
+        ],
+        "sigma_hdi_94": [
+          5.5,
+          7.35
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 82.71,
+        "sigma": 23.92,
+        "unit": "kg",
+        "mu_hdi_94": [
+          77.83,
+          87.55
+        ],
+        "sigma_hdi_94": [
+          20.8,
+          27.72
+        ]
+      },
+      "n": 88
+    },
+    "RIDAGEYR=49-61__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 178.29,
+        "sigma": 5.62,
+        "unit": "cm",
+        "mu_hdi_94": [
+          177.06,
+          179.5
+        ],
+        "sigma_hdi_94": [
+          4.82,
+          6.54
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 95.49,
+        "sigma": 21.59,
+        "unit": "kg",
+        "mu_hdi_94": [
+          90.94,
+          100.26
+        ],
+        "sigma_hdi_94": [
+          18.55,
+          25.2
+        ]
+      },
+      "n": 77
+    },
+    "RIDAGEYR=62-70__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Heavy": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 162.81,
+        "sigma": 6.28,
+        "unit": "cm",
+        "mu_hdi_94": [
+          161.39,
+          164.25
+        ],
+        "sigma_hdi_94": [
+          5.37,
+          7.44
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 75.79,
+        "sigma": 20.51,
+        "unit": "kg",
+        "mu_hdi_94": [
+          70.94,
+          80.72
+        ],
+        "sigma_hdi_94": [
+          17.47,
+          24.33
+        ]
+      },
+      "n": 65
+    },
+    "RIDAGEYR=62-70__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Sedentary": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 177.49,
+        "sigma": 6.61,
+        "unit": "cm",
+        "mu_hdi_94": [
+          175.84,
+          179.26
+        ],
+        "sigma_hdi_94": [
+          5.46,
+          8.1
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 90.67,
+        "sigma": 20.76,
+        "unit": "kg",
+        "mu_hdi_94": [
+          85.18,
+          95.86
+        ],
+        "sigma_hdi_94": [
+          17.15,
+          25.44
+        ]
+      },
+      "n": 52
+    },
+    "RIDAGEYR=71-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Heavy": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 160.35,
+        "sigma": 5.72,
+        "unit": "cm",
+        "mu_hdi_94": [
+          158.87,
+          161.75
+        ],
+        "sigma_hdi_94": [
+          4.8,
+          6.81
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 70.77,
+        "sigma": 18.98,
+        "unit": "kg",
+        "mu_hdi_94": [
+          66.13,
+          75.64
+        ],
+        "sigma_hdi_94": [
+          15.85,
+          22.69
+        ]
+      },
+      "n": 58
+    },
+    "RIDAGEYR=71-80__RIAGENDR=Female__RIDRETH1=White__DMDEDUC2=SomeCollege__INDFMPIR=LowIncome__OCD150=Heavy": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 157.58,
+        "sigma": 4.67,
+        "unit": "cm",
+        "mu_hdi_94": [
+          156.32,
+          158.82
+        ],
+        "sigma_hdi_94": [
+          3.85,
+          5.7
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 72.74,
+        "sigma": 19.29,
+        "unit": "kg",
+        "mu_hdi_94": [
+          67.69,
+          77.97
+        ],
+        "sigma_hdi_94": [
+          16.01,
+          23.24
+        ]
+      },
+      "n": 52
+    },
+    "RIDAGEYR=71-80__RIAGENDR=Male__RIDRETH1=White__DMDEDUC2=CollegeGrad__INDFMPIR=HighIncome__OCD150=Heavy": {
+      "height": {
+        "distribution_type": "normal",
+        "mu": 173.03,
+        "sigma": 7.03,
+        "unit": "cm",
+        "mu_hdi_94": [
+          171.42,
+          174.57
+        ],
+        "sigma_hdi_94": [
+          6.0,
+          8.28
+        ]
+      },
+      "weight": {
+        "distribution_type": "normal",
+        "mu": 85.6,
+        "sigma": 21.12,
+        "unit": "kg",
+        "mu_hdi_94": [
+          81.13,
+          90.26
+        ],
+        "sigma_hdi_94": [
+          18.11,
+          24.87
+        ]
+      },
+      "n": 74
+    }
+  }
+}
